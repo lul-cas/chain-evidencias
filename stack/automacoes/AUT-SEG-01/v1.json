@@ -1,0 +1,92 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:37a53cc3cdcc7adcf120e088f1461dd542967f582bd14c5bd51fbc549dc465dd",
+  "publishedAt": "2026-11-07T00:22:35.612851+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "tipoSeguro",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "capitalSegurado",
+        "type": "number",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "idCotacao",
+        "path": [
+          "idCotacao"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "premioMensal",
+        "path": [
+          "premioMensal"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "exigeSubscricao",
+        "path": [
+          "exigeSubscricao"
+        ],
+        "type": "boolean",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "documentoCliente",
+          "tipoSeguro",
+          "capitalSegurado"
+        ],
+        "type": "json"
+      },
+      "path": "/seguradora/v1/cotacoes",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:seguradora_api_key}}"
+      },
+      "destination": "seguradora"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

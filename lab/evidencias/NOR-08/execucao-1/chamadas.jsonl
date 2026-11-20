@@ -1,0 +1,8 @@
+{"quando":"2026-11-07T02:15:48.344Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows"},"erro":false}
+{"quando":"2026-11-07T02:15:48.356Z","ferramenta":"ler","argumentos":{"caminho":"/api/automations"},"erro":false}
+{"quando":"2026-11-07T02:15:49.644Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c3d3-797c-ace7-fa5af767b6ee"},"erro":false}
+{"quando":"2026-11-07T02:15:49.891Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c1e3-7762-8441-83102a3aa41f"},"erro":false}
+{"quando":"2026-11-07T02:15:54.481Z","ferramenta":"ajustar_rascunho","argumentos":{"colecao":"workflows","id":"01a1b362-c3d3-797c-ace7-fa5af767b6ee","operacoes":[{"op":"replace","path":"/flows/20","value":{"id":"f_21","source":"registrar_acordo","target":"lancar_acordo"}},{"op":"replace","path":"/flows/21","value":{"id":"f_22","source":"lancar_acordo","target":"emitir_boleto"}},{"op":"replace","path":"/flows/22","value":{"id":"f_23","source":"emitir_boleto","target":"notificar_acordo"}}]},"erro":false}
+{"quando":"2026-11-07T02:15:55.809Z","ferramenta":"validar","argumentos":{"colecao":"workflows","id":"01a1b362-c3d3-797c-ace7-fa5af767b6ee"},"erro":false}
+{"quando":"2026-11-07T02:15:57.057Z","ferramenta":"publicar","argumentos":{"colecao":"workflows","id":"01a1b362-c3d3-797c-ace7-fa5af767b6ee"},"erro":false}
+{"quando":"2026-11-07T02:15:58.762Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c3d3-797c-ace7-fa5af767b6ee/versions/2"},"erro":false}

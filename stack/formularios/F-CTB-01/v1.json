@@ -1,0 +1,107 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:c145cf9b344d039cd9491dda8457d0094b11dde77b8237cbb79cbf6970b386d2",
+  "publishedAt": "2026-11-07T00:22:35.73405+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "eventoContabil",
+        "type": "select",
+        "label": "Evento",
+        "options": [
+          {
+            "label": "Liberação de crédito",
+            "value": "liberacao_credito"
+          },
+          {
+            "label": "Renegociação",
+            "value": "renegociacao"
+          },
+          {
+            "label": "Provisão para perda",
+            "value": "provisao_perda"
+          },
+          {
+            "label": "Prêmio de seguro",
+            "value": "premio_seguro"
+          },
+          {
+            "label": "Indenização de seguro",
+            "value": "indenizacao_seguro"
+          },
+          {
+            "label": "Comissão de seguro",
+            "value": "comissao_seguro"
+          },
+          {
+            "label": "Taxa de administração de consórcio",
+            "value": "taxa_adm_consorcio"
+          },
+          {
+            "label": "Faturamento de carta de crédito",
+            "value": "faturamento_carta"
+          },
+          {
+            "label": "ISS de nota de serviço",
+            "value": "iss_nfse"
+          },
+          {
+            "label": "Pagamento a fornecedor",
+            "value": "pagamento_fornecedor"
+          },
+          {
+            "label": "Folha de pagamento",
+            "value": "folha_pagamento"
+          },
+          {
+            "label": "Rescisão",
+            "value": "rescisao"
+          },
+          {
+            "label": "Ajuste manual",
+            "value": "ajuste_manual"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "valor",
+        "type": "number",
+        "label": "Valor",
+        "validate": {
+          "min": 0.01,
+          "required": true,
+          "decimalDigits": 2
+        }
+      },
+      {
+        "key": "dataCompetencia",
+        "type": "date",
+        "label": "Data de competência",
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "documentoReferencia",
+        "type": "text",
+        "label": "Documento de referência",
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "historico",
+        "type": "text",
+        "label": "Histórico",
+        "validate": {
+          "required": true,
+          "maxLength": 200
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

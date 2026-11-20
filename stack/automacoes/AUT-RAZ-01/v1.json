@@ -1,0 +1,86 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:d5b32c4a47fcd216494d7b6b443349811fdc986740243e5e0083539b4d62dd7d",
+  "publishedAt": "2026-11-07T00:22:35.564721+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "eventoContabil",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "valor",
+        "type": "number",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "classificado",
+        "path": [
+          "classificado"
+        ],
+        "type": "boolean",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "contaDebito",
+        "path": [
+          "contaDebito"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "contaCredito",
+        "path": [
+          "contaCredito"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "eventoContabil",
+          "valor"
+        ],
+        "type": "json"
+      },
+      "path": "/razao/v1/classificacoes",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:razao_api_key}}"
+      },
+      "destination": "razao-contabil"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

@@ -1,0 +1,1289 @@
+{
+  "processos": [
+    {
+      "nome": "CAD-01 Abertura de conta",
+      "id": "01a1b362-c27f-7809-8937-0ea2d71ceb5b",
+      "ultimaVersao": 4,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.45343+00:00",
+          "hash": "sha256:12048d917f51448ac2ac1079ce28a728aa0f0b02d856da2293b751f4f5b26b23",
+          "arquivo": "processos/CAD-01/v1.json"
+        },
+        {
+          "versao": 2,
+          "publicadaEm": "2026-11-07T02:08:42.220387+00:00",
+          "hash": "sha256:526cec5132ed3c6a3249ebabe93220b6b26d073f55c5b18e405f07a765225f81",
+          "arquivo": "processos/CAD-01/v2.json"
+        },
+        {
+          "versao": 3,
+          "publicadaEm": "2026-11-07T02:15:06.59011+00:00",
+          "hash": "sha256:3d614ee4f375313554b207a749e653cd1af76680730d7cc143d91e4170763d4d",
+          "arquivo": "processos/CAD-01/v3.json"
+        },
+        {
+          "versao": 4,
+          "publicadaEm": "2026-11-07T02:16:54.381524+00:00",
+          "hash": "sha256:cdc94536411ecec83107181d4ce409b6fcabb7e65f2eb1375027f55d979107c7",
+          "arquivo": "processos/CAD-01/v4.json"
+        }
+      ]
+    },
+    {
+      "nome": "CAD-02 Atualização cadastral",
+      "id": "01a1b362-c2b8-7cb5-a088-cbcb254e50d5",
+      "ultimaVersao": 2,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.501532+00:00",
+          "hash": "sha256:7b95afed555923442cc702bd266e260d6f9941e529f05bad6cf369081fc1ff02",
+          "arquivo": "processos/CAD-02/v1.json"
+        },
+        {
+          "versao": 2,
+          "publicadaEm": "2026-11-07T02:15:07.059371+00:00",
+          "hash": "sha256:4b1092c38275bb6830abcb1bdd8332d7ad47f9bce732473c31fd2be53457da5f",
+          "arquivo": "processos/CAD-02/v2.json"
+        }
+      ]
+    },
+    {
+      "nome": "CAD-03 Encerramento de conta",
+      "id": "01a1b362-c2e6-79a3-bee2-f00af2a2d0a7",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.546646+00:00",
+          "hash": "sha256:6096518cea6641764b23a61e7e456e11563fd9c0a50eaf08a62ebd324b24e85f",
+          "arquivo": "processos/CAD-03/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "CAD-04 Verificação do cliente",
+      "id": "01a1b3c9-605a-76b3-a039-ed351a37c048",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:14:50.740418+00:00",
+          "hash": "sha256:44959d9dd075023e167e8cea0fe30ecc429e48afcacc086ff6094150b1dfe8ec",
+          "arquivo": "processos/CAD-04/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "CRE-01 Proposta de crédito",
+      "id": "01a1b362-c387-7dea-b975-6e603e1dbb4c",
+      "ultimaVersao": 6,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.736163+00:00",
+          "hash": "sha256:f11130f964676099759fe61295a446ced668cc773c5c66dadbc7fa330c241376",
+          "arquivo": "processos/CRE-01/v1.json"
+        },
+        {
+          "versao": 2,
+          "publicadaEm": "2026-11-07T02:06:20.460381+00:00",
+          "hash": "sha256:f8e45ba0edbe1a99fb58cf85412a95a6bdc527f803cbff8f92369e1789609c00",
+          "arquivo": "processos/CRE-01/v2.json"
+        },
+        {
+          "versao": 3,
+          "publicadaEm": "2026-11-07T02:07:34.159669+00:00",
+          "hash": "sha256:146a9e65251ca6565fae25bd7281541cb39a278dc66421e023324f11afe718a6",
+          "arquivo": "processos/CRE-01/v3.json"
+        },
+        {
+          "versao": 4,
+          "publicadaEm": "2026-11-07T02:10:54.581442+00:00",
+          "hash": "sha256:d2d32565fbd04771b5ea02d5bc5af3e45084d24d97a10c6a6b1f1c59285f03ab",
+          "arquivo": "processos/CRE-01/v4.json"
+        },
+        {
+          "versao": 5,
+          "publicadaEm": "2026-11-07T02:13:17.773481+00:00",
+          "hash": "sha256:22f291b153fc8721477d4b6718d62df31b8e66f4bc1a77846550272ab1ec70a5",
+          "arquivo": "processos/CRE-01/v5.json"
+        },
+        {
+          "versao": 6,
+          "publicadaEm": "2026-11-07T02:15:10.647396+00:00",
+          "hash": "sha256:836e5c407841b2d0d9501e68c2f3902198beb5fe38a8ca97a4d0e80dec9ed4a3",
+          "arquivo": "processos/CRE-01/v6.json"
+        }
+      ]
+    },
+    {
+      "nome": "CRE-02 Análise de crédito",
+      "id": "01a1b362-c351-71f1-89c9-963954959f0c",
+      "ultimaVersao": 3,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.661013+00:00",
+          "hash": "sha256:02dfb492b7e9c789d8d7d706c07a4f7b1b499a5be9f77e6e9acc0aced98e4cc9",
+          "arquivo": "processos/CRE-02/v1.json"
+        },
+        {
+          "versao": 2,
+          "publicadaEm": "2026-11-07T02:06:18.587802+00:00",
+          "hash": "sha256:0bc5ec24b73be9ce89507f739b0779ad70ce7ac9dd1236bfcfa2b3cb584e2a18",
+          "arquivo": "processos/CRE-02/v2.json"
+        },
+        {
+          "versao": 3,
+          "publicadaEm": "2026-11-07T02:07:29.947514+00:00",
+          "hash": "sha256:ff090a3d8df4379320fd793384790428b8340f62409fae53bc23edfd99990889",
+          "arquivo": "processos/CRE-02/v3.json"
+        }
+      ]
+    },
+    {
+      "nome": "CRE-03 Cobrança e renegociação",
+      "id": "01a1b362-c3d3-797c-ace7-fa5af767b6ee",
+      "ultimaVersao": 2,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.786272+00:00",
+          "hash": "sha256:a19326696bd48c9a9035ca4417fed010a46c2c8f56c50440b0bd6bf03b33c33e",
+          "arquivo": "processos/CRE-03/v1.json"
+        },
+        {
+          "versao": 2,
+          "publicadaEm": "2026-11-07T02:15:57.053145+00:00",
+          "hash": "sha256:964ad6f2c0916a982b764762c4a11b64a82133af5873d269b6b01da2fa61f87a",
+          "arquivo": "processos/CRE-03/v2.json"
+        }
+      ]
+    },
+    {
+      "nome": "CTB-01 Lançamento contábil",
+      "id": "01a1b362-c1e3-7762-8441-83102a3aa41f",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.370015+00:00",
+          "hash": "sha256:c9780baed31839fc45d50075a6e105a041a93b9a0bc90b75cd1650f668d658b3",
+          "arquivo": "processos/CTB-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-01 Sequência",
+      "id": "01a1b3d6-ed1e-746b-ace1-0a7949ce41ef",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:29.519841+00:00",
+          "hash": "sha256:05998c9201d63fefc08624e910fe0303d4a5ee54c951365cdd42bb48a437f502",
+          "arquivo": "processos/PAD-01-Sequencia/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-02 Divisão paralela",
+      "id": "01a1b3d6-ed71-7592-ab2f-8201f0919ea2",
+      "ultimaVersao": null,
+      "versoes": []
+    },
+    {
+      "nome": "PAD-03 Junção sem espera",
+      "id": "01a1b3d6-ed88-709c-b24b-d855dbcc3a64",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:29.625747+00:00",
+          "hash": "sha256:2ddd5fd3a19c227fdaf689054d2f71e664a8cbcb8f13973dc00cac7aa879b37d",
+          "arquivo": "processos/PAD-03-Juncao-sem-espera/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-04 Escolha exclusiva",
+      "id": "01a1b3d6-edd8-7f59-aed7-14f369d8a5eb",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:29.705093+00:00",
+          "hash": "sha256:dddafa4625dcd7b04deda72801ac62a7dd5e503259672bff71a53efa73838c94",
+          "arquivo": "processos/PAD-04-Escolha-exclusiva/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-05 Junção simples",
+      "id": "01a1b3d6-ee34-763a-9533-acccb3e364a9",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:29.799418+00:00",
+          "hash": "sha256:2ddd5fd3a19c227fdaf689054d2f71e664a8cbcb8f13973dc00cac7aa879b37d",
+          "arquivo": "processos/PAD-05-Juncao-simples/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-06 Escolha múltipla",
+      "id": "01a1b3d6-eeae-7c69-bf7d-78079c09d127",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:29.919716+00:00",
+          "hash": "sha256:520bb0c227a7fad7ce684f02589da3b6cb7b7a7e4def954196483f207e211ff4",
+          "arquivo": "processos/PAD-06-Escolha-multipla/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-07 Junção sincronizada",
+      "id": "01a1b3d6-eefe-733d-97f8-48f7873877c0",
+      "ultimaVersao": null,
+      "versoes": []
+    },
+    {
+      "nome": "PAD-08 Junção múltipla",
+      "id": "01a1b3d6-ef15-70f4-862e-2bc94308ade7",
+      "ultimaVersao": null,
+      "versoes": []
+    },
+    {
+      "nome": "PAD-09 Discriminador",
+      "id": "01a1b3d6-ef2c-7da0-9e11-0d12836d0088",
+      "ultimaVersao": null,
+      "versoes": []
+    },
+    {
+      "nome": "PAD-10 Ciclos",
+      "id": "01a1b3d6-ef3e-79b4-ac9d-a6e08cbdacfd",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:30.062897+00:00",
+          "hash": "sha256:1cc30d8a1c2e074bc93be56ac7944300c8dc7e23c5620ba8c88fd52d9ab46a5f",
+          "arquivo": "processos/PAD-10-Ciclos/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-11 Término implícito",
+      "id": "01a1b3d6-efaa-7f15-9bc5-0058a89a0a49",
+      "ultimaVersao": null,
+      "versoes": []
+    },
+    {
+      "nome": "PAD-12 Instâncias independentes",
+      "id": "01a1b3d6-efc0-7a5d-ba66-f376b6e35ea5",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:30.194651+00:00",
+          "hash": "sha256:d5c3f801f35251730687bbebc7ef8539fd5013a2e4fe96ea2770f67db6a67ed9",
+          "arquivo": "processos/PAD-12-Instancias-independentes/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-13 Conhecidas no projeto",
+      "id": "01a1b3d6-f05b-7167-bc3b-7d3dd420e25d",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:30.350439+00:00",
+          "hash": "sha256:a09b5b40cd37c0c3c50a437617b3fdb8b76a8c679eb268bc5377e53909a5158c",
+          "arquivo": "processos/PAD-13-Conhecidas-no-projeto/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-13 Filho",
+      "id": "01a1b3d6-f033-758c-8e27-e83a6cdb37c8",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:30.310046+00:00",
+          "hash": "sha256:4f8aa49c99e8ff7c0e62821b208194fe8c71c2420c6cbf9187a151adf7307ab1",
+          "arquivo": "processos/PAD-13-Filho/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-14 Conhecidas na execução",
+      "id": "01a1b3d6-f0eb-7d87-8974-b95fc075c901",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:30.503329+00:00",
+          "hash": "sha256:6850f0ef1064f2bd1e42edd00cd76b9b5a4b5c68ee67e92a9d3fa001ff12180b",
+          "arquivo": "processos/PAD-14-Conhecidas-na-execucao/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-15 Desconhecidas na execução",
+      "id": "01a1b3d6-f169-757e-b805-441d93658f3f",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:30.623592+00:00",
+          "hash": "sha256:033a0cb745d8cfb7ef51fc627eee3daf5cb61667115f00436891ff9e7dbc9726",
+          "arquivo": "processos/PAD-15-Desconhecidas-na-execucao/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-16 Escolha adiada",
+      "id": "01a1b3d6-f1e3-7667-8d06-672df72f613c",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:30.742265+00:00",
+          "hash": "sha256:b118ccb00dc5294439093983de9169d9f245bafb881961ba61580d8efc71b7a7",
+          "arquivo": "processos/PAD-16-Escolha-adiada/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-17 Roteamento intercalado",
+      "id": "01a1b3d6-f23b-7877-91dc-73568c827c7d",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:30.830652+00:00",
+          "hash": "sha256:94fa19583847208a4dfde7614639696a37c93a26dc30472d7b7d798338bce45f",
+          "arquivo": "processos/PAD-17-Roteamento-intercalado/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-18 Marco",
+      "id": "01a1b3d6-f2a2-7183-878b-d1fbe68bcaf2",
+      "ultimaVersao": null,
+      "versoes": []
+    },
+    {
+      "nome": "PAD-19 Cancelar atividade",
+      "id": "01a1b3d6-f2b3-7492-ba90-69408ba229bb",
+      "ultimaVersao": null,
+      "versoes": []
+    },
+    {
+      "nome": "PAD-19 Tarefa",
+      "id": "01a1b3d6-f2c3-796c-b9db-b4e7eec58709",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:30.962101+00:00",
+          "hash": "sha256:d5c3f801f35251730687bbebc7ef8539fd5013a2e4fe96ea2770f67db6a67ed9",
+          "arquivo": "processos/PAD-19-Tarefa/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "PAD-20 Cancelar caso",
+      "id": "01a1b3d6-f308-77e5-83e4-d2cbc7d2a46e",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:31.032759+00:00",
+          "hash": "sha256:d5c3f801f35251730687bbebc7ef8539fd5013a2e4fe96ea2770f67db6a67ed9",
+          "arquivo": "processos/PAD-20-Cancelar-caso/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "SEG-01 Contratação de seguro",
+      "id": "01a1b362-c314-79e5-9669-5a85d9c8261b",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.607354+00:00",
+          "hash": "sha256:04b21a3efec921d5d8d066e873a368fccfc1e67aea93bff55240450291686036",
+          "arquivo": "processos/SEG-01/v1.json"
+        }
+      ]
+    }
+  ],
+  "formularios": [
+    {
+      "nome": "F-CAD-01 Cadastro do cliente",
+      "id": "01a1b362-bffc-7c87-b46c-ddf925ca3872",
+      "ultimaVersao": 2,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.795665+00:00",
+          "hash": "sha256:b462824665db5aabe2561c67cb599ec31235a1a127025ef2260b9dbec9329ecc",
+          "arquivo": "formularios/F-CAD-01/v1.json"
+        },
+        {
+          "versao": 2,
+          "publicadaEm": "2026-11-07T02:08:39.123131+00:00",
+          "hash": "sha256:6c1737537562e2e06f9830b4d1c4ff474d28e8920a455d419653a15126f7e570",
+          "arquivo": "formularios/F-CAD-01/v2.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CAD-02 Parecer do cadastro",
+      "id": "01a1b362-c019-72aa-b875-5ffecf6ca448",
+      "ultimaVersao": 2,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.81847+00:00",
+          "hash": "sha256:9385ec6a25dded7029a5cedfcdb3f2f4270baaba4733b2e96f04418ebe4b93a7",
+          "arquivo": "formularios/F-CAD-02/v1.json"
+        },
+        {
+          "versao": 2,
+          "publicadaEm": "2026-11-07T02:08:39.502567+00:00",
+          "hash": "sha256:ed8f362be43f141c116c71a7b1a4fd12c5d89a283322b676cfeddbf77904f0b3",
+          "arquivo": "formularios/F-CAD-02/v2.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CAD-03 Início da atualização",
+      "id": "01a1b362-c02f-7b04-a2bb-1184a7354af3",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.840166+00:00",
+          "hash": "sha256:e21fdf2b86800c9fc7df9f04ae42c3d366b69f23105efde818a3dadae0576505",
+          "arquivo": "formularios/F-CAD-03/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CAD-04 Atualização dos dados",
+      "id": "01a1b362-c044-712c-87d5-f31316038227",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.86703+00:00",
+          "hash": "sha256:0455f15bfc09103a9208bbc8df736e385511a7fa5cea25198228a101eff34991",
+          "arquivo": "formularios/F-CAD-04/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CAD-05 Parecer da atualização",
+      "id": "01a1b362-c060-7dd5-b1e4-8d63090b47b5",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.88876+00:00",
+          "hash": "sha256:7fd9b81302e63f172f27162048b1d5565dcfb018338c2fd832e9d8acc3ba06dd",
+          "arquivo": "formularios/F-CAD-05/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CAD-06 Pedido de encerramento",
+      "id": "01a1b362-c075-7a7c-b1ac-b6eb0d8dc891",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.911143+00:00",
+          "hash": "sha256:c9ea8f20c9f6e56e1de6405271f9047ef65d36cafd38669da3a7c736b8f599ba",
+          "arquivo": "formularios/F-CAD-06/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CAD-07 Resolução de pendências",
+      "id": "01a1b362-c08c-71bf-bac2-69967cfab1d1",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.9345+00:00",
+          "hash": "sha256:f274c318eb22ce22f9227eaf0271f528dc7efc44c4bc869c1cbe24ba0eb36fc1",
+          "arquivo": "formularios/F-CAD-07/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CAD-08 Início da verificação do cliente",
+      "id": "01a1b3c9-5e05-70a7-ab8a-06d2aabb1728",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:14:43.762554+00:00",
+          "hash": "sha256:a8cbf9f0fb54e2c48a5720df2da6d87faef16356ac630925733e337f3a729466",
+          "arquivo": "formularios/F-CAD-08/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CRE-01 Proposta de crédito",
+      "id": "01a1b362-c13c-774d-84ee-a96e1cfcb913",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.110479+00:00",
+          "hash": "sha256:24e123eed2c0e0e4fca94a213bfcebb60fc51048e7306bddb4d5e4e9c367c0f2",
+          "arquivo": "formularios/F-CRE-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CRE-02 Negociação das condições",
+      "id": "01a1b362-c153-7d8e-ae84-a8a8657e2230",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.132666+00:00",
+          "hash": "sha256:b76cf6d414fac9bc27e71740126a01ab4f36326d78f5fd087fae912749054057",
+          "arquivo": "formularios/F-CRE-02/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CRE-03 Coleta de assinatura",
+      "id": "01a1b362-c169-7099-8f7f-e287bac02b33",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.15403+00:00",
+          "hash": "sha256:4f8daeb99d4b4b2bf3febcfd83e08a3c6e950640b49391f6f5616e613f4e5e7c",
+          "arquivo": "formularios/F-CRE-03/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CRE-04 Conferência da formalização",
+      "id": "01a1b362-c17e-7d2e-b99a-dc2ef14771e5",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.174755+00:00",
+          "hash": "sha256:658cfb0c165067d49ab64957002311c8c1eb70d425d2598eb25036d908dddde7",
+          "arquivo": "formularios/F-CRE-04/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CRE-05 Dados da análise",
+      "id": "01a1b362-c0e9-788d-8a63-95cd6ac86f9b",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.023422+00:00",
+          "hash": "sha256:4154a3c0a22dec05d618130f73f417162f28ee696ea8b641bc2e1322126bf306",
+          "arquivo": "formularios/F-CRE-05/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CRE-06 Parecer de crédito",
+      "id": "01a1b362-c0fc-71cd-9781-3317e93a88c5",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.045584+00:00",
+          "hash": "sha256:7f17998ca5f80b752c4d63241986b678adcc908ae944f38140fee161cbfdcee3",
+          "arquivo": "formularios/F-CRE-06/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CRE-07 Complemento de informações",
+      "id": "01a1b362-c112-71e7-ba34-1920ee9a2f91",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.067372+00:00",
+          "hash": "sha256:6f6892cea61feb1f2beb0beed4b49bfa96fa49142d33e7d8e95abf0f56d45703",
+          "arquivo": "formularios/F-CRE-07/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CRE-08 Deliberação do comitê",
+      "id": "01a1b362-c126-75fd-8874-1a798f3cb705",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.08839+00:00",
+          "hash": "sha256:aca9118dcbcb486ca19af0d83240a073bc57ccf4fb9112edf83cd8f83cea0afb",
+          "arquivo": "formularios/F-CRE-08/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CRE-09 Contrato em cobrança",
+      "id": "01a1b362-c193-7d6d-8ade-ce83d3fb45cd",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.195797+00:00",
+          "hash": "sha256:0fdd696a59d303d1811226d88e44499195b568cea5bbba05cdc5fb90d3355cfd",
+          "arquivo": "formularios/F-CRE-09/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CRE-10 Proposta de renegociação",
+      "id": "01a1b362-c1a8-7800-97c6-2c02526eb257",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.216948+00:00",
+          "hash": "sha256:33ab4d14abf53095433ca09467f7aad43f9434ec566f7a4307bdc8d0cce68cff",
+          "arquivo": "formularios/F-CRE-10/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CRE-11 Resposta do cliente",
+      "id": "01a1b362-c1be-72d7-8f3a-2128aa5c0e38",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.239849+00:00",
+          "hash": "sha256:71ae731c9ac597f437c8f27fe48bda8c394643ea24c994a17519341dbe48037a",
+          "arquivo": "formularios/F-CRE-11/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CTB-01 Evento contábil",
+      "id": "01a1b362-bfa4-7e47-90e0-04f6f2c271ba",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.73405+00:00",
+          "hash": "sha256:c145cf9b344d039cd9491dda8457d0094b11dde77b8237cbb79cbf6970b386d2",
+          "arquivo": "formularios/F-CTB-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-CTB-02 Conferência do lançamento",
+      "id": "01a1b362-bfe2-7c8c-9f9a-eea7187d50e1",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.766801+00:00",
+          "hash": "sha256:d9edc50bd3b88e24144955ef1ce94bd9894e9f5fd30c35c7e695d0fe0c1db5db",
+          "arquivo": "formularios/F-CTB-02/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-PAD-01 Dados do padrão",
+      "id": "01a1b3d6-ecd7-7d00-8d08-2e09cb800bd5",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:29.459263+00:00",
+          "hash": "sha256:3fd3be7b3d80efb92172213dc96ee570ba139a8b2b09a177c09e4bcaa86c2c9d",
+          "arquivo": "formularios/F-PAD-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-PAD-02 Contagem",
+      "id": "01a1b3d6-ecff-7ae3-87f0-72b833d6c2fb",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:29:29.491802+00:00",
+          "hash": "sha256:49ed719ec7d4d461c85d858ea12e22f94841148771fc0847313ad2fe6d206c86",
+          "arquivo": "formularios/F-PAD-02/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-SEG-01 Proposta de seguro",
+      "id": "01a1b362-c0a4-7165-82fb-b3e59f6889c9",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.961663+00:00",
+          "hash": "sha256:43b9fc32b4c4f9f7c08da1902bec871b117de4de2316ed4269a7d02e033c357e",
+          "arquivo": "formularios/F-SEG-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-SEG-02 Análise de risco",
+      "id": "01a1b362-c0be-76d3-8a6c-dd0c9f40466d",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.984566+00:00",
+          "hash": "sha256:f5d200d33a6ffe281e1f3f7d92a759a6eae989134f7bb75f70018522d8431d5e",
+          "arquivo": "formularios/F-SEG-02/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "F-SEG-03 Exames",
+      "id": "01a1b362-c0d5-7e47-9510-3be58853e59b",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:36.005023+00:00",
+          "hash": "sha256:06054b8050c342496c6126419c4d7ed73676166a729424bae267e5e85b21bb72",
+          "arquivo": "formularios/F-SEG-03/v1.json"
+        }
+      ]
+    }
+  ],
+  "automacoes": [
+    {
+      "nome": "AUT-ASS-01 Enviar para assinatura",
+      "id": "01a1b362-bcc9-794c-a09f-3c78a2589cd2",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.014652+00:00",
+          "hash": "sha256:a964c4421c9c4d7b1ada4d3ae880175fbacfb1045652147a6989333267a5fcf6",
+          "arquivo": "automacoes/AUT-ASS-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-ASS-02 Consultar assinatura",
+      "id": "01a1b362-bd15-7829-8089-5f2a8722e7d0",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.049067+00:00",
+          "hash": "sha256:4ce6e61abb533eb1f2ee8ec96475350ce4b18780b518ed1b47b5d2e8ef42e1e6",
+          "arquivo": "automacoes/AUT-ASS-02/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-BUR-01 Consultar score",
+      "id": "01a1b362-bd2e-7605-8adf-287c09bd5c1f",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.072701+00:00",
+          "hash": "sha256:4eb579de076415b4c6688a77d2d5b72e469bd3d26cbd0e6b586422875e718af5",
+          "arquivo": "automacoes/AUT-BUR-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-01 Buscar cliente",
+      "id": "01a1b362-bd45-7c0f-85a2-ad993218b000",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.097368+00:00",
+          "hash": "sha256:c799c4fa2ff9dee99a075a2b8932c5e06768f252b3952b4d5775df12d75d9570",
+          "arquivo": "automacoes/AUT-CORE-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-02 Criar cliente e conta",
+      "id": "01a1b362-bd5f-7f8b-b25d-6b95fb35c5f7",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.12127+00:00",
+          "hash": "sha256:96c89456c610c70d5a5f31881645c38063144c7e56367144eebac0ab2b22d078",
+          "arquivo": "automacoes/AUT-CORE-02/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-03 Atualizar cliente",
+      "id": "01a1b362-bd76-7300-8e03-c9931f6e19a5",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.144425+00:00",
+          "hash": "sha256:0a0cf62b045ecb769bef49abaefaa4864cddf7a515a7b2c1ec6891ea3c9c4a1d",
+          "arquivo": "automacoes/AUT-CORE-03/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-04 Bloquear cliente",
+      "id": "01a1b362-bd8d-7cf2-8366-67cc1213e18a",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.16695+00:00",
+          "hash": "sha256:1df94e5c378166e905088c053497af31a10eade1a8a1cb06e26944b8b81e00dc",
+          "arquivo": "automacoes/AUT-CORE-04/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-05 Consultar pendências da conta",
+      "id": "01a1b362-bda3-79e1-84f8-c7479a704dd7",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.188864+00:00",
+          "hash": "sha256:6a87f80906cae6809c4af8e187c3059496b16263a73adcb595fcb75d0a1d961b",
+          "arquivo": "automacoes/AUT-CORE-05/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-06 Encerrar conta",
+      "id": "01a1b362-bdb9-745e-9534-b630aef93b97",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.210812+00:00",
+          "hash": "sha256:1600112ad75e85e2476954ed6779f8c6dc8c52e873f5ab03a43bbab488922cae",
+          "arquivo": "automacoes/AUT-CORE-06/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-07 Consultar exposição de crédito",
+      "id": "01a1b362-bdcf-74d3-bc6e-65cb97030021",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.23392+00:00",
+          "hash": "sha256:92c2cfd456a31d9bbfb2f036cf4e7edfe4ca74542616672a6eec504a24422541",
+          "arquivo": "automacoes/AUT-CORE-07/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-08 Gerar contrato",
+      "id": "01a1b362-bde7-7ac9-b9c3-d5f4bdbcb03e",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.257153+00:00",
+          "hash": "sha256:f85c485023d56258aa8ae7a922adeb37602bfee590247d6a271792ae0e65e164",
+          "arquivo": "automacoes/AUT-CORE-08/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-09 Liberar crédito",
+      "id": "01a1b362-bdfd-7b0f-87b8-63c4a558d3c7",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.27931+00:00",
+          "hash": "sha256:5e5cb12ee87803abff8f067f9c8a9b7e864d0cc82e4478f2d1fa3bab89eeb53a",
+          "arquivo": "automacoes/AUT-CORE-09/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-10 Buscar contrato",
+      "id": "01a1b362-be12-7be0-8fb2-4358ab80cfc8",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.305864+00:00",
+          "hash": "sha256:a670b0ef9a963378ba315ec89152c22a5d9b9cee2735c417f14a555bc204eaaf",
+          "arquivo": "automacoes/AUT-CORE-10/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-11 Registrar acordo",
+      "id": "01a1b362-be2e-73f8-89e7-5f143f09bdfd",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.333132+00:00",
+          "hash": "sha256:10be7d5bbfb6d3812a6d18e33fec2d359d1588327523ae4045408be50792f9eb",
+          "arquivo": "automacoes/AUT-CORE-11/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-12 Marcar cobrança judicial",
+      "id": "01a1b362-be4b-743d-85a4-4f39c489c486",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.362217+00:00",
+          "hash": "sha256:9c19580443a9855fccbdfd75e7ba3963311ad2798016d395046a8d234cba5bce",
+          "arquivo": "automacoes/AUT-CORE-12/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-CORE-13 Registrar apólice na conta",
+      "id": "01a1b362-be67-73b6-aec5-e8fa579daca2",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.38534+00:00",
+          "hash": "sha256:86a52aeed4f0565fa781ec072476697de7abebda202562a11cd8a0dd081cac4a",
+          "arquivo": "automacoes/AUT-CORE-13/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-GAR-01 Registrar gravame",
+      "id": "01a1b362-be7e-7ee6-be81-144af2338969",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.406123+00:00",
+          "hash": "sha256:1857120a587700e7a6ea7d507ccf45a6114da4c84e3e756ba916f87f3c5a4f78",
+          "arquivo": "automacoes/AUT-GAR-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-MOT-01 Simular operação",
+      "id": "01a1b362-be92-7cf2-bc25-7a2a692cdcbd",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.428117+00:00",
+          "hash": "sha256:a40e0d52cfbd1abd8c6ae0644d6ba771f954fa492e28854a8b7d1c0d7b87b999",
+          "arquivo": "automacoes/AUT-MOT-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-MOT-02 Registrar decisão de crédito",
+      "id": "01a1b362-bea8-7f23-9b9a-270801d9223d",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.450083+00:00",
+          "hash": "sha256:ccea518b3495f10b89db57bb96ef1511aef7ddae08fa4975c8e0c31b6fc34d35",
+          "arquivo": "automacoes/AUT-MOT-02/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-NOT-01 Notificar",
+      "id": "01a1b362-bebe-7ae0-a1d6-0c8ce9bb163a",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.472428+00:00",
+          "hash": "sha256:097dadc7b907e52dec8b2c6146b4c31c36f79ed7bb3080409ad5aa9c0aae9c14",
+          "arquivo": "automacoes/AUT-NOT-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-PAG-01 Efetuar pagamento",
+      "id": "01a1b362-bed5-7903-9ed5-0947eca555f4",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.498815+00:00",
+          "hash": "sha256:4c8f3671ee217d858ff8b5ffb2f4c4844529dcaeb63c4148dbab9a59b77b5ed9",
+          "arquivo": "automacoes/AUT-PAG-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-PAG-03 Emitir boleto",
+      "id": "01a1b362-bef0-772e-a4da-da661b9dc438",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.521911+00:00",
+          "hash": "sha256:df6628600f0dea10dcca5eea9c592811ed85cfd194f75f03e0bedc76d21daa2c",
+          "arquivo": "automacoes/AUT-PAG-03/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-PLD-01 Consultar listas restritivas",
+      "id": "01a1b362-bf06-771a-9644-b865d8b137fc",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.543555+00:00",
+          "hash": "sha256:81fd62b4ed989e3bc3f040c9ea91a6070972d53e5b3e646a401c2b8de45fb89d",
+          "arquivo": "automacoes/AUT-PLD-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-RAZ-01 Classificar evento contábil",
+      "id": "01a1b362-bf1c-7a67-a512-adf7f503e079",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.564721+00:00",
+          "hash": "sha256:d5b32c4a47fcd216494d7b6b443349811fdc986740243e5e0083539b4d62dd7d",
+          "arquivo": "automacoes/AUT-RAZ-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-RAZ-02 Registrar lançamento",
+      "id": "01a1b362-bf31-768e-a116-357a4dcbb2a9",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.586955+00:00",
+          "hash": "sha256:1459b4d0fdb4d46f360004adbf1d7d708fd2433da94b7fa2243b4a1acbbec813",
+          "arquivo": "automacoes/AUT-RAZ-02/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-REG-01 Comunicar operação de crédito ao regulador",
+      "id": "01a1b3c7-d6e0-7970-9910-fc33ede37f58",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T02:13:06.593983+00:00",
+          "hash": "sha256:1da596fdac13f6dd6d424c648587fa4956af4575c5b44c967ea30086f187455e",
+          "arquivo": "automacoes/AUT-REG-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-SEG-01 Cotar seguro",
+      "id": "01a1b362-bf48-7735-a18a-2767be86d98c",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.612851+00:00",
+          "hash": "sha256:37a53cc3cdcc7adcf120e088f1461dd542967f582bd14c5bd51fbc549dc465dd",
+          "arquivo": "automacoes/AUT-SEG-01/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-SEG-02 Emitir apólice",
+      "id": "01a1b362-bf62-7f8a-bb69-c54779d73168",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.639028+00:00",
+          "hash": "sha256:f82bbf3874872c8fdd1943be73b29289395cfa3986021888b5d39955abd2f4e0",
+          "arquivo": "automacoes/AUT-SEG-02/v1.json"
+        }
+      ]
+    },
+    {
+      "nome": "AUT-VAL-01 Consultar situação do documento",
+      "id": "01a1b362-bf7c-7efc-86d8-f8f58664f73d",
+      "ultimaVersao": 1,
+      "versoes": [
+        {
+          "versao": 1,
+          "publicadaEm": "2026-11-07T00:22:35.661095+00:00",
+          "hash": "sha256:d77ccab70d1d3fd18a4bd15ee38daa4185c22465d175bda3af664c71c39db806",
+          "arquivo": "automacoes/AUT-VAL-01/v1.json"
+        }
+      ]
+    }
+  ],
+  "instancias": [
+    {
+      "mudanca": "M1",
+      "normativa": "NOR-01",
+      "id": "01a1b3c1-6327-77fb-8a16-2df41a90332b",
+      "processo": "CRE-01 Proposta de crédito",
+      "versao": 1,
+      "status": "completed",
+      "fim": "fim_desistencia",
+      "iniciadaEm": "2026-11-07T02:05:57.927208+00:00",
+      "encerradaEm": "2026-11-07T02:06:47.686719+00:00",
+      "eventos": 26,
+      "lidaComo": "persona-beatriz",
+      "arquivo": "instancias/NOR-01-01a1b3c1-6327-77fb-8a16-2df41a90332b.json"
+    },
+    {
+      "mudanca": "M2",
+      "normativa": "NOR-02",
+      "id": "01a1b3c2-8998-7b33-b2bc-90625d40329d",
+      "processo": "CRE-01 Proposta de crédito",
+      "versao": 2,
+      "status": "completed",
+      "fim": "fim_desistencia",
+      "iniciadaEm": "2026-11-07T02:07:13.304835+00:00",
+      "encerradaEm": "2026-11-07T02:07:45.237126+00:00",
+      "eventos": 26,
+      "lidaComo": "persona-beatriz",
+      "arquivo": "instancias/NOR-02-01a1b3c2-8998-7b33-b2bc-90625d40329d.json"
+    },
+    {
+      "mudanca": "M4",
+      "normativa": "NOR-04",
+      "id": "01a1b3c3-7663-7df2-97eb-527613b2c4c4",
+      "processo": "CAD-01 Abertura de conta",
+      "versao": 1,
+      "status": "completed",
+      "fim": "fim_conta_aberta",
+      "iniciadaEm": "2026-11-07T02:08:13.923644+00:00",
+      "encerradaEm": "2026-11-07T02:08:56.619188+00:00",
+      "eventos": 26,
+      "lidaComo": "persona-caio",
+      "arquivo": "instancias/NOR-04-01a1b3c3-7663-7df2-97eb-527613b2c4c4.json"
+    },
+    {
+      "mudanca": "M5",
+      "normativa": "NOR-05",
+      "id": "01a1b3c5-a484-76ec-b5b4-9ebdc948d887",
+      "processo": "CRE-01 Proposta de crédito",
+      "versao": 3,
+      "status": "completed",
+      "fim": "fim_liberado",
+      "iniciadaEm": "2026-11-07T02:10:36.804101+00:00",
+      "encerradaEm": "2026-11-07T02:11:23.805668+00:00",
+      "eventos": 51,
+      "lidaComo": "persona-beatriz",
+      "arquivo": "instancias/NOR-05-01a1b3c5-a484-76ec-b5b4-9ebdc948d887.json"
+    },
+    {
+      "mudanca": "M6",
+      "normativa": "NOR-06",
+      "id": "01a1b3c6-5dbf-76be-b6c2-0dce8f1505e0",
+      "processo": "CRE-01 Proposta de crédito",
+      "versao": 4,
+      "status": "completed",
+      "fim": "fim_liberado",
+      "iniciadaEm": "2026-11-07T02:11:24.223226+00:00",
+      "encerradaEm": "2026-11-07T02:14:16.543656+00:00",
+      "eventos": 58,
+      "lidaComo": "persona-beatriz",
+      "arquivo": "instancias/NOR-06-01a1b3c6-5dbf-76be-b6c2-0dce8f1505e0.json"
+    },
+    {
+      "mudanca": "M7",
+      "normativa": "NOR-07",
+      "id": "01a1b3c9-199c-7b97-a1ba-1bce4128a455",
+      "processo": "CAD-01 Abertura de conta",
+      "versao": 2,
+      "status": "completed",
+      "fim": "fim_conta_aberta",
+      "iniciadaEm": "2026-11-07T02:14:23.388237+00:00",
+      "encerradaEm": "2026-11-07T02:15:43.985308+00:00",
+      "eventos": 26,
+      "lidaComo": "persona-caio",
+      "arquivo": "instancias/NOR-07-01a1b3c9-199c-7b97-a1ba-1bce4128a455.json"
+    },
+    {
+      "mudanca": "M7",
+      "normativa": "NOR-07",
+      "id": "01a1b3c9-22d8-7107-91fa-12fc327b77de",
+      "processo": "CAD-02 Atualização cadastral",
+      "versao": 1,
+      "status": "completed",
+      "fim": "fim_atualizado",
+      "iniciadaEm": "2026-11-07T02:14:25.752697+00:00",
+      "encerradaEm": "2026-11-07T02:15:44.999552+00:00",
+      "eventos": 24,
+      "lidaComo": "persona-caio",
+      "arquivo": "instancias/NOR-07-01a1b3c9-22d8-7107-91fa-12fc327b77de.json"
+    },
+    {
+      "mudanca": "M8",
+      "normativa": "NOR-08",
+      "id": "01a1b3ca-5a9f-71a7-a476-bd944b447b13",
+      "processo": "CRE-03 Cobrança e renegociação",
+      "versao": 1,
+      "status": "completed",
+      "fim": "fim_acordo",
+      "iniciadaEm": "2026-11-07T02:15:45.567446+00:00",
+      "encerradaEm": "2026-11-07T02:16:13.113124+00:00",
+      "eventos": 26,
+      "lidaComo": "persona-rafael",
+      "arquivo": "instancias/NOR-08-01a1b3ca-5a9f-71a7-a476-bd944b447b13.json"
+    },
+    {
+      "mudanca": "M10",
+      "normativa": "NOR-10",
+      "id": "01a1b3cb-24ae-77b9-bcc2-4baf96b3c6b7",
+      "processo": "CAD-01 Abertura de conta",
+      "versao": 3,
+      "status": "completed",
+      "fim": "fim_conta_aberta",
+      "iniciadaEm": "2026-11-07T02:16:37.294135+00:00",
+      "encerradaEm": "2026-11-07T02:17:05.36781+00:00",
+      "eventos": 28,
+      "lidaComo": "persona-caio",
+      "arquivo": "instancias/NOR-10-01a1b3cb-24ae-77b9-bcc2-4baf96b3c6b7.json"
+    }
+  ]
+}

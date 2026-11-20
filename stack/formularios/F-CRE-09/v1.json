@@ -1,0 +1,36 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:0fdd696a59d303d1811226d88e44499195b568cea5bbba05cdc5fb90d3355cfd",
+  "publishedAt": "2026-11-07T00:22:36.195797+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "numeroContrato",
+        "type": "text",
+        "label": "Número do contrato",
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "origem",
+        "type": "select",
+        "label": "Origem",
+        "options": [
+          {
+            "label": "Atraso do contrato",
+            "value": "atraso"
+          },
+          {
+            "label": "Procura do cliente",
+            "value": "cliente"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "versionNumber": 2,
+  "contentHash": "sha256:ed8f362be43f141c116c71a7b1a4fd12c5d89a283322b676cfeddbf77904f0b3",
+  "publishedAt": "2026-11-07T02:08:39.502567+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "tipoPessoa",
+        "type": "text",
+        "label": "Tipo de pessoa",
+        "readOnly": true
+      },
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "label": "CPF ou CNPJ",
+        "readOnly": true
+      },
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "label": "Nome ou razão social",
+        "readOnly": true
+      },
+      {
+        "key": "rendaMensal",
+        "type": "number",
+        "label": "Renda ou faturamento",
+        "readOnly": true,
+        "sensitive": true
+      },
+      {
+        "key": "origemRecursos",
+        "type": "select",
+        "label": "Origem dos recursos",
+        "options": [
+          {
+            "label": "Salário",
+            "value": "salario"
+          },
+          {
+            "label": "Atividade empresarial",
+            "value": "atividade_empresarial"
+          },
+          {
+            "label": "Aposentadoria",
+            "value": "aposentadoria"
+          },
+          {
+            "label": "Investimentos",
+            "value": "investimentos"
+          },
+          {
+            "label": "Outra",
+            "value": "outra"
+          }
+        ],
+        "readOnly": true
+      },
+      {
+        "key": "situacaoDocumento",
+        "type": "text",
+        "label": "Situação do documento",
+        "readOnly": true
+      },
+      {
+        "key": "resultadoPld",
+        "type": "text",
+        "label": "Resultado das listas restritivas",
+        "readOnly": true
+      },
+      {
+        "key": "pep",
+        "type": "checkbox",
+        "label": "Pessoa politicamente exposta",
+        "readOnly": true
+      },
+      {
+        "key": "parecerCadastro",
+        "type": "radio",
+        "label": "Parecer",
+        "options": [
+          {
+            "label": "Aprovar",
+            "value": "aprovado"
+          },
+          {
+            "label": "Devolver para ajuste",
+            "value": "ajustar"
+          },
+          {
+            "label": "Recusar",
+            "value": "recusado"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "pendencias",
+        "type": "checklist",
+        "label": "Pendências",
+        "options": [
+          {
+            "label": "Documento ilegível",
+            "value": "documento_ilegivel"
+          },
+          {
+            "label": "Endereço divergente",
+            "value": "endereco_divergente"
+          },
+          {
+            "label": "Renda não comprovada",
+            "value": "renda_nao_comprovada"
+          },
+          {
+            "label": "Contrato social desatualizado",
+            "value": "contrato_social_desatualizado"
+          },
+          {
+            "label": "Dados divergentes",
+            "value": "dados_divergentes"
+          },
+          {
+            "label": "Outro",
+            "value": "outro"
+          }
+        ],
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerCadastro"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "ajustar"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerCadastro"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "ajustar"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "observacaoCadastro",
+        "type": "textarea",
+        "label": "Observação",
+        "validate": {
+          "maxLength": 1000
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerCadastro"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aprovado"
+          },
+          "operator": "notEquals"
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

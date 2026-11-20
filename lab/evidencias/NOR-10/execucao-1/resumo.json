@@ -1,0 +1,10 @@
+{
+  "sessao": "395763ea-b8ab-4dec-a6ca-063626c6ffa7",
+  "modelo": "claude-sonnet-5-5",
+  "ferramentas": 7,
+  "turnos": 8,
+  "custoUsd": 0.07241870000000002,
+  "duracaoMs": 17414,
+  "fim": "success",
+  "resposta": "Publiquei a versão 4 do **CAD-01 Abertura de conta**. Ela passa a valer para os pedidos novos. Os pedidos já em andamento continuam na versão em que começaram.\n\n- **Item 1 (gerência deixa de aprovar):** tirei a etapa \"Aceitar a empresa como cliente?\", que era da gerência da agência. Tirei também a decisão \"Pessoa jurídica?\", que só levava a essa etapa, e a raia \"Agência - Gerência\", que ficou sem uso.\n- **Item 2 (a análise do Cadastro basta):** depois da análise do Cadastro e da verificação de PLD/PEP, toda conta, de pessoa física ou jurídica, vai direto para \"Criar cliente e conta\". A única aprovação que sobra é a da Supervisão do Cadastro, para casos com alerta de PLD ou PEP, e ela já valia para todos os clientes.\n\nLi o CAD-02 (Atualização cadastral) e ele não tem aprovação da gerência. Não li os outros processos, porque a normativa trata só da entrada de empresas como clientes. Não mexi em mais nada. A validação passou sem erros."
+}

@@ -1,0 +1,140 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:96c89456c610c70d5a5f31881645c38063144c7e56367144eebac0ab2b22d078",
+  "publishedAt": "2026-11-07T00:22:35.12127+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "tipoPessoa",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "rendaMensal",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "endereco",
+        "type": "object",
+        "required": true
+      },
+      {
+        "key": "email",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "telefone",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "tipoConta",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "dataValidadeCadastro",
+        "type": "date",
+        "required": true
+      },
+      {
+        "key": "dadosPf",
+        "type": "object",
+        "required": false
+      },
+      {
+        "key": "dadosPj",
+        "type": "object",
+        "required": false
+      }
+    ],
+    "outputs": [
+      {
+        "key": "idCliente",
+        "path": [
+          "idCliente"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "numeroAgencia",
+        "path": [
+          "numeroAgencia"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "numeroConta",
+        "path": [
+          "numeroConta"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "documentoCliente",
+          "tipoPessoa",
+          "nomeCliente",
+          "rendaMensal",
+          "endereco",
+          "email",
+          "telefone",
+          "tipoConta",
+          "dataValidadeCadastro",
+          "dadosPf",
+          "dadosPj"
+        ],
+        "type": "json"
+      },
+      "path": "/core/v1/clientes",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

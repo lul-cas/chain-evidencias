@@ -1,0 +1,6 @@
+{"quando":"2026-11-07T02:09:14.426Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows"},"erro":false}
+{"quando":"2026-11-07T02:09:14.438Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/groups"},"erro":false}
+{"quando":"2026-11-07T02:09:16.005Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c387-7dea-b975-6e603e1dbb4c"},"erro":false}
+{"quando":"2026-11-07T02:09:16.188Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c351-71f1-89c9-963954959f0c"},"erro":false}
+{"quando":"2026-11-07T02:09:18.537Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c3d3-797c-ace7-fa5af767b6ee"},"erro":false}
+{"quando":"2026-11-07T02:09:20.918Z","ferramenta":"pedir_ao_admin","argumentos":{"pedido":"Resolução Interna 05/2026 (segregação da formalização). Preciso que seja criado o grupo \"Controles Internos\", independente do Crédito, tendo como único membro a Inês (analista de controles internos). Nenhuma pessoa do Crédito pode ser membro desse grupo. Com o grupo criado, vou trocar a raia da etapa \"Conferir formalização\" do processo CRE-01 Proposta de crédito (hoje no grupo \"Crédito - Formalização\") para esse novo grupo e publicar."},"erro":false}

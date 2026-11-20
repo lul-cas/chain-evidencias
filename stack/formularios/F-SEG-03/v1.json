@@ -1,0 +1,25 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:06054b8050c342496c6126419c4d7ed73676166a729424bae267e5e85b21bb72",
+  "publishedAt": "2026-11-07T00:22:36.005023+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "examesExigidos",
+        "type": "textarea",
+        "label": "Exames exigidos",
+        "readOnly": true
+      },
+      {
+        "key": "examesAnexos",
+        "type": "file",
+        "label": "Exames",
+        "validate": {
+          "maxFiles": 5,
+          "required": true
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

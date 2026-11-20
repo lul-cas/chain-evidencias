@@ -1,0 +1,158 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:94fa19583847208a4dfde7614639696a37c93a26dc30472d7b7d798338bce45f",
+  "publishedAt": "2026-11-07T02:29:30.830652+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_inicio_ordem_x",
+        "source": "inicio",
+        "target": "ordem"
+      },
+      {
+        "id": "f_ordem_a1_true",
+        "branch": "true",
+        "source": "ordem",
+        "target": "a1"
+      },
+      {
+        "id": "f_ordem_b2_false",
+        "branch": "false",
+        "source": "ordem",
+        "target": "b2"
+      },
+      {
+        "id": "f_a1_b1_x",
+        "source": "a1",
+        "target": "b1"
+      },
+      {
+        "id": "f_b1_fim_x",
+        "source": "b1",
+        "target": "fim"
+      },
+      {
+        "id": "f_b2_a2_x",
+        "source": "b2",
+        "target": "a2"
+      },
+      {
+        "id": "f_a2_fim_x",
+        "source": "a2",
+        "target": "fim"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "l",
+        "group": {
+          "kind": "requesters"
+        },
+        "title": "Solicitantes",
+        "layout": {
+          "h": 300,
+          "w": 1500,
+          "x": 40,
+          "y": 30
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b3d6-ecd7-7d00-8d08-2e09cb800bd5",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 140,
+          "y": 60
+        }
+      },
+      {
+        "id": "ordem",
+        "type": "gateway",
+        "label": "ordem",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 330,
+          "y": 60
+        },
+        "question": "ordem?",
+        "decisionMode": "human"
+      },
+      {
+        "id": "a1",
+        "type": "task",
+        "label": "a1",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 520,
+          "y": 60
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "b1",
+        "type": "task",
+        "label": "b1",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 710,
+          "y": 60
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "b2",
+        "type": "task",
+        "label": "b2",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 900,
+          "y": 60
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "a2",
+        "type": "task",
+        "label": "a2",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1090,
+          "y": 60
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "fim",
+        "type": "end",
+        "label": "fim",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1280,
+          "y": 60
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

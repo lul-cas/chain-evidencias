@@ -1,0 +1,80 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:1da596fdac13f6dd6d424c648587fa4956af4575c5b44c967ea30086f187455e",
+  "publishedAt": "2026-11-07T02:13:06.593983+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "numeroContrato",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "valorLiberado",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "dataLiberacao",
+        "type": "date",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "protocoloComunicacao",
+        "path": [
+          "protocoloComunicacao"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "numeroContrato",
+          "documentoCliente",
+          "valorLiberado",
+          "dataLiberacao"
+        ],
+        "type": "json"
+      },
+      "path": "/regulador/v1/operacoes-credito",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:regulador_api_key}}"
+      },
+      "destination": "regulador"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

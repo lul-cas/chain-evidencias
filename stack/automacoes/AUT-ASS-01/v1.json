@@ -1,0 +1,74 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:a964c4421c9c4d7b1ada4d3ae880175fbacfb1045652147a6989333267a5fcf6",
+  "publishedAt": "2026-11-07T00:22:35.014652+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "referencia",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "email",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "idEnvelope",
+        "path": [
+          "idEnvelope"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "documentoCliente",
+          "referencia",
+          "email"
+        ],
+        "type": "json"
+      },
+      "path": "/assinador/v1/envelopes",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:assinador_api_key}}"
+      },
+      "destination": "assinador"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

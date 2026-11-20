@@ -1,0 +1,33 @@
+{
+  "instancias": 273,
+  "porProcesso": {
+    "CTB-01": 37,
+    "SEG-01": 13,
+    "CAD-04": 38,
+    "CAD-01": 44,
+    "CRE-03": 17,
+    "CRE-02": 43,
+    "CRE-01": 52,
+    "CAD-03": 15,
+    "CAD-02": 14
+  },
+  "porStatus": {
+    "completed": 268,
+    "cancelled": 5
+  },
+  "processos": [
+    "CAD-01 v4",
+    "CAD-02 v2",
+    "CAD-03 v1",
+    "CAD-04 v1",
+    "CRE-01 v6",
+    "CRE-02 v3",
+    "CRE-03 v2",
+    "CTB-01 v1",
+    "SEG-01 v1"
+  ],
+  "mesmosConteineresDesdeALinhaDeBase": true,
+  "emAndamento": 0,
+  "incidentesAbertos": 0,
+  "faulted": 0
+}

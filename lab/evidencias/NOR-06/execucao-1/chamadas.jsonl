@@ -1,0 +1,8 @@
+{"quando":"2026-11-07T02:12:33.744Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows"},"erro":false}
+{"quando":"2026-11-07T02:12:33.756Z","ferramenta":"ler","argumentos":{"caminho":"/api/automations"},"erro":false}
+{"quando":"2026-11-07T02:12:33.782Z","ferramenta":"ler","argumentos":{"caminho":"/api/automations/resources"},"erro":false}
+{"quando":"2026-11-07T02:12:33.793Z","ferramenta":"ler","argumentos":{"caminho":"/api/forms"},"erro":false}
+{"quando":"2026-11-07T02:12:37.140Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c387-7dea-b975-6e603e1dbb4c"},"erro":false}
+{"quando":"2026-11-07T02:12:37.149Z","ferramenta":"ler","argumentos":{"caminho":"/api/automations/01a1b362-bdfd-7b0f-87b8-63c4a558d3c7"},"erro":false}
+{"quando":"2026-11-07T02:12:37.393Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c351-71f1-89c9-963954959f0c"},"erro":false}
+{"quando":"2026-11-07T02:12:42.008Z","ferramenta":"pedir_ao_admin","argumentos":{"pedido":"Circular 06/2026 (comunicação de operações de crédito ao regulador). Preciso de duas coisas que ainda não existem no Chain: (1) um destino para o Regulador, por exemplo \"regulador\", com o endereço do serviço do regulador, para eu chamar POST /regulador/v1/operacoes-credito; (2) uma credencial com a chave do banco junto ao regulador, por exemplo \"regulador_api_key\", liberada para esse destino, para ir no cabeçalho X-Api-Key. Com isso, eu crio a automação de comunicação (corpo: numeroContrato, documentoCliente, valorLiberado, dataLiberacao; resposta: protocoloComunicacao) e a incluo no CRE-01 Proposta de crédito logo depois de \"Liberar crédito\", guardando o protocolo no pedido."},"erro":false}

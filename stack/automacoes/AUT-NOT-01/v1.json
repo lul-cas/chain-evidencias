@@ -1,0 +1,74 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:097dadc7b907e52dec8b2c6146b4c31c36f79ed7bb3080409ad5aa9c0aae9c14",
+  "publishedAt": "2026-11-07T00:22:35.472428+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "destinatario",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "modelo",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "referencia",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "idMensagem",
+        "path": [
+          "idMensagem"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "destinatario",
+          "modelo",
+          "referencia"
+        ],
+        "type": "json"
+      },
+      "path": "/notificacoes/v1/mensagens",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:notificacoes_api_key}}"
+      },
+      "destination": "notificacoes"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

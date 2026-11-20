@@ -1,0 +1,41 @@
+{
+  "elementos": 4,
+  "versoes": [
+    "CRE-01 Proposta de crédito v4→v5",
+    "AUT-REG-01 Comunicar operação de crédito ao regulador v1"
+  ],
+  "republicados": [],
+  "processos": {
+    "CRE-01 Proposta de crédito": {
+      "nos": {
+        "criados": 1,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "fluxos": {
+        "criados": 1,
+        "removidos": 0,
+        "alterados": 1
+      },
+      "raias": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "total": 3
+    }
+  },
+  "formularios": {},
+  "automacoes": [
+    "AUT-REG-01 Comunicar operação de crédito ao regulador"
+  ],
+  "emAndamento": [
+    {
+      "processo": "CRE-01 Proposta de crédito",
+      "versao": 4,
+      "fim": "fim_liberado",
+      "status": "completed"
+    }
+  ],
+  "mesmosConteineres": true
+}

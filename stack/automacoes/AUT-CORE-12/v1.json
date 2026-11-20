@@ -1,0 +1,57 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:9c19580443a9855fccbdfd75e7ba3963311ad2798016d395046a8d234cba5bce",
+  "publishedAt": "2026-11-07T00:22:35.362217+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "numeroContrato",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "dataMarcacao",
+        "path": [
+          "dataMarcacao"
+        ],
+        "type": "date",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": null,
+      "path": "/core/v1/contratos/{numeroContrato}/cobranca-judicial",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

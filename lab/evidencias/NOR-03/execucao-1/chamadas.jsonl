@@ -1,0 +1,6 @@
+{"quando":"2026-11-07T02:07:55.186Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows"},"erro":false}
+{"quando":"2026-11-07T02:07:55.759Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/groups"},"erro":false}
+{"quando":"2026-11-07T02:07:55.770Z","ferramenta":"ler","argumentos":{"caminho":"/api/forms"},"erro":false}
+{"quando":"2026-11-07T02:07:57.398Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c27f-7809-8937-0ea2d71ceb5b"},"erro":false}
+{"quando":"2026-11-07T02:07:57.753Z","ferramenta":"ler","argumentos":{"caminho":"/api/forms/01a1b362-bffc-7c87-b46c-ddf925ca3872"},"erro":false}
+{"quando":"2026-11-07T02:07:57.839Z","ferramenta":"ler","argumentos":{"caminho":"/api/forms/01a1b362-c019-72aa-b875-5ffecf6ca448"},"erro":false}

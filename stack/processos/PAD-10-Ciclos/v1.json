@@ -1,0 +1,104 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:1cc30d8a1c2e074bc93be56ac7944300c8dc7e23c5620ba8c88fd52d9ab46a5f",
+  "publishedAt": "2026-11-07T02:29:30.062897+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_inicio_a_x",
+        "source": "inicio",
+        "target": "a"
+      },
+      {
+        "id": "f_a_repetir_x",
+        "source": "a",
+        "target": "repetir"
+      },
+      {
+        "id": "f_repetir_a_true",
+        "branch": "true",
+        "source": "repetir",
+        "target": "a"
+      },
+      {
+        "id": "f_repetir_fim_false",
+        "branch": "false",
+        "source": "repetir",
+        "target": "fim"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "l",
+        "group": {
+          "kind": "requesters"
+        },
+        "title": "Solicitantes",
+        "layout": {
+          "h": 300,
+          "w": 1500,
+          "x": 40,
+          "y": 30
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b3d6-ecd7-7d00-8d08-2e09cb800bd5",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 140,
+          "y": 60
+        }
+      },
+      {
+        "id": "a",
+        "type": "task",
+        "label": "a",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 330,
+          "y": 60
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "repetir",
+        "type": "gateway",
+        "label": "repetir",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 520,
+          "y": 60
+        },
+        "question": "repetir?",
+        "decisionMode": "human"
+      },
+      {
+        "id": "fim",
+        "type": "end",
+        "label": "fim",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 710,
+          "y": 60
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

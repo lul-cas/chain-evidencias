@@ -1,0 +1,563 @@
+{
+  "id": "01a1b3c9-22d8-7107-91fa-12fc327b77de",
+  "definitionId": "01a1b362-c2b8-7cb5-a088-cbcb254e50d5",
+  "definitionName": "CAD-02 Atualização cadastral",
+  "versionNumber": 1,
+  "status": "completed",
+  "currentNodeId": "fim_atualizado",
+  "requester": {
+    "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+    "username": "persona-marina",
+    "displayName": "Marina"
+  },
+  "startedAt": "2026-11-07T02:14:25.752697+00:00",
+  "endedAt": "2026-11-07T02:15:44.999552+00:00",
+  "openTasks": [],
+  "participants": [
+    {
+      "id": "01a1b362-baa8-778f-be50-bf04962f4eae",
+      "username": "persona-rafael",
+      "displayName": "Rafael"
+    },
+    {
+      "id": "01a1b362-ba32-74c6-9dc8-a1c9a9cfd6ed",
+      "username": "persona-caio",
+      "displayName": "Caio"
+    }
+  ],
+  "timeline": [
+    {
+      "type": "instance.started",
+      "occurredAt": "2026-11-07T02:14:25.752697+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "versionNumber": 1,
+        "definitionName": "CAD-02 Atualização cadastral"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:14:25.752697+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "formId": "01a1b362-c02f-7b04-a2bb-1184a7354af3",
+        "nodeId": "inicio",
+        "formVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:14:25.752697+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Buscar cliente no Core",
+        "nodeId": "buscar_cliente",
+        "requestId": "01a1b3c9-22d8-7256-a4be-6792214fec10",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:30:55Z",
+        "automationId": "01a1b362-bd45-7c0f-85a2-ad993218b000",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:14:26.594942+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Buscar cliente no Core",
+        "nodeId": "buscar_cliente",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/core/v1/clientes/00000000949",
+              "method": "GET",
+              "secrets": [
+                {
+                  "name": "core_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "core-bancario",
+              "headerNames": [
+                "Accept",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:14:26.573Z",
+            "durationMs": 4,
+            "errorClass": null,
+            "responseBytes": 373
+          }
+        ],
+        "requestId": "01a1b3c9-22d8-7256-a4be-6792214fec10"
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:14:26.594942+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Cliente encontrado?",
+        "nodeId": "gw_encontrado",
+        "outcome": true
+      },
+      "channel": null
+    },
+    {
+      "type": "task.created",
+      "occurredAt": "2026-11-07T02:14:26.594942+00:00",
+      "actor": null,
+      "actedAsGroup": {
+        "id": "01a1b362-b963-784a-a5af-dc7f58e905ce",
+        "name": "Agência - Atendimento"
+      },
+      "taskId": "01a1b3c9-2622-7dd2-adc4-4edcfe85a2b3",
+      "details": {
+        "kind": "task",
+        "label": "Atualizar dados do cliente",
+        "nodeId": "atualizar_dados"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.assigned",
+      "occurredAt": "2026-11-07T02:15:42.193401+00:00",
+      "actor": {
+        "id": "01a1b362-baa8-778f-be50-bf04962f4eae",
+        "username": "persona-rafael",
+        "displayName": "Rafael"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b963-784a-a5af-dc7f58e905ce",
+        "name": "Agência - Atendimento"
+      },
+      "taskId": "01a1b3c9-2622-7dd2-adc4-4edcfe85a2b3",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "attachment.added",
+      "occurredAt": "2026-11-07T02:15:42.193401+00:00",
+      "actor": {
+        "id": "01a1b362-baa8-778f-be50-bf04962f4eae",
+        "username": "persona-rafael",
+        "displayName": "Rafael"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c9-2622-7dd2-adc4-4edcfe85a2b3",
+      "details": {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3ca-4d5b-73cf-8e84-34d61f32a033",
+        "contentType": "application/pdf",
+        "submissionId": "01a1b3ca-4d71-7f4a-af14-73b6a97bca98"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "attachment.added",
+      "occurredAt": "2026-11-07T02:15:42.193401+00:00",
+      "actor": {
+        "id": "01a1b362-baa8-778f-be50-bf04962f4eae",
+        "username": "persona-rafael",
+        "displayName": "Rafael"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c9-2622-7dd2-adc4-4edcfe85a2b3",
+      "details": {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3ca-4d62-73d4-9c38-1942118bbeb4",
+        "contentType": "application/pdf",
+        "submissionId": "01a1b3ca-4d71-7f4a-af14-73b6a97bca98"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:15:42.193401+00:00",
+      "actor": {
+        "id": "01a1b362-baa8-778f-be50-bf04962f4eae",
+        "username": "persona-rafael",
+        "displayName": "Rafael"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c9-2622-7dd2-adc4-4edcfe85a2b3",
+      "details": {
+        "formId": "01a1b362-c044-712c-87d5-f31316038227",
+        "nodeId": "atualizar_dados",
+        "formVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.completed",
+      "occurredAt": "2026-11-07T02:15:42.193401+00:00",
+      "actor": {
+        "id": "01a1b362-baa8-778f-be50-bf04962f4eae",
+        "username": "persona-rafael",
+        "displayName": "Rafael"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b963-784a-a5af-dc7f58e905ce",
+        "name": "Agência - Atendimento"
+      },
+      "taskId": "01a1b3c9-2622-7dd2-adc4-4edcfe85a2b3",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:15:42.193401+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar situação do documento",
+        "nodeId": "consultar_situacao",
+        "requestId": "01a1b3ca-4d71-71ac-940b-88c01ea85cbd",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:32:12Z",
+        "automationId": "01a1b362-bf7c-7efc-86d8-f8f58664f73d",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:15:42.981221+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar situação do documento",
+        "nodeId": "consultar_situacao",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/validador/v1/documentos/00000000949",
+              "method": "GET",
+              "secrets": [
+                {
+                  "name": "validador_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "validador-cadastral",
+              "headerNames": [
+                "Accept",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:15:42.960Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 31
+          }
+        ],
+        "requestId": "01a1b3ca-4d71-71ac-940b-88c01ea85cbd"
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:15:42.981221+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar listas restritivas",
+        "nodeId": "consultar_pld",
+        "requestId": "01a1b3ca-5085-7a34-aabd-41e117359b67",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:32:12Z",
+        "automationId": "01a1b362-bf06-771a-9644-b865d8b137fc",
+        "automationVersion": 1
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:15:43.985307+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar listas restritivas",
+        "nodeId": "consultar_pld",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/pld/v1/consultas",
+              "method": "POST",
+              "secrets": [
+                {
+                  "name": "pld_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "pld",
+              "headerNames": [
+                "Accept",
+                "Content-Type",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:15:43.966Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 36
+          }
+        ],
+        "requestId": "01a1b3ca-5085-7a34-aabd-41e117359b67"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.created",
+      "occurredAt": "2026-11-07T02:15:43.985307+00:00",
+      "actor": null,
+      "actedAsGroup": {
+        "id": "01a1b362-b94a-75b5-a9e1-dc11cc552934",
+        "name": "Cadastro - Análise"
+      },
+      "taskId": "01a1b3ca-5471-7483-80e7-17a9af5383d7",
+      "details": {
+        "kind": "task",
+        "label": "Conferir atualização",
+        "nodeId": "conferir_atualizacao"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.assigned",
+      "occurredAt": "2026-11-07T02:15:44.133566+00:00",
+      "actor": {
+        "id": "01a1b362-ba32-74c6-9dc8-a1c9a9cfd6ed",
+        "username": "persona-caio",
+        "displayName": "Caio"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b94a-75b5-a9e1-dc11cc552934",
+        "name": "Cadastro - Análise"
+      },
+      "taskId": "01a1b3ca-5471-7483-80e7-17a9af5383d7",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:15:44.133566+00:00",
+      "actor": {
+        "id": "01a1b362-ba32-74c6-9dc8-a1c9a9cfd6ed",
+        "username": "persona-caio",
+        "displayName": "Caio"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3ca-5471-7483-80e7-17a9af5383d7",
+      "details": {
+        "formId": "01a1b362-c060-7dd5-b1e4-8d63090b47b5",
+        "nodeId": "conferir_atualizacao",
+        "formVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.completed",
+      "occurredAt": "2026-11-07T02:15:44.133566+00:00",
+      "actor": {
+        "id": "01a1b362-ba32-74c6-9dc8-a1c9a9cfd6ed",
+        "username": "persona-caio",
+        "displayName": "Caio"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b94a-75b5-a9e1-dc11cc552934",
+        "name": "Cadastro - Análise"
+      },
+      "taskId": "01a1b3ca-5471-7483-80e7-17a9af5383d7",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:15:44.133566+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Pede ajuste?",
+        "nodeId": "gw_pede_ajuste",
+        "outcome": false
+      },
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:15:44.133566+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Alerta de PLD ou PEP?",
+        "nodeId": "gw_pld_alerta",
+        "outcome": false
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:15:44.133566+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Atualizar cliente no Core",
+        "nodeId": "atualizar_core",
+        "requestId": "01a1b3ca-5505-7202-b70a-4a35cee2db07",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:32:14Z",
+        "automationId": "01a1b362-bd76-7300-8e03-c9931f6e19a5",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:15:44.999552+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Atualizar cliente no Core",
+        "nodeId": "atualizar_core",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/core/v1/clientes/00000000949",
+              "method": "PUT",
+              "secrets": [
+                {
+                  "name": "core_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "core-bancario",
+              "headerNames": [
+                "Accept",
+                "Content-Type",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:15:44.981Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 19
+          }
+        ],
+        "requestId": "01a1b3ca-5505-7202-b70a-4a35cee2db07"
+      },
+      "channel": null
+    },
+    {
+      "type": "instance.completed",
+      "occurredAt": "2026-11-07T02:15:44.999552+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "fim_atualizado"
+      },
+      "channel": null
+    }
+  ],
+  "data": {
+    "pep": false,
+    "email": "karina@exemplo.test",
+    "origem": "agencia",
+    "endereco": {
+      "uf": "SP",
+      "cep": "03003000",
+      "bairro": "Centro",
+      "cidade": "São Paulo",
+      "numero": "30",
+      "logradouro": "Rua Azul"
+    },
+    "telefone": "11977770000",
+    "atualizado": true,
+    "nomeCliente": "Íris Melo",
+    "resultadoPld": "limpo",
+    "comprovanteRenda": [
+      {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3ca-4d62-73d4-9c38-1942118bbeb4",
+        "contentType": "application/pdf"
+      }
+    ],
+    "documentoCliente": "00000000949",
+    "clienteEncontrado": true,
+    "situacaoDocumento": "regular",
+    "parecerAtualizacao": "aprovado",
+    "comprovanteEndereco": [
+      {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3ca-4d5b-73cf-8e84-34d61f32a033",
+        "contentType": "application/pdf"
+      }
+    ]
+  },
+  "incidents": [],
+  "parent": null,
+  "children": [],
+  "version": 10902,
+  "maskedKeys": [
+    "rendaMensal"
+  ]
+}

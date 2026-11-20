@@ -1,0 +1,77 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:81fd62b4ed989e3bc3f040c9ea91a6070972d53e5b3e646a401c2b8de45fb89d",
+  "publishedAt": "2026-11-07T00:22:35.543555+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "resultadoPld",
+        "path": [
+          "resultadoPld"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "pep",
+        "path": [
+          "pep"
+        ],
+        "type": "boolean",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "documentoCliente",
+          "nomeCliente"
+        ],
+        "type": "json"
+      },
+      "path": "/pld/v1/consultas",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:pld_api_key}}"
+      },
+      "destination": "pld"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

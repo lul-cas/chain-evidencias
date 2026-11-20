@@ -1,0 +1,841 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:02dfb492b7e9c789d8d7d706c07a4f7b1b499a5be9f77e6e9acc0aced98e4cc9",
+  "publishedAt": "2026-11-07T00:22:36.661013+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_1",
+        "source": "inicio",
+        "target": "gw_recusa_automatica"
+      },
+      {
+        "id": "f_2",
+        "branch": "true",
+        "source": "gw_recusa_automatica",
+        "target": "registrar_recusa"
+      },
+      {
+        "id": "f_3",
+        "branch": "false",
+        "source": "gw_recusa_automatica",
+        "target": "gw_aprovacao_automatica"
+      },
+      {
+        "id": "f_4",
+        "branch": "true",
+        "source": "gw_aprovacao_automatica",
+        "target": "registrar_aprovacao_automatica"
+      },
+      {
+        "id": "f_5",
+        "branch": "false",
+        "source": "gw_aprovacao_automatica",
+        "target": "analisar_credito"
+      },
+      {
+        "id": "f_6",
+        "source": "registrar_aprovacao_automatica",
+        "target": "fim_aprovado"
+      },
+      {
+        "id": "f_7",
+        "source": "analisar_credito",
+        "target": "gw_pede_informacoes"
+      },
+      {
+        "id": "f_8",
+        "branch": "true",
+        "source": "gw_pede_informacoes",
+        "target": "complementar_informacoes"
+      },
+      {
+        "id": "f_9",
+        "branch": "false",
+        "source": "gw_pede_informacoes",
+        "target": "gw_parecer_favoravel"
+      },
+      {
+        "id": "f_10",
+        "source": "complementar_informacoes",
+        "target": "analisar_credito"
+      },
+      {
+        "id": "f_11",
+        "branch": "true",
+        "source": "gw_parecer_favoravel",
+        "target": "gw_alcada_analista"
+      },
+      {
+        "id": "f_12",
+        "branch": "false",
+        "source": "gw_parecer_favoravel",
+        "target": "registrar_recusa"
+      },
+      {
+        "id": "f_13",
+        "branch": "true",
+        "source": "gw_alcada_analista",
+        "target": "registrar_aprovacao"
+      },
+      {
+        "id": "f_14",
+        "branch": "false",
+        "source": "gw_alcada_analista",
+        "target": "gw_alcada_gerencia"
+      },
+      {
+        "id": "f_15",
+        "branch": "true",
+        "source": "gw_alcada_gerencia",
+        "target": "aprovar_gerencia"
+      },
+      {
+        "id": "f_16",
+        "branch": "false",
+        "source": "gw_alcada_gerencia",
+        "target": "deliberar_comite"
+      },
+      {
+        "id": "f_17",
+        "branch": "true",
+        "source": "aprovar_gerencia",
+        "target": "registrar_aprovacao"
+      },
+      {
+        "id": "f_18",
+        "branch": "false",
+        "source": "aprovar_gerencia",
+        "target": "registrar_recusa"
+      },
+      {
+        "id": "f_19",
+        "source": "deliberar_comite",
+        "target": "gw_comite_aprovou"
+      },
+      {
+        "id": "f_20",
+        "branch": "true",
+        "source": "gw_comite_aprovou",
+        "target": "registrar_aprovacao"
+      },
+      {
+        "id": "f_21",
+        "branch": "false",
+        "source": "gw_comite_aprovou",
+        "target": "registrar_recusa"
+      },
+      {
+        "id": "f_22",
+        "source": "registrar_aprovacao",
+        "target": "fim_aprovado"
+      },
+      {
+        "id": "f_23",
+        "source": "registrar_recusa",
+        "target": "fim_recusado"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "lane_ana",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b97e-7c10-ba4f-4ff6eb44cef3"
+        },
+        "title": "Crédito - Análise",
+        "layout": {
+          "h": 240,
+          "w": 2420,
+          "x": 40,
+          "y": 30
+        }
+      },
+      {
+        "id": "lane_age",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b963-784a-a5af-dc7f58e905ce"
+        },
+        "title": "Agência - Atendimento",
+        "layout": {
+          "h": 130,
+          "w": 2420,
+          "x": 40,
+          "y": 280
+        }
+      },
+      {
+        "id": "lane_ger",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b986-7535-972a-7c239c54f977"
+        },
+        "title": "Crédito - Gerência",
+        "layout": {
+          "h": 130,
+          "w": 2420,
+          "x": 40,
+          "y": 420
+        }
+      },
+      {
+        "id": "lane_com",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b990-732a-a7db-da5a3923f217"
+        },
+        "title": "Crédito - Comitê",
+        "layout": {
+          "h": 130,
+          "w": 2420,
+          "x": 40,
+          "y": 560
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b362-c0e9-788d-8a63-95cd6ac86f9b",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 180,
+          "y": 50
+        }
+      },
+      {
+        "id": "gw_recusa_automatica",
+        "type": "gateway",
+        "label": "Recusa automática?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 370,
+          "y": 50
+        },
+        "condition": {
+          "op": "or",
+          "kind": "group",
+          "items": [
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "score"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "number",
+                "value": "400"
+              },
+              "operator": "lessThan"
+            },
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "atrasoMaximoDias"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "number",
+                "value": "90"
+              },
+              "operator": "greaterThan"
+            }
+          ]
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "gw_aprovacao_automatica",
+        "type": "gateway",
+        "label": "Aprovação automática?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 560,
+          "y": 50
+        },
+        "condition": {
+          "op": "and",
+          "kind": "group",
+          "items": [
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "score"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "number",
+                "value": "750"
+              },
+              "operator": "greaterOrEqual"
+            },
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "possuiRestricao"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "boolean",
+                "value": "true"
+              },
+              "operator": "notEquals"
+            },
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "valorSolicitado"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "number",
+                "value": "20000"
+              },
+              "operator": "lessOrEqual"
+            },
+            {
+              "kind": "compare",
+              "left": {
+                "op": "divide",
+                "kind": "arithmetic",
+                "left": {
+                  "op": "add",
+                  "kind": "arithmetic",
+                  "left": {
+                    "kind": "path",
+                    "path": [
+                      "parcelasAtuais"
+                    ]
+                  },
+                  "right": {
+                    "kind": "path",
+                    "path": [
+                      "valorParcela"
+                    ]
+                  }
+                },
+                "right": {
+                  "kind": "path",
+                  "path": [
+                    "rendaMensal"
+                  ]
+                }
+              },
+              "right": {
+                "kind": "literal",
+                "type": "number",
+                "value": "0.3"
+              },
+              "operator": "lessOrEqual"
+            }
+          ]
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "registrar_aprovacao_automatica",
+        "type": "task",
+        "label": "Registrar aprovação automática",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 710,
+          "y": 50
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "decisao": {
+              "kind": "literal",
+              "type": "text",
+              "value": "aprovado"
+            },
+            "produto": {
+              "kind": "path",
+              "path": [
+                "produto"
+              ]
+            },
+            "taxaAprovada": {
+              "kind": "path",
+              "path": [
+                "taxaMensal"
+              ]
+            },
+            "origemDecisao": {
+              "kind": "literal",
+              "type": "text",
+              "value": "automatica"
+            },
+            "prazoAprovado": {
+              "kind": "path",
+              "path": [
+                "prazoMeses"
+              ]
+            },
+            "valorAprovado": {
+              "kind": "path",
+              "path": [
+                "valorSolicitado"
+              ]
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            },
+            "validadeAprovacao": {
+              "kind": "system",
+              "name": "currentDate",
+              "offset": {
+                "unit": "days",
+                "amount": 15
+              }
+            }
+          },
+          "outputs": {
+            "taxaAprovada": {
+              "kind": "path",
+              "path": [
+                "taxaAprovada"
+              ]
+            },
+            "prazoAprovado": {
+              "kind": "path",
+              "path": [
+                "prazoAprovado"
+              ]
+            },
+            "valorAprovado": {
+              "kind": "path",
+              "path": [
+                "valorAprovado"
+              ]
+            },
+            "decisaoCredito": {
+              "kind": "path",
+              "path": [
+                "decisaoCredito"
+              ]
+            },
+            "validadeAprovacao": {
+              "kind": "path",
+              "path": [
+                "validadeAprovacao"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bea8-7f23-9b9a-270801d9223d"
+        }
+      },
+      {
+        "id": "analisar_credito",
+        "form": {
+          "formId": "01a1b362-c0fc-71cd-9781-3317e93a88c5",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Analisar crédito",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 710,
+          "y": 160
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "gw_pede_informacoes",
+        "type": "gateway",
+        "label": "Pede informações?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 940,
+          "y": 50
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAnalista"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "solicitar_informacoes"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "gw_parecer_favoravel",
+        "type": "gateway",
+        "label": "Parecer favorável?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1130,
+          "y": 50
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAnalista"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aprovar"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "gw_alcada_analista",
+        "type": "gateway",
+        "label": "Na alçada do analista?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1320,
+          "y": 50
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "valorAprovado"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "number",
+            "value": "50000"
+          },
+          "operator": "lessOrEqual"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "gw_alcada_gerencia",
+        "type": "gateway",
+        "label": "Na alçada da gerência?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1510,
+          "y": 50
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "valorAprovado"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "number",
+            "value": "250000"
+          },
+          "operator": "lessOrEqual"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "registrar_aprovacao",
+        "type": "task",
+        "label": "Registrar aprovação",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2040,
+          "y": 50
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "decisao": {
+              "kind": "literal",
+              "type": "text",
+              "value": "aprovado"
+            },
+            "produto": {
+              "kind": "path",
+              "path": [
+                "produto"
+              ]
+            },
+            "taxaAprovada": {
+              "kind": "path",
+              "path": [
+                "taxaAprovada"
+              ]
+            },
+            "origemDecisao": {
+              "kind": "literal",
+              "type": "text",
+              "value": "alcada"
+            },
+            "prazoAprovado": {
+              "kind": "path",
+              "path": [
+                "prazoAprovado"
+              ]
+            },
+            "valorAprovado": {
+              "kind": "path",
+              "path": [
+                "valorAprovado"
+              ]
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            },
+            "validadeAprovacao": {
+              "kind": "system",
+              "name": "currentDate",
+              "offset": {
+                "unit": "days",
+                "amount": 15
+              }
+            }
+          },
+          "outputs": {
+            "taxaAprovada": {
+              "kind": "path",
+              "path": [
+                "taxaAprovada"
+              ]
+            },
+            "prazoAprovado": {
+              "kind": "path",
+              "path": [
+                "prazoAprovado"
+              ]
+            },
+            "valorAprovado": {
+              "kind": "path",
+              "path": [
+                "valorAprovado"
+              ]
+            },
+            "decisaoCredito": {
+              "kind": "path",
+              "path": [
+                "decisaoCredito"
+              ]
+            },
+            "validadeAprovacao": {
+              "kind": "path",
+              "path": [
+                "validadeAprovacao"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bea8-7f23-9b9a-270801d9223d"
+        }
+      },
+      {
+        "id": "registrar_recusa",
+        "type": "task",
+        "label": "Registrar recusa",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2040,
+          "y": 160
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "decisao": {
+              "kind": "literal",
+              "type": "text",
+              "value": "recusado"
+            },
+            "produto": {
+              "kind": "path",
+              "path": [
+                "produto"
+              ]
+            },
+            "origemDecisao": {
+              "kind": "literal",
+              "type": "text",
+              "value": "analise"
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "decisaoCredito": {
+              "kind": "path",
+              "path": [
+                "decisaoCredito"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bea8-7f23-9b9a-270801d9223d"
+        }
+      },
+      {
+        "id": "fim_aprovado",
+        "type": "end",
+        "label": "Crédito aprovado",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 2270,
+          "y": 50
+        }
+      },
+      {
+        "id": "fim_recusado",
+        "type": "end",
+        "label": "Crédito recusado",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 2270,
+          "y": 160
+        }
+      },
+      {
+        "id": "complementar_informacoes",
+        "form": {
+          "formId": "01a1b362-c112-71e7-ba34-1920ee9a2f91",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Complementar informações",
+        "laneId": "lane_age",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1090,
+          "y": 300
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "aprovar_gerencia",
+        "type": "gateway",
+        "label": "Aprova a operação?",
+        "laneId": "lane_ger",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1700,
+          "y": 440
+        },
+        "question": "Aprova a operação na alçada da gerência de crédito?",
+        "decisionMode": "human"
+      },
+      {
+        "id": "deliberar_comite",
+        "form": {
+          "formId": "01a1b362-c126-75fd-8874-1a798f3cb705",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Deliberar em comitê",
+        "laneId": "lane_com",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1660,
+          "y": 580
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "gw_comite_aprovou",
+        "type": "gateway",
+        "label": "Comitê aprovou?",
+        "laneId": "lane_com",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1890,
+          "y": 580
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "decisaoComite"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aprovado"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

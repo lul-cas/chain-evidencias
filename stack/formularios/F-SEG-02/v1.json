@@ -1,0 +1,150 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:f5d200d33a6ffe281e1f3f7d92a759a6eae989134f7bb75f70018522d8431d5e",
+  "publishedAt": "2026-11-07T00:22:35.984566+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "label": "Cliente",
+        "readOnly": true
+      },
+      {
+        "key": "tipoSeguro",
+        "type": "text",
+        "label": "Tipo de seguro",
+        "readOnly": true
+      },
+      {
+        "key": "capitalSegurado",
+        "type": "number",
+        "label": "Capital segurado",
+        "readOnly": true
+      },
+      {
+        "key": "premioMensal",
+        "type": "number",
+        "label": "Prêmio mensal",
+        "readOnly": true
+      },
+      {
+        "key": "declaracaoSaude",
+        "type": "textarea",
+        "label": "Declaração de saúde",
+        "readOnly": true,
+        "sensitive": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "tipoSeguro"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "vida"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "parecerRisco",
+        "type": "radio",
+        "label": "Parecer",
+        "options": [
+          {
+            "label": "Aceitar",
+            "value": "aceitar"
+          },
+          {
+            "label": "Recusar",
+            "value": "recusar"
+          },
+          {
+            "label": "Exigir exames",
+            "value": "exigir_exames"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "sobrepremioPercentual",
+        "type": "number",
+        "label": "Sobreprêmio (%)",
+        "validate": {
+          "max": 100,
+          "min": 0,
+          "decimalDigits": 2
+        },
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerRisco"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aceitar"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "examesExigidos",
+        "type": "textarea",
+        "label": "Exames exigidos",
+        "validate": {
+          "maxLength": 1000
+        },
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerRisco"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "exigir_exames"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerRisco"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "exigir_exames"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "justificativaRisco",
+        "type": "textarea",
+        "label": "Justificativa",
+        "validate": {
+          "required": true,
+          "maxLength": 2000
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

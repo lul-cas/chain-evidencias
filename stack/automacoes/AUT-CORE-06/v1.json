@@ -1,0 +1,67 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:1600112ad75e85e2476954ed6779f8c6dc8c52e873f5ab03a43bbab488922cae",
+  "publishedAt": "2026-11-07T00:22:35.210812+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "motivoEncerramento",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "dataEncerramento",
+        "path": [
+          "dataEncerramento"
+        ],
+        "type": "date",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "motivoEncerramento"
+        ],
+        "type": "json"
+      },
+      "path": "/core/v1/clientes/{documentoCliente}/encerramento",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

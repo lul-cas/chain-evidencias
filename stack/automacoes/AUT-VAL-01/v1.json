@@ -1,0 +1,57 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:d77ccab70d1d3fd18a4bd15ee38daa4185c22465d175bda3af664c71c39db806",
+  "publishedAt": "2026-11-07T00:22:35.661095+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "situacaoDocumento",
+        "path": [
+          "situacaoDocumento"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": null,
+      "path": "/validador/v1/documentos/{documentoCliente}",
+      "query": {},
+      "method": "GET",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:validador_api_key}}"
+      },
+      "destination": "validador-cadastral"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

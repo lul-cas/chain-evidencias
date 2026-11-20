@@ -1,0 +1,38 @@
+{
+  "elementos": 9,
+  "versoes": [
+    "CAD-01 Abertura de conta v3→v4"
+  ],
+  "republicados": [],
+  "processos": {
+    "CAD-01 Abertura de conta": {
+      "nos": {
+        "criados": 0,
+        "removidos": 2,
+        "alterados": 0
+      },
+      "fluxos": {
+        "criados": 0,
+        "removidos": 4,
+        "alterados": 2
+      },
+      "raias": {
+        "criados": 0,
+        "removidos": 1,
+        "alterados": 0
+      },
+      "total": 9
+    }
+  },
+  "formularios": {},
+  "automacoes": [],
+  "emAndamento": [
+    {
+      "processo": "CAD-01 Abertura de conta",
+      "versao": 3,
+      "fim": "fim_conta_aberta",
+      "status": "completed"
+    }
+  ],
+  "mesmosConteineres": true
+}

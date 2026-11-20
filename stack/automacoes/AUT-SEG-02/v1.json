@@ -1,0 +1,92 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:f82bbf3874872c8fdd1943be73b29289395cfa3986021888b5d39955abd2f4e0",
+  "publishedAt": "2026-11-07T00:22:35.639028+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "idCotacao",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "sobrepremioPercentual",
+        "type": "number",
+        "required": false
+      }
+    ],
+    "outputs": [
+      {
+        "key": "numeroApolice",
+        "path": [
+          "numeroApolice"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "vigenciaInicio",
+        "path": [
+          "vigenciaInicio"
+        ],
+        "type": "date",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "vigenciaFim",
+        "path": [
+          "vigenciaFim"
+        ],
+        "type": "date",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "idCotacao",
+          "documentoCliente",
+          "sobrepremioPercentual"
+        ],
+        "type": "json"
+      },
+      "path": "/seguradora/v1/apolices",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:seguradora_api_key}}"
+      },
+      "destination": "seguradora"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:f85c485023d56258aa8ae7a922adeb37602bfee590247d6a271792ae0e65e164",
+  "publishedAt": "2026-11-07T00:22:35.257153+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "produto",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "valorAprovado",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "prazoAprovado",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "taxaAprovada",
+        "type": "number",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "numeroContrato",
+        "path": [
+          "numeroContrato"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "documentoCliente",
+          "produto",
+          "valorAprovado",
+          "prazoAprovado",
+          "taxaAprovada"
+        ],
+        "type": "json"
+      },
+      "path": "/core/v1/contratos",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

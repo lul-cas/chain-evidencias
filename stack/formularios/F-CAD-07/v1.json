@@ -1,0 +1,54 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:f274c318eb22ce22f9227eaf0271f528dc7efc44c4bc869c1cbe24ba0eb36fc1",
+  "publishedAt": "2026-11-07T00:22:35.9345+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "contratosAtivos",
+        "type": "number",
+        "label": "Contratos ativos",
+        "readOnly": true
+      },
+      {
+        "key": "apolicesAtivas",
+        "type": "number",
+        "label": "Apólices ativas",
+        "readOnly": true
+      },
+      {
+        "key": "cotasAtivas",
+        "type": "number",
+        "label": "Cotas de consórcio ativas",
+        "readOnly": true
+      },
+      {
+        "key": "acaoPendencias",
+        "type": "radio",
+        "label": "O que aconteceu?",
+        "options": [
+          {
+            "label": "Pendências resolvidas",
+            "value": "resolvidas"
+          },
+          {
+            "label": "Cliente desistiu do encerramento",
+            "value": "cliente_desistiu"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "termoEncerramento",
+        "type": "file",
+        "label": "Termo de encerramento assinado",
+        "validate": {
+          "maxFiles": 1
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

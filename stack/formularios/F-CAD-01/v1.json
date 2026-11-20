@@ -1,0 +1,454 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:b462824665db5aabe2561c67cb599ec31235a1a127025ef2260b9dbec9329ecc",
+  "publishedAt": "2026-11-07T00:22:35.795665+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "situacaoDocumento",
+        "type": "text",
+        "label": "Situação do documento",
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "situacaoDocumento"
+            ]
+          },
+          "operator": "isNotEmpty"
+        }
+      },
+      {
+        "key": "pendencias",
+        "type": "checklist",
+        "label": "Pendências apontadas",
+        "options": [
+          {
+            "label": "Documento ilegível",
+            "value": "documento_ilegivel"
+          },
+          {
+            "label": "Endereço divergente",
+            "value": "endereco_divergente"
+          },
+          {
+            "label": "Renda não comprovada",
+            "value": "renda_nao_comprovada"
+          },
+          {
+            "label": "Contrato social desatualizado",
+            "value": "contrato_social_desatualizado"
+          },
+          {
+            "label": "Dados divergentes",
+            "value": "dados_divergentes"
+          },
+          {
+            "label": "Outro",
+            "value": "outro"
+          }
+        ],
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerCadastro"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "ajustar"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "observacaoCadastro",
+        "type": "textarea",
+        "label": "Observação do Cadastro",
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerCadastro"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "ajustar"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "tipoPessoa",
+        "type": "radio",
+        "label": "Tipo de pessoa",
+        "options": [
+          {
+            "label": "Pessoa física",
+            "value": "pf"
+          },
+          {
+            "label": "Pessoa jurídica",
+            "value": "pj"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "label": "CPF ou CNPJ",
+        "validate": {
+          "pattern": "^([0-9]{11}|[0-9]{14})$",
+          "required": true
+        }
+      },
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "label": "Nome completo ou razão social",
+        "validate": {
+          "required": true,
+          "maxLength": 150
+        }
+      },
+      {
+        "key": "dadosPf",
+        "type": "group",
+        "label": "Dados da pessoa física",
+        "components": [
+          {
+            "key": "dataNascimento",
+            "type": "date",
+            "label": "Data de nascimento",
+            "validate": {
+              "max": {
+                "offset": {
+                  "unit": "years",
+                  "amount": -18
+                },
+                "system": "currentDate"
+              },
+              "required": true
+            }
+          },
+          {
+            "key": "estadoCivil",
+            "type": "select",
+            "label": "Estado civil",
+            "options": [
+              {
+                "label": "Solteiro",
+                "value": "solteiro"
+              },
+              {
+                "label": "Casado",
+                "value": "casado"
+              },
+              {
+                "label": "Divorciado",
+                "value": "divorciado"
+              },
+              {
+                "label": "Viúvo",
+                "value": "viuvo"
+              },
+              {
+                "label": "União estável",
+                "value": "uniao_estavel"
+              }
+            ],
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "profissao",
+            "type": "text",
+            "label": "Profissão",
+            "validate": {
+              "required": true
+            }
+          }
+        ],
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "tipoPessoa"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "pf"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "dadosPj",
+        "type": "group",
+        "label": "Dados da pessoa jurídica",
+        "components": [
+          {
+            "key": "dataConstituicao",
+            "type": "date",
+            "label": "Data de constituição",
+            "validate": {
+              "max": {
+                "system": "currentDate"
+              },
+              "required": true
+            }
+          },
+          {
+            "key": "atividadePrincipal",
+            "type": "text",
+            "label": "Atividade principal",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "socios",
+            "type": "dynamicList",
+            "label": "Sócios",
+            "validate": {
+              "maxRows": 10,
+              "minRows": 1
+            },
+            "components": [
+              {
+                "key": "nome",
+                "type": "text",
+                "label": "Nome do sócio",
+                "validate": {
+                  "required": true
+                }
+              },
+              {
+                "key": "cpf",
+                "type": "text",
+                "label": "CPF do sócio",
+                "validate": {
+                  "format": "cpf",
+                  "required": true
+                }
+              },
+              {
+                "key": "participacao",
+                "type": "number",
+                "label": "Participação (%)",
+                "validate": {
+                  "max": 100,
+                  "min": 0.01,
+                  "required": true,
+                  "decimalDigits": 2
+                }
+              }
+            ]
+          }
+        ],
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "tipoPessoa"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "pj"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "rendaMensal",
+        "type": "number",
+        "label": "Renda mensal ou faturamento médio mensal",
+        "validate": {
+          "min": 0.01,
+          "required": true,
+          "decimalDigits": 2
+        },
+        "sensitive": true
+      },
+      {
+        "key": "endereco",
+        "type": "group",
+        "label": "Endereço",
+        "components": [
+          {
+            "key": "cep",
+            "type": "text",
+            "label": "CEP",
+            "validate": {
+              "format": "cep",
+              "required": true
+            }
+          },
+          {
+            "key": "logradouro",
+            "type": "text",
+            "label": "Logradouro",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "numero",
+            "type": "text",
+            "label": "Número",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "complemento",
+            "type": "text",
+            "label": "Complemento"
+          },
+          {
+            "key": "bairro",
+            "type": "text",
+            "label": "Bairro",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "cidade",
+            "type": "text",
+            "label": "Cidade",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "uf",
+            "type": "text",
+            "label": "UF",
+            "validate": {
+              "pattern": "^[A-Z]{2}$",
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "key": "email",
+        "type": "text",
+        "label": "E-mail",
+        "validate": {
+          "format": "email",
+          "required": true
+        }
+      },
+      {
+        "key": "telefone",
+        "type": "text",
+        "label": "Telefone",
+        "validate": {
+          "format": "phone",
+          "required": true
+        }
+      },
+      {
+        "key": "tipoConta",
+        "type": "radio",
+        "label": "Tipo de conta",
+        "options": [
+          {
+            "label": "Corrente",
+            "value": "corrente"
+          },
+          {
+            "label": "Poupança",
+            "value": "poupanca"
+          },
+          {
+            "label": "Salário",
+            "value": "salario"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "documentoIdentidade",
+        "type": "file",
+        "label": "Documento de identificação",
+        "validate": {
+          "maxFiles": 2,
+          "required": true
+        }
+      },
+      {
+        "key": "comprovanteEndereco",
+        "type": "file",
+        "label": "Comprovante de endereço",
+        "validate": {
+          "maxFiles": 1,
+          "required": true
+        }
+      },
+      {
+        "key": "contratoSocial",
+        "type": "file",
+        "label": "Contrato social",
+        "validate": {
+          "maxFiles": 1
+        },
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "tipoPessoa"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "pj"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "tipoPessoa"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "pj"
+          },
+          "operator": "equals"
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

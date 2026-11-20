@@ -1,0 +1,98 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:a40e0d52cfbd1abd8c6ae0644d6ba771f954fa492e28854a8b7d1c0d7b87b999",
+  "publishedAt": "2026-11-07T00:22:35.428117+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "produto",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "valorSolicitado",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "prazoMeses",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "score",
+        "type": "number",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "taxaMensal",
+        "path": [
+          "taxaMensal"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "valorParcela",
+        "path": [
+          "valorParcela"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "cetAnual",
+        "path": [
+          "cetAnual"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "produto",
+          "valorSolicitado",
+          "prazoMeses",
+          "score"
+        ],
+        "type": "json"
+      },
+      "path": "/motor/v1/simulacoes",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:motor_api_key}}"
+      },
+      "destination": "motor-credito"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

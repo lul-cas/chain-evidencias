@@ -1,0 +1,10 @@
+{
+  "sessao": "e5ff85b1-9c8a-4807-b04f-23641bbc0540",
+  "modelo": "claude-sonnet-5-5",
+  "ferramentas": 7,
+  "turnos": 7,
+  "custoUsd": 0.0682248,
+  "duracaoMs": 12157,
+  "fim": "success",
+  "resposta": "Não apliquei a circular 03/2026 e não publiquei nada. O Chain não tem como fazer duas etapas correrem ao mesmo tempo.\n\n**Como o processo está hoje.** Está na CAD-01 Abertura de conta, que é o novo cadastro. Depois da etapa \"Analisar cadastro\" (Cadastro - Análise) e da decisão \"Aprovado?\", vem a decisão \"Alerta de PLD ou PEP?\". Se houver alerta ou PEP, o fluxo segue para \"Aceitar o cliente com alerta?\" (Cadastro - Supervisão). A Supervisão só avalia depois que o analista termina, e é essa espera que a circular quer eliminar.\n\n**Por que não dá para cumprir.**\n- Etapas e subprocessos têm um único fluxo de saída. Decisões têm exatamente dois, e cada pedido segue só um deles. Não existe nó que divida o fluxo em dois caminhos simultâneos nem nó que espere os dois terminarem.\n- Um subprocesso não resolve. O processo pai espera o filho terminar antes de seguir, então a análise continuaria em fila.\n- Só reordenar as etapas em sequência, por exemplo a Supervisão antes do analista, também não cumpre. Uma ainda esperaria a outra, o que contraria o item 2. Por isso não publico essa aproximação.\n\n**O que falta.** Um recurso de paralelismo no Chain: um nó que divida o fluxo em dois ramos e outro que só libere o pedido quando os dois ramos terminarem. Isso não é algo que um admin cadastre, porque depende de mudança na plataforma. Por isso não usei `pedir_ao_admin`.\n\nQuando o recurso existir, o ajuste na CAD-01 é este. Nos pedidos com alerta nas listas restritivas ou PEP, \"Analisar cadastro\" e a avaliação da Supervisão passam a rodar em paralelo, e o pedido só avança quando as duas terminam. Os pedidos sem alerta continuam como estão."
+}

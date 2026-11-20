@@ -1,0 +1,7 @@
+{"quando":"2026-11-07T02:16:41.998Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows"},"erro":false}
+{"quando":"2026-11-07T02:16:42.490Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/groups"},"erro":false}
+{"quando":"2026-11-07T02:16:43.568Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c27f-7809-8937-0ea2d71ceb5b"},"erro":false}
+{"quando":"2026-11-07T02:16:51.259Z","ferramenta":"ajustar_rascunho","argumentos":{"colecao":"workflows","id":"01a1b362-c27f-7809-8937-0ea2d71ceb5b","operacoes":[{"op":"replace","path":"/flows/16/target","value":"criar_conta"},{"op":"replace","path":"/flows/17/target","value":"criar_conta"},{"op":"remove","path":"/flows/22"},{"op":"remove","path":"/flows/21"},{"op":"remove","path":"/flows/20"},{"op":"remove","path":"/flows/19"},{"op":"remove","path":"/nodes/19"},{"op":"remove","path":"/nodes/11"},{"op":"remove","path":"/lanes/3"}]},"erro":false}
+{"quando":"2026-11-07T02:16:51.637Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c2b8-7cb5-a088-cbcb254e50d5"},"erro":false}
+{"quando":"2026-11-07T02:16:53.138Z","ferramenta":"validar","argumentos":{"colecao":"workflows","id":"01a1b362-c27f-7809-8937-0ea2d71ceb5b"},"erro":false}
+{"quando":"2026-11-07T02:16:54.385Z","ferramenta":"publicar","argumentos":{"colecao":"workflows","id":"01a1b362-c27f-7809-8937-0ea2d71ceb5b"},"erro":false}

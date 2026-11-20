@@ -1,0 +1,57 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:4ce6e61abb533eb1f2ee8ec96475350ce4b18780b518ed1b47b5d2e8ef42e1e6",
+  "publishedAt": "2026-11-07T00:22:35.049067+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "idEnvelope",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "assinaturaConcluida",
+        "path": [
+          "assinaturaConcluida"
+        ],
+        "type": "boolean",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": null,
+      "path": "/assinador/v1/envelopes/{idEnvelope}",
+      "query": {},
+      "method": "GET",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:assinador_api_key}}"
+      },
+      "destination": "assinador"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:1857120a587700e7a6ea7d507ccf45a6114da4c84e3e756ba916f87f3c5a4f78",
+  "publishedAt": "2026-11-07T00:22:35.406123+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "referencia",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "descricaoBem",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "valorBem",
+        "type": "number",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "numeroGravame",
+        "path": [
+          "numeroGravame"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "referencia",
+          "documentoCliente",
+          "descricaoBem",
+          "valorBem"
+        ],
+        "type": "json"
+      },
+      "path": "/garantias/v1/gravames",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:garantias_api_key}}"
+      },
+      "destination": "garantias"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:43b9fc32b4c4f9f7c08da1902bec871b117de4de2316ed4269a7d02e033c357e",
+  "publishedAt": "2026-11-07T00:22:35.961663+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "label": "CPF ou CNPJ",
+        "validate": {
+          "pattern": "^([0-9]{11}|[0-9]{14})$",
+          "required": true
+        }
+      },
+      {
+        "key": "tipoSeguro",
+        "type": "select",
+        "label": "Tipo de seguro",
+        "options": [
+          {
+            "label": "Vida",
+            "value": "vida"
+          },
+          {
+            "label": "Residencial",
+            "value": "residencial"
+          },
+          {
+            "label": "Auto",
+            "value": "auto"
+          },
+          {
+            "label": "Prestamista",
+            "value": "prestamista"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "capitalSegurado",
+        "type": "number",
+        "label": "Capital segurado",
+        "validate": {
+          "min": 1000,
+          "required": true,
+          "decimalDigits": 2
+        }
+      },
+      {
+        "key": "beneficiarios",
+        "type": "dynamicList",
+        "label": "Beneficiários",
+        "validate": {
+          "maxRows": 5
+        },
+        "components": [
+          {
+            "key": "nome",
+            "type": "text",
+            "label": "Nome",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "cpf",
+            "type": "text",
+            "label": "CPF",
+            "validate": {
+              "format": "cpf",
+              "required": true
+            }
+          },
+          {
+            "key": "percentual",
+            "type": "number",
+            "label": "Percentual",
+            "validate": {
+              "max": 100,
+              "min": 0.01,
+              "required": true,
+              "decimalDigits": 2
+            }
+          }
+        ],
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "tipoSeguro"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "vida"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "bemSegurado",
+        "type": "group",
+        "label": "Bem segurado",
+        "components": [
+          {
+            "key": "descricao",
+            "type": "text",
+            "label": "Descrição do bem",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "valor",
+            "type": "number",
+            "label": "Valor do bem",
+            "validate": {
+              "min": 1000,
+              "required": true,
+              "decimalDigits": 2
+            }
+          }
+        ],
+        "visibleWhen": {
+          "op": "or",
+          "kind": "group",
+          "items": [
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "tipoSeguro"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "text",
+                "value": "residencial"
+              },
+              "operator": "equals"
+            },
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "tipoSeguro"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "text",
+                "value": "auto"
+              },
+              "operator": "equals"
+            }
+          ]
+        }
+      },
+      {
+        "key": "declaracaoSaude",
+        "type": "textarea",
+        "label": "Declaração de saúde",
+        "validate": {
+          "maxLength": 2000
+        },
+        "sensitive": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "tipoSeguro"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "vida"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "tipoSeguro"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "vida"
+          },
+          "operator": "equals"
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "numero": "01",
+    "nome": "Sequência",
+    "suporte": "direto",
+    "evidencia": "Etapas em ordem, cada uma só abre depois da anterior."
+  },
+  {
+    "numero": "02",
+    "nome": "Divisão paralela",
+    "suporte": "ausente",
+    "evidencia": "Dois fluxos saindo de uma etapa são recusados (WF005). O motor tem um só token."
+  },
+  {
+    "numero": "03",
+    "nome": "Sincronização",
+    "suporte": "ausente",
+    "evidencia": "Sem divisão paralela não há o que sincronizar: um nó com duas entradas segue na primeira que chega, sem esperar a outra."
+  },
+  {
+    "numero": "04",
+    "nome": "Escolha exclusiva",
+    "suporte": "direto",
+    "evidencia": "Um gateway segue um só ramo, por condição ou decisão de uma pessoa."
+  },
+  {
+    "numero": "05",
+    "nome": "Junção simples",
+    "suporte": "direto",
+    "evidencia": "Os dois ramos chegam ao mesmo nó, que roda uma vez."
+  },
+  {
+    "numero": "06",
+    "nome": "Escolha múltipla",
+    "suporte": "ausente",
+    "evidencia": "Gateways em cadeia executam vários ramos, mas um depois do outro, nunca ao mesmo tempo."
+  },
+  {
+    "numero": "07",
+    "nome": "Junção sincronizada",
+    "suporte": "ausente",
+    "evidencia": "Não há gateway inclusivo (WF000), nem ramos simultâneos a aguardar."
+  },
+  {
+    "numero": "08",
+    "nome": "Junção múltipla",
+    "suporte": "ausente",
+    "evidencia": "Exige ramos simultâneos, que o Chain recusa (WF005)."
+  },
+  {
+    "numero": "09",
+    "nome": "Discriminador",
+    "suporte": "ausente",
+    "evidencia": "Não há gateway complexo (WF000), nem ramos simultâneos."
+  },
+  {
+    "numero": "10",
+    "nome": "Ciclos arbitrários",
+    "suporte": "direto",
+    "evidencia": "Um fluxo de volta cria uma tarefa nova a cada passagem."
+  },
+  {
+    "numero": "11",
+    "nome": "Término implícito",
+    "suporte": "ausente",
+    "evidencia": "Um nó sem saída é recusado (WF005, WF008, WF009): o fim precisa estar no modelo. Com um só token, chegar a ele encerra o pedido, sem nada pendente."
+  },
+  {
+    "numero": "12",
+    "nome": "Múltiplas instâncias sem sincronização",
+    "suporte": "ausente",
+    "evidencia": "O modelo não cria instâncias. Um sistema externo inicia várias por gatilho HTTP, que correm independentes."
+  },
+  {
+    "numero": "13",
+    "nome": "Múltiplas instâncias conhecidas no projeto",
+    "suporte": "ausente",
+    "evidencia": "Três subprocessos em sequência rodam e sincronizam, mas um de cada vez."
+  },
+  {
+    "numero": "14",
+    "nome": "Múltiplas instâncias conhecidas na execução",
+    "suporte": "ausente",
+    "evidencia": "Um laço com contador repete a etapa N vezes, com N vindo do pedido, mas uma de cada vez."
+  },
+  {
+    "numero": "15",
+    "nome": "Múltiplas instâncias desconhecidas na execução",
+    "suporte": "ausente",
+    "evidencia": "Uma decisão humana a cada volta define se há outra, mas uma de cada vez."
+  },
+  {
+    "numero": "16",
+    "nome": "Escolha adiada",
+    "suporte": "parcial",
+    "evidencia": "Uma decisão humana adia a escolha até alguém agir, mas é uma tarefa só, e não uma disputa entre dois eventos."
+  },
+  {
+    "numero": "17",
+    "nome": "Roteamento intercalado",
+    "suporte": "ausente",
+    "evidencia": "Cada ordem precisa ser desenhada: com duas etapas são dois caminhos, e o número cresce em fatorial."
+  },
+  {
+    "numero": "18",
+    "nome": "Marco",
+    "suporte": "ausente",
+    "evidencia": "Não há esse construto (WF000), e o padrão pede um ramo paralelo que observe o outro."
+  },
+  {
+    "numero": "19",
+    "nome": "Cancelar atividade",
+    "suporte": "ausente",
+    "evidencia": "Não há evento de borda (WF000), e a API não cancela uma tarefa sozinha (404). Só o pedido inteiro é encerrado."
+  },
+  {
+    "numero": "20",
+    "nome": "Cancelar caso",
+    "suporte": "ausente",
+    "evidencia": "Encerrar um pedido, com justificativa, cancela as tarefas abertas."
+  }
+]

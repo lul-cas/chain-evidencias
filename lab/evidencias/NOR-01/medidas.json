@@ -1,0 +1,59 @@
+{
+  "elementos": 1,
+  "versoes": [
+    "CRE-01 Proposta de crédito v1→v2",
+    "CRE-02 Análise de crédito v1→v2"
+  ],
+  "republicados": [
+    "CRE-01 Proposta de crédito"
+  ],
+  "processos": {
+    "CRE-01 Proposta de crédito": {
+      "nos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "fluxos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "raias": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "total": 0
+    },
+    "CRE-02 Análise de crédito": {
+      "nos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 1
+      },
+      "fluxos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "raias": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "total": 1
+    }
+  },
+  "formularios": {},
+  "automacoes": [],
+  "emAndamento": [
+    {
+      "processo": "CRE-01 Proposta de crédito",
+      "versao": 1,
+      "fim": "fim_desistencia",
+      "status": "completed"
+    }
+  ],
+  "mesmosConteineres": true
+}

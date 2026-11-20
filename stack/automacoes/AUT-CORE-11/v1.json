@@ -1,0 +1,79 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:10be7d5bbfb6d3812a6d18e33fec2d359d1588327523ae4045408be50792f9eb",
+  "publishedAt": "2026-11-07T00:22:35.333132+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "numeroContrato",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "valorAcordo",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "valorEntrada",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "quantidadeParcelas",
+        "type": "number",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "numeroAcordo",
+        "path": [
+          "numeroAcordo"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "valorAcordo",
+          "valorEntrada",
+          "quantidadeParcelas"
+        ],
+        "type": "json"
+      },
+      "path": "/core/v1/contratos/{numeroContrato}/acordos",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

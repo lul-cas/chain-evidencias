@@ -1,0 +1,75 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:4eb579de076415b4c6688a77d2d5b72e469bd3d26cbd0e6b586422875e718af5",
+  "publishedAt": "2026-11-07T00:22:35.072701+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "score",
+        "path": [
+          "score"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "possuiRestricao",
+        "path": [
+          "possuiRestricao"
+        ],
+        "type": "boolean",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "valorRestricoes",
+        "path": [
+          "valorRestricoes"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": null,
+      "path": "/bureau/v1/score/{documentoCliente}",
+      "query": {},
+      "method": "GET",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:bureau_api_key}}"
+      },
+      "destination": "bureau-credito"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

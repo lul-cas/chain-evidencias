@@ -1,0 +1,1217 @@
+{
+  "id": "01a1b3c6-5dbf-76be-b6c2-0dce8f1505e0",
+  "definitionId": "01a1b362-c387-7dea-b975-6e603e1dbb4c",
+  "definitionName": "CRE-01 Proposta de crédito",
+  "versionNumber": 4,
+  "status": "completed",
+  "currentNodeId": "fim_liberado",
+  "requester": {
+    "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+    "username": "persona-marina",
+    "displayName": "Marina"
+  },
+  "startedAt": "2026-11-07T02:11:24.223226+00:00",
+  "endedAt": "2026-11-07T02:14:16.543656+00:00",
+  "openTasks": [],
+  "participants": [
+    {
+      "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+      "username": "persona-marina",
+      "displayName": "Marina"
+    },
+    {
+      "id": "01a1b3c4-d49c-75f9-a060-a9ac5f7f027d",
+      "username": "persona-ines",
+      "displayName": "Inês"
+    }
+  ],
+  "timeline": [
+    {
+      "type": "instance.started",
+      "occurredAt": "2026-11-07T02:11:24.223226+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "versionNumber": 4,
+        "definitionName": "CRE-01 Proposta de crédito"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "attachment.added",
+      "occurredAt": "2026-11-07T02:11:24.223226+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3c6-5db7-7158-9cc4-c0ef30155829",
+        "contentType": "application/pdf",
+        "submissionId": "01a1b3c6-5dbf-7297-8aeb-2f330b05877a"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:11:24.223226+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "formId": "01a1b362-c13c-774d-84ee-a96e1cfcb913",
+        "nodeId": "inicio",
+        "formVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:11:24.223226+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Buscar cliente no Core",
+        "nodeId": "buscar_cliente",
+        "requestId": "01a1b3c6-5dbf-785b-80bc-2a535d5f3970",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:27:54Z",
+        "automationId": "01a1b362-bd45-7c0f-85a2-ad993218b000",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:11:24.814648+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Buscar cliente no Core",
+        "nodeId": "buscar_cliente",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/core/v1/clientes/00000001082",
+              "method": "GET",
+              "secrets": [
+                {
+                  "name": "core_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "core-bancario",
+              "headerNames": [
+                "Accept",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:11:24.794Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 378
+          }
+        ],
+        "requestId": "01a1b3c6-5dbf-785b-80bc-2a535d5f3970"
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:11:24.814648+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Cliente ativo?",
+        "nodeId": "gw_cliente_ativo",
+        "outcome": true
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:11:24.814648+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Cadastro válido?",
+        "nodeId": "gw_cadastro_valido",
+        "outcome": true
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:11:24.814648+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar score",
+        "nodeId": "consultar_bureau",
+        "requestId": "01a1b3c6-600e-740b-9222-8fdd72675fa4",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:27:54Z",
+        "automationId": "01a1b362-bd2e-7605-8adf-287c09bd5c1f",
+        "automationVersion": 1
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:11:25.82095+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar score",
+        "nodeId": "consultar_bureau",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/bureau/v1/score/00000001082",
+              "method": "GET",
+              "secrets": [
+                {
+                  "name": "bureau_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "bureau-credito",
+              "headerNames": [
+                "Accept",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:11:25.800Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 57
+          }
+        ],
+        "requestId": "01a1b3c6-600e-740b-9222-8fdd72675fa4"
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:11:25.82095+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar exposição de crédito",
+        "nodeId": "consultar_exposicao",
+        "requestId": "01a1b3c6-63fc-78fc-81f4-71a9c794c374",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:27:55Z",
+        "automationId": "01a1b362-bdcf-74d3-bc6e-65cb97030021",
+        "automationVersion": 1
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:11:26.823113+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar exposição de crédito",
+        "nodeId": "consultar_exposicao",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/core/v1/clientes/00000001082/exposicao",
+              "method": "GET",
+              "secrets": [
+                {
+                  "name": "core_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "core-bancario",
+              "headerNames": [
+                "Accept",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:11:26.807Z",
+            "durationMs": 4,
+            "errorClass": null,
+            "responseBytes": 68
+          }
+        ],
+        "requestId": "01a1b3c6-63fc-78fc-81f4-71a9c794c374"
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:11:26.823113+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Simular operação",
+        "nodeId": "simular_operacao",
+        "requestId": "01a1b3c6-67e7-7060-ba46-0d0248a32726",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:27:56Z",
+        "automationId": "01a1b362-be92-7cf2-bc25-7a2a692cdcbd",
+        "automationVersion": 1
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:11:27.832251+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Simular operação",
+        "nodeId": "simular_operacao",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/motor/v1/simulacoes",
+              "method": "POST",
+              "secrets": [
+                {
+                  "name": "motor_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "motor-credito",
+              "headerNames": [
+                "Accept",
+                "Content-Type",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:11:27.815Z",
+            "durationMs": 4,
+            "errorClass": null,
+            "responseBytes": 57
+          }
+        ],
+        "requestId": "01a1b3c6-67e7-7060-ba46-0d0248a32726"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.created",
+      "occurredAt": "2026-11-07T02:11:27.832251+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-6bd8-72fd-8c7f-0cf32888d9d2",
+      "details": {
+        "kind": "task",
+        "label": "Negociar condições",
+        "nodeId": "negociar_condicoes"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.assigned",
+      "occurredAt": "2026-11-07T02:11:27.846853+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-6bd8-72fd-8c7f-0cf32888d9d2",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:11:27.846853+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-6bd8-72fd-8c7f-0cf32888d9d2",
+      "details": {
+        "formId": "01a1b362-c153-7d8e-ae84-a8a8657e2230",
+        "nodeId": "negociar_condicoes",
+        "formVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.completed",
+      "occurredAt": "2026-11-07T02:11:27.846853+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-6bd8-72fd-8c7f-0cf32888d9d2",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:11:27.846853+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Refazer a simulação?",
+        "nodeId": "gw_resimular",
+        "outcome": false
+      },
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:11:27.846853+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Cliente aceitou?",
+        "nodeId": "gw_cliente_aceitou",
+        "outcome": true
+      },
+      "channel": "api"
+    },
+    {
+      "type": "subprocess.started",
+      "occurredAt": "2026-11-07T02:11:27.846853+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "analisar_credito",
+        "childId": "01a1b3c6-6be6-71ce-b41a-daf6ffba7a62",
+        "definitionName": "CRE-02 Análise de crédito"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "subprocess.completed",
+      "occurredAt": "2026-11-07T02:11:28.839842+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "analisar_credito",
+        "childId": "01a1b3c6-6be6-71ce-b41a-daf6ffba7a62"
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:11:28.839842+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Crédito aprovado?",
+        "nodeId": "gw_aprovado",
+        "outcome": true
+      },
+      "channel": null
+    },
+    {
+      "type": "task.created",
+      "occurredAt": "2026-11-07T02:11:28.839842+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-6fc7-755f-9115-c1fc1076806b",
+      "details": {
+        "kind": "decision",
+        "label": "Cliente aceita as condições aprovadas?",
+        "nodeId": "aceitar_aprovacao"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.assigned",
+      "occurredAt": "2026-11-07T02:11:28.976475+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-6fc7-755f-9115-c1fc1076806b",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "gateway.decided",
+      "occurredAt": "2026-11-07T02:11:28.976475+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-6fc7-755f-9115-c1fc1076806b",
+      "details": {
+        "outcome": true
+      },
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:11:28.976475+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Quer seguro prestamista?",
+        "nodeId": "gw_prestamista",
+        "outcome": false
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:11:28.976475+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Gerar contrato",
+        "nodeId": "gerar_contrato",
+        "requestId": "01a1b3c6-7050-735a-a9cd-fb5d5c77e9d0",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:27:58Z",
+        "automationId": "01a1b362-bde7-7ac9-b9c3-d5f4bdbcb03e",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:11:29.835316+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Gerar contrato",
+        "nodeId": "gerar_contrato",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/core/v1/contratos",
+              "method": "POST",
+              "secrets": [
+                {
+                  "name": "core_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "core-bancario",
+              "headerNames": [
+                "Accept",
+                "Content-Type",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:11:29.819Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 28
+          }
+        ],
+        "requestId": "01a1b3c6-7050-735a-a9cd-fb5d5c77e9d0"
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:11:29.835316+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Enviar para assinatura",
+        "nodeId": "enviar_assinatura",
+        "requestId": "01a1b3c6-73ab-75b6-abd4-d38e0f596f92",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:27:59Z",
+        "automationId": "01a1b362-bcc9-794c-a09f-3c78a2589cd2",
+        "automationVersion": 1
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:11:30.847618+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Enviar para assinatura",
+        "nodeId": "enviar_assinatura",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/assinador/v1/envelopes",
+              "method": "POST",
+              "secrets": [
+                {
+                  "name": "assinador_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "assinador",
+              "headerNames": [
+                "Accept",
+                "Content-Type",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:11:30.830Z",
+            "durationMs": 4,
+            "errorClass": null,
+            "responseBytes": 25
+          }
+        ],
+        "requestId": "01a1b3c6-73ab-75b6-abd4-d38e0f596f92"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.created",
+      "occurredAt": "2026-11-07T02:11:30.847618+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-779f-7264-a55b-f17c19df42ef",
+      "details": {
+        "kind": "task",
+        "label": "Colher assinatura",
+        "nodeId": "colher_assinatura"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.assigned",
+      "occurredAt": "2026-11-07T02:11:30.90862+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-779f-7264-a55b-f17c19df42ef",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:11:30.90862+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-779f-7264-a55b-f17c19df42ef",
+      "details": {
+        "formId": "01a1b362-c169-7099-8f7f-e287bac02b33",
+        "nodeId": "colher_assinatura",
+        "formVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.completed",
+      "occurredAt": "2026-11-07T02:11:30.90862+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-779f-7264-a55b-f17c19df42ef",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:11:30.90862+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar assinatura",
+        "nodeId": "consultar_assinatura",
+        "requestId": "01a1b3c6-77dc-7be5-ba91-1397e4d88616",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:28:00Z",
+        "automationId": "01a1b362-bd15-7829-8089-5f2a8722e7d0",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:11:31.855246+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar assinatura",
+        "nodeId": "consultar_assinatura",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/assinador/v1/envelopes/ENV-0005",
+              "method": "GET",
+              "secrets": [
+                {
+                  "name": "assinador_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "assinador",
+              "headerNames": [
+                "Accept",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:11:31.836Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 29
+          }
+        ],
+        "requestId": "01a1b3c6-77dc-7be5-ba91-1397e4d88616"
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:11:31.855246+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Contrato assinado?",
+        "nodeId": "gw_assinado",
+        "outcome": false
+      },
+      "channel": null
+    },
+    {
+      "type": "task.created",
+      "occurredAt": "2026-11-07T02:11:31.855246+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-7b8f-7232-a607-d98bc0c7aeb9",
+      "details": {
+        "kind": "task",
+        "label": "Colher assinatura",
+        "nodeId": "colher_assinatura"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.assigned",
+      "occurredAt": "2026-11-07T02:13:58.986416+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-7b8f-7232-a607-d98bc0c7aeb9",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:13:58.986416+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-7b8f-7232-a607-d98bc0c7aeb9",
+      "details": {
+        "formId": "01a1b362-c169-7099-8f7f-e287bac02b33",
+        "nodeId": "colher_assinatura",
+        "formVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.completed",
+      "occurredAt": "2026-11-07T02:13:58.986416+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c6-7b8f-7232-a607-d98bc0c7aeb9",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:13:58.986416+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar assinatura",
+        "nodeId": "consultar_assinatura",
+        "requestId": "01a1b3c8-ba4a-734f-b075-e31eeac148ed",
+        "activation": 2,
+        "deadlineAt": "2026-11-07T02:30:28Z",
+        "automationId": "01a1b362-bd15-7829-8089-5f2a8722e7d0",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:13:59.450277+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Consultar assinatura",
+        "nodeId": "consultar_assinatura",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/assinador/v1/envelopes/ENV-0005",
+              "method": "GET",
+              "secrets": [
+                {
+                  "name": "assinador_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "assinador",
+              "headerNames": [
+                "Accept",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:13:59.435Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 28
+          }
+        ],
+        "requestId": "01a1b3c8-ba4a-734f-b075-e31eeac148ed"
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:13:59.450277+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Contrato assinado?",
+        "nodeId": "gw_assinado",
+        "outcome": true
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:13:59.450277+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Aprovação dentro da validade?",
+        "nodeId": "gw_dentro_validade",
+        "outcome": true
+      },
+      "channel": null
+    },
+    {
+      "type": "task.created",
+      "occurredAt": "2026-11-07T02:13:59.450277+00:00",
+      "actor": null,
+      "actedAsGroup": {
+        "id": "01a1b3c4-d495-785c-a61f-30c1f306d352",
+        "name": "Controles Internos"
+      },
+      "taskId": "01a1b3c8-bc1a-7b64-8d52-674965ef5809",
+      "details": {
+        "kind": "task",
+        "label": "Conferir formalização",
+        "nodeId": "conferir_formalizacao"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.assigned",
+      "occurredAt": "2026-11-07T02:14:12.966062+00:00",
+      "actor": {
+        "id": "01a1b3c4-d49c-75f9-a060-a9ac5f7f027d",
+        "username": "persona-ines",
+        "displayName": "Inês"
+      },
+      "actedAsGroup": {
+        "id": "01a1b3c4-d495-785c-a61f-30c1f306d352",
+        "name": "Controles Internos"
+      },
+      "taskId": "01a1b3c8-bc1a-7b64-8d52-674965ef5809",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:14:12.966062+00:00",
+      "actor": {
+        "id": "01a1b3c4-d49c-75f9-a060-a9ac5f7f027d",
+        "username": "persona-ines",
+        "displayName": "Inês"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3c8-bc1a-7b64-8d52-674965ef5809",
+      "details": {
+        "formId": "01a1b362-c17e-7d2e-b99a-dc2ef14771e5",
+        "nodeId": "conferir_formalizacao",
+        "formVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.completed",
+      "occurredAt": "2026-11-07T02:14:12.966062+00:00",
+      "actor": {
+        "id": "01a1b3c4-d49c-75f9-a060-a9ac5f7f027d",
+        "username": "persona-ines",
+        "displayName": "Inês"
+      },
+      "actedAsGroup": {
+        "id": "01a1b3c4-d495-785c-a61f-30c1f306d352",
+        "name": "Controles Internos"
+      },
+      "taskId": "01a1b3c8-bc1a-7b64-8d52-674965ef5809",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:14:12.966062+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Formalização conforme?",
+        "nodeId": "gw_conforme",
+        "outcome": true
+      },
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:14:12.966062+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Financiamento de veículo?",
+        "nodeId": "gw_veiculo",
+        "outcome": false
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:14:12.966062+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Liberar crédito",
+        "nodeId": "liberar_credito",
+        "requestId": "01a1b3c8-f0e6-728c-9851-f1502a32f9a1",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:30:42Z",
+        "automationId": "01a1b362-bdfd-7b0f-87b8-63c4a558d3c7",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:14:13.525611+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Liberar crédito",
+        "nodeId": "liberar_credito",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/core/v1/contratos/CT-2005/liberacao",
+              "method": "POST",
+              "secrets": [
+                {
+                  "name": "core_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "core-bancario",
+              "headerNames": [
+                "Accept",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:14:13.508Z",
+            "durationMs": 4,
+            "errorClass": null,
+            "responseBytes": 51
+          }
+        ],
+        "requestId": "01a1b3c8-f0e6-728c-9851-f1502a32f9a1"
+      },
+      "channel": null
+    },
+    {
+      "type": "subprocess.started",
+      "occurredAt": "2026-11-07T02:14:13.525611+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "lancar_liberacao",
+        "childId": "01a1b3c8-f315-74fe-9b88-2fb8e4d26e04",
+        "definitionName": "CTB-01 Lançamento contábil"
+      },
+      "channel": null
+    },
+    {
+      "type": "subprocess.completed",
+      "occurredAt": "2026-11-07T02:14:15.535403+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "lancar_liberacao",
+        "childId": "01a1b3c8-f315-74fe-9b88-2fb8e4d26e04"
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:14:15.535403+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Notificar liberação",
+        "nodeId": "notificar_liberacao",
+        "requestId": "01a1b3c8-faef-7620-a8cd-809c7ef1c854",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:30:45Z",
+        "automationId": "01a1b362-bebe-7ae0-a1d6-0c8ce9bb163a",
+        "automationVersion": 1
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:14:16.543656+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Notificar liberação",
+        "nodeId": "notificar_liberacao",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/notificacoes/v1/mensagens",
+              "method": "POST",
+              "secrets": [
+                {
+                  "name": "notificacoes_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "notificacoes",
+              "headerNames": [
+                "Accept",
+                "Content-Type",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:14:16.526Z",
+            "durationMs": 4,
+            "errorClass": null,
+            "responseBytes": 25
+          }
+        ],
+        "requestId": "01a1b3c8-faef-7620-a8cd-809c7ef1c854"
+      },
+      "channel": null
+    },
+    {
+      "type": "instance.completed",
+      "occurredAt": "2026-11-07T02:14:16.543656+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "fim_liberado"
+      },
+      "channel": null
+    }
+  ],
+  "data": {
+    "email": "cliente10@exemplo.test",
+    "score": 780,
+    "produto": "pessoal",
+    "cetAnual": 19.56,
+    "finalidade": "Reforma",
+    "idEnvelope": "ENV-0005",
+    "idMensagem": "MSG-0009",
+    "prazoMeses": 24,
+    "taxaMensal": 1.5,
+    "nomeCliente": "Júlio Braga",
+    "taxaAprovada": 1.5,
+    "valorParcela": 449.32,
+    "dataLiberacao": "2026-11-06",
+    "prazoAprovado": 24,
+    "valorAprovado": 9000,
+    "valorLiberado": 9000,
+    "decisaoCredito": "aprovado",
+    "numeroContrato": "CT-2005",
+    "parcelasAtuais": 200,
+    "possuiRestricao": false,
+    "situacaoCliente": "ativo",
+    "valorRestricoes": 0,
+    "valorSolicitado": 9000,
+    "atrasoMaximoDias": 0,
+    "comprovanteRenda": [
+      {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3c6-5db7-7158-9cc4-c0ef30155829",
+        "contentType": "application/pdf"
+      }
+    ],
+    "documentoCliente": "00000001082",
+    "numeroLancamento": "LC-0006",
+    "clienteEncontrado": true,
+    "saldoDevedorTotal": 4800,
+    "validadeAprovacao": "2026-11-21",
+    "assinaturaConcluida": true,
+    "resultadoNegociacao": "aceita",
+    "dataValidadeCadastro": "2027-11-06",
+    "formalizacaoConforme": "sim"
+  },
+  "incidents": [],
+  "parent": null,
+  "children": [
+    {
+      "id": "01a1b3c6-6be6-71ce-b41a-daf6ffba7a62",
+      "nodeId": "analisar_credito",
+      "definitionName": "CRE-02 Análise de crédito",
+      "status": "completed"
+    },
+    {
+      "id": "01a1b3c8-f315-74fe-9b88-2fb8e4d26e04",
+      "nodeId": "lancar_liberacao",
+      "definitionName": "CTB-01 Lançamento contábil",
+      "status": "completed"
+    }
+  ],
+  "version": 10333,
+  "maskedKeys": [
+    "rendaMensal"
+  ]
+}

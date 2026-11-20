@@ -1,0 +1,147 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:c799c4fa2ff9dee99a075a2b8932c5e06768f252b3952b4d5775df12d75d9570",
+  "publishedAt": "2026-11-07T00:22:35.097368+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "encontrado",
+        "path": [
+          "encontrado"
+        ],
+        "type": "boolean",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "idCliente",
+        "path": [
+          "idCliente"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "nomeCliente",
+        "path": [
+          "nomeCliente"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "tipoPessoa",
+        "path": [
+          "tipoPessoa"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "situacaoCliente",
+        "path": [
+          "situacaoCliente"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "dataValidadeCadastro",
+        "path": [
+          "dataValidadeCadastro"
+        ],
+        "type": "date",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "rendaMensal",
+        "path": [
+          "rendaMensal"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "endereco",
+        "path": [
+          "endereco"
+        ],
+        "type": "object",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "email",
+        "path": [
+          "email"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "telefone",
+        "path": [
+          "telefone"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "numeroConta",
+        "path": [
+          "numeroConta"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": null,
+      "path": "/core/v1/clientes/{documentoCliente}",
+      "query": {},
+      "method": "GET",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:e21fdf2b86800c9fc7df9f04ae42c3d366b69f23105efde818a3dadae0576505",
+  "publishedAt": "2026-11-07T00:22:35.840166+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "label": "CPF ou CNPJ",
+        "validate": {
+          "pattern": "^([0-9]{11}|[0-9]{14})$",
+          "required": true
+        }
+      },
+      {
+        "key": "origem",
+        "type": "select",
+        "label": "Origem",
+        "options": [
+          {
+            "label": "Agência",
+            "value": "agencia"
+          },
+          {
+            "label": "Vencimento do cadastro",
+            "value": "vencimento"
+          },
+          {
+            "label": "Proposta de crédito",
+            "value": "proposta"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

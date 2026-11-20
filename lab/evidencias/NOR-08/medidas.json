@@ -1,0 +1,38 @@
+{
+  "elementos": 3,
+  "versoes": [
+    "CRE-03 Cobrança e renegociação v1→v2"
+  ],
+  "republicados": [],
+  "processos": {
+    "CRE-03 Cobrança e renegociação": {
+      "nos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "fluxos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 3
+      },
+      "raias": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "total": 3
+    }
+  },
+  "formularios": {},
+  "automacoes": [],
+  "emAndamento": [
+    {
+      "processo": "CRE-03 Cobrança e renegociação",
+      "versao": 1,
+      "fim": "fim_acordo",
+      "status": "completed"
+    }
+  ],
+  "mesmosConteineres": true
+}

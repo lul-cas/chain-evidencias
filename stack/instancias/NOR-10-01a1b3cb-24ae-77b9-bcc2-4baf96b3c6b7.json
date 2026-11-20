@@ -1,0 +1,616 @@
+{
+  "id": "01a1b3cb-24ae-77b9-bcc2-4baf96b3c6b7",
+  "definitionId": "01a1b362-c27f-7809-8937-0ea2d71ceb5b",
+  "definitionName": "CAD-01 Abertura de conta",
+  "versionNumber": 3,
+  "status": "completed",
+  "currentNodeId": "fim_conta_aberta",
+  "requester": {
+    "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+    "username": "persona-marina",
+    "displayName": "Marina"
+  },
+  "startedAt": "2026-11-07T02:16:37.294135+00:00",
+  "endedAt": "2026-11-07T02:17:05.36781+00:00",
+  "openTasks": [],
+  "participants": [
+    {
+      "id": "01a1b362-ba32-74c6-9dc8-a1c9a9cfd6ed",
+      "username": "persona-caio",
+      "displayName": "Caio"
+    },
+    {
+      "id": "01a1b362-ba6e-76d1-843c-8542755b95b0",
+      "username": "persona-beatriz",
+      "displayName": "Beatriz"
+    }
+  ],
+  "timeline": [
+    {
+      "type": "instance.started",
+      "occurredAt": "2026-11-07T02:16:37.294135+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "versionNumber": 3,
+        "definitionName": "CAD-01 Abertura de conta"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "attachment.added",
+      "occurredAt": "2026-11-07T02:16:37.294135+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3cb-2493-77c6-83f0-be7c45e8628f",
+        "contentType": "application/pdf",
+        "submissionId": "01a1b3cb-24ae-720c-a7da-e12ecb20e5d8"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "attachment.added",
+      "occurredAt": "2026-11-07T02:16:37.294135+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3cb-2499-716b-93fc-b59743b67113",
+        "contentType": "application/pdf",
+        "submissionId": "01a1b3cb-24ae-720c-a7da-e12ecb20e5d8"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "attachment.added",
+      "occurredAt": "2026-11-07T02:16:37.294135+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3cb-24a1-7860-aa4d-55c6c13c54ed",
+        "contentType": "application/pdf",
+        "submissionId": "01a1b3cb-24ae-720c-a7da-e12ecb20e5d8"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:16:37.294135+00:00",
+      "actor": {
+        "id": "01a1b362-ba89-72b3-bda5-caa1ba6ebf1e",
+        "username": "persona-marina",
+        "displayName": "Marina"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "formId": "01a1b362-bffc-7c87-b46c-ddf925ca3872",
+        "nodeId": "inicio",
+        "formVersion": 2
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:16:37.294135+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Buscar cliente no Core",
+        "nodeId": "buscar_cliente",
+        "requestId": "01a1b3cb-24ae-7e67-9bed-674f056ae036",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:33:07Z",
+        "automationId": "01a1b362-bd45-7c0f-85a2-ad993218b000",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:16:38.23433+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Buscar cliente no Core",
+        "nodeId": "buscar_cliente",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/core/v1/clientes/90000006000151",
+              "method": "GET",
+              "secrets": [
+                {
+                  "name": "core_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "core-bancario",
+              "headerNames": [
+                "Accept",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:16:38.216Z",
+            "durationMs": 4,
+            "errorClass": null,
+            "responseBytes": 20
+          }
+        ],
+        "requestId": "01a1b3cb-24ae-7e67-9bed-674f056ae036"
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:16:38.23433+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Já é cliente?",
+        "nodeId": "gw_ja_cliente",
+        "outcome": false
+      },
+      "channel": null
+    },
+    {
+      "type": "subprocess.started",
+      "occurredAt": "2026-11-07T02:16:38.23433+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "verificar_cliente",
+        "childId": "01a1b3cb-285a-7335-9c0f-6495ddaa9651",
+        "definitionName": "CAD-04 Verificação do cliente"
+      },
+      "channel": null
+    },
+    {
+      "type": "subprocess.completed",
+      "occurredAt": "2026-11-07T02:16:40.242499+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "verificar_cliente",
+        "childId": "01a1b3cb-285a-7335-9c0f-6495ddaa9651"
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:16:40.242499+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Documento regular?",
+        "nodeId": "gw_documento_regular",
+        "outcome": true
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:16:40.242499+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Bloqueio nas listas?",
+        "nodeId": "gw_pld_bloqueio",
+        "outcome": false
+      },
+      "channel": null
+    },
+    {
+      "type": "task.created",
+      "occurredAt": "2026-11-07T02:16:40.242499+00:00",
+      "actor": null,
+      "actedAsGroup": {
+        "id": "01a1b362-b94a-75b5-a9e1-dc11cc552934",
+        "name": "Cadastro - Análise"
+      },
+      "taskId": "01a1b3cb-3032-7901-b947-a6a323b8e60b",
+      "details": {
+        "kind": "task",
+        "label": "Analisar cadastro",
+        "nodeId": "analisar_cadastro"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.assigned",
+      "occurredAt": "2026-11-07T02:16:40.361717+00:00",
+      "actor": {
+        "id": "01a1b362-ba32-74c6-9dc8-a1c9a9cfd6ed",
+        "username": "persona-caio",
+        "displayName": "Caio"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b94a-75b5-a9e1-dc11cc552934",
+        "name": "Cadastro - Análise"
+      },
+      "taskId": "01a1b3cb-3032-7901-b947-a6a323b8e60b",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:16:40.361717+00:00",
+      "actor": {
+        "id": "01a1b362-ba32-74c6-9dc8-a1c9a9cfd6ed",
+        "username": "persona-caio",
+        "displayName": "Caio"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3cb-3032-7901-b947-a6a323b8e60b",
+      "details": {
+        "formId": "01a1b362-c019-72aa-b875-5ffecf6ca448",
+        "nodeId": "analisar_cadastro",
+        "formVersion": 2
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.completed",
+      "occurredAt": "2026-11-07T02:16:40.361717+00:00",
+      "actor": {
+        "id": "01a1b362-ba32-74c6-9dc8-a1c9a9cfd6ed",
+        "username": "persona-caio",
+        "displayName": "Caio"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b94a-75b5-a9e1-dc11cc552934",
+        "name": "Cadastro - Análise"
+      },
+      "taskId": "01a1b3cb-3032-7901-b947-a6a323b8e60b",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:16:40.361717+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Pede ajuste?",
+        "nodeId": "gw_pede_ajuste",
+        "outcome": false
+      },
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:16:40.361717+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Aprovado?",
+        "nodeId": "gw_aprovado",
+        "outcome": true
+      },
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:16:40.361717+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Alerta de PLD ou PEP?",
+        "nodeId": "gw_pld_alerta",
+        "outcome": false
+      },
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:16:40.361717+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Pessoa jurídica?",
+        "nodeId": "gw_pessoa_juridica",
+        "outcome": true
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.created",
+      "occurredAt": "2026-11-07T02:16:40.361717+00:00",
+      "actor": null,
+      "actedAsGroup": {
+        "id": "01a1b362-b95b-7d20-acf4-d006b400aaa3",
+        "name": "Agência - Gerência"
+      },
+      "taskId": "01a1b3cb-30a9-7392-b180-450a3034a7df",
+      "details": {
+        "kind": "decision",
+        "label": "Aceitar a empresa como cliente?",
+        "nodeId": "aprovar_empresa"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.assigned",
+      "occurredAt": "2026-11-07T02:17:03.54375+00:00",
+      "actor": {
+        "id": "01a1b362-ba6e-76d1-843c-8542755b95b0",
+        "username": "persona-beatriz",
+        "displayName": "Beatriz"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b95b-7d20-acf4-d006b400aaa3",
+        "name": "Agência - Gerência"
+      },
+      "taskId": "01a1b3cb-30a9-7392-b180-450a3034a7df",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "gateway.decided",
+      "occurredAt": "2026-11-07T02:17:03.54375+00:00",
+      "actor": {
+        "id": "01a1b362-ba6e-76d1-843c-8542755b95b0",
+        "username": "persona-beatriz",
+        "displayName": "Beatriz"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b95b-7d20-acf4-d006b400aaa3",
+        "name": "Agência - Gerência"
+      },
+      "taskId": "01a1b3cb-30a9-7392-b180-450a3034a7df",
+      "details": {
+        "outcome": true
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:17:03.54375+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Criar cliente e conta",
+        "nodeId": "criar_conta",
+        "requestId": "01a1b3cb-8b37-7f65-893f-8da75ac62438",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:33:33Z",
+        "automationId": "01a1b362-bd5f-7f8b-b25d-6b95fb35c5f7",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:17:04.374447+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Criar cliente e conta",
+        "nodeId": "criar_conta",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/core/v1/clientes",
+              "method": "POST",
+              "secrets": [
+                {
+                  "name": "core_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "core-bancario",
+              "headerNames": [
+                "Accept",
+                "Content-Type",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:17:04.353Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 72
+          }
+        ],
+        "requestId": "01a1b3cb-8b37-7f65-893f-8da75ac62438"
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:17:04.374447+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Notificar boas-vindas",
+        "nodeId": "notificar_boas_vindas",
+        "requestId": "01a1b3cb-8e76-7b94-88d1-4eac744114f6",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:33:34Z",
+        "automationId": "01a1b362-bebe-7ae0-a1d6-0c8ce9bb163a",
+        "automationVersion": 1
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:17:05.36781+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Notificar boas-vindas",
+        "nodeId": "notificar_boas_vindas",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/notificacoes/v1/mensagens",
+              "method": "POST",
+              "secrets": [
+                {
+                  "name": "notificacoes_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "notificacoes",
+              "headerNames": [
+                "Accept",
+                "Content-Type",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:17:05.351Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 25
+          }
+        ],
+        "requestId": "01a1b3cb-8e76-7b94-88d1-4eac744114f6"
+      },
+      "channel": null
+    },
+    {
+      "type": "instance.completed",
+      "occurredAt": "2026-11-07T02:17:05.36781+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "fim_conta_aberta"
+      },
+      "channel": null
+    }
+  ],
+  "data": {
+    "pep": false,
+    "email": "nina@exemplo.test",
+    "dadosPj": {
+      "socios": [
+        {
+          "cpf": "00000030341",
+          "nome": "Dono Único",
+          "participacao": 100
+        }
+      ],
+      "dataConstituicao": "2015-03-10",
+      "atividadePrincipal": "Comércio"
+    },
+    "endereco": {
+      "uf": "SP",
+      "cep": "01001000",
+      "bairro": "Centro",
+      "cidade": "São Paulo",
+      "numero": "10",
+      "logradouro": "Rua das Flores"
+    },
+    "telefone": "11999990000",
+    "idCliente": "CLI-0021",
+    "tipoConta": "corrente",
+    "idMensagem": "MSG-0016",
+    "tipoPessoa": "pj",
+    "nomeCliente": "Oficina Velha Ltda",
+    "numeroConta": "100021-0",
+    "resultadoPld": "limpo",
+    "numeroAgencia": "0001",
+    "contratoSocial": [
+      {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3cb-24a1-7860-aa4d-55c6c13c54ed",
+        "contentType": "application/pdf"
+      }
+    ],
+    "origemRecursos": "salario",
+    "parecerCadastro": "aprovado",
+    "documentoCliente": "90000006000151",
+    "clienteEncontrado": false,
+    "situacaoDocumento": "regular",
+    "comprovanteEndereco": [
+      {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3cb-2499-716b-93fc-b59743b67113",
+        "contentType": "application/pdf"
+      }
+    ],
+    "documentoIdentidade": [
+      {
+        "name": "documento.pdf",
+        "size": 22,
+        "fileId": "01a1b3cb-2493-77c6-83f0-be7c45e8628f",
+        "contentType": "application/pdf"
+      }
+    ]
+  },
+  "incidents": [],
+  "parent": null,
+  "children": [
+    {
+      "id": "01a1b3cb-285a-7335-9c0f-6495ddaa9651",
+      "nodeId": "verificar_cliente",
+      "definitionName": "CAD-04 Verificação do cliente",
+      "status": "completed"
+    }
+  ],
+  "version": 11331,
+  "maskedKeys": [
+    "rendaMensal"
+  ]
+}

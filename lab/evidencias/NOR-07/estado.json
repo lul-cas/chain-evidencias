@@ -1,0 +1,261 @@
+{
+  "foto": {
+    "workflows": {
+      "CAD-01 Abertura de conta": {
+        "id": "01a1b362-c27f-7809-8937-0ea2d71ceb5b",
+        "versao": 2
+      },
+      "CAD-02 Atualização cadastral": {
+        "id": "01a1b362-c2b8-7cb5-a088-cbcb254e50d5",
+        "versao": 1
+      },
+      "CAD-03 Encerramento de conta": {
+        "id": "01a1b362-c2e6-79a3-bee2-f00af2a2d0a7",
+        "versao": 1
+      },
+      "CRE-01 Proposta de crédito": {
+        "id": "01a1b362-c387-7dea-b975-6e603e1dbb4c",
+        "versao": 5
+      },
+      "CRE-02 Análise de crédito": {
+        "id": "01a1b362-c351-71f1-89c9-963954959f0c",
+        "versao": 3
+      },
+      "CRE-03 Cobrança e renegociação": {
+        "id": "01a1b362-c3d3-797c-ace7-fa5af767b6ee",
+        "versao": 1
+      },
+      "CTB-01 Lançamento contábil": {
+        "id": "01a1b362-c1e3-7762-8441-83102a3aa41f",
+        "versao": 1
+      },
+      "SEG-01 Contratação de seguro": {
+        "id": "01a1b362-c314-79e5-9669-5a85d9c8261b",
+        "versao": 1
+      }
+    },
+    "forms": {
+      "F-CAD-01 Cadastro do cliente": {
+        "id": "01a1b362-bffc-7c87-b46c-ddf925ca3872",
+        "versao": 2
+      },
+      "F-CAD-02 Parecer do cadastro": {
+        "id": "01a1b362-c019-72aa-b875-5ffecf6ca448",
+        "versao": 2
+      },
+      "F-CAD-03 Início da atualização": {
+        "id": "01a1b362-c02f-7b04-a2bb-1184a7354af3",
+        "versao": 1
+      },
+      "F-CAD-04 Atualização dos dados": {
+        "id": "01a1b362-c044-712c-87d5-f31316038227",
+        "versao": 1
+      },
+      "F-CAD-05 Parecer da atualização": {
+        "id": "01a1b362-c060-7dd5-b1e4-8d63090b47b5",
+        "versao": 1
+      },
+      "F-CAD-06 Pedido de encerramento": {
+        "id": "01a1b362-c075-7a7c-b1ac-b6eb0d8dc891",
+        "versao": 1
+      },
+      "F-CAD-07 Resolução de pendências": {
+        "id": "01a1b362-c08c-71bf-bac2-69967cfab1d1",
+        "versao": 1
+      },
+      "F-CRE-01 Proposta de crédito": {
+        "id": "01a1b362-c13c-774d-84ee-a96e1cfcb913",
+        "versao": 1
+      },
+      "F-CRE-02 Negociação das condições": {
+        "id": "01a1b362-c153-7d8e-ae84-a8a8657e2230",
+        "versao": 1
+      },
+      "F-CRE-03 Coleta de assinatura": {
+        "id": "01a1b362-c169-7099-8f7f-e287bac02b33",
+        "versao": 1
+      },
+      "F-CRE-04 Conferência da formalização": {
+        "id": "01a1b362-c17e-7d2e-b99a-dc2ef14771e5",
+        "versao": 1
+      },
+      "F-CRE-05 Dados da análise": {
+        "id": "01a1b362-c0e9-788d-8a63-95cd6ac86f9b",
+        "versao": 1
+      },
+      "F-CRE-06 Parecer de crédito": {
+        "id": "01a1b362-c0fc-71cd-9781-3317e93a88c5",
+        "versao": 1
+      },
+      "F-CRE-07 Complemento de informações": {
+        "id": "01a1b362-c112-71e7-ba34-1920ee9a2f91",
+        "versao": 1
+      },
+      "F-CRE-08 Deliberação do comitê": {
+        "id": "01a1b362-c126-75fd-8874-1a798f3cb705",
+        "versao": 1
+      },
+      "F-CRE-09 Contrato em cobrança": {
+        "id": "01a1b362-c193-7d6d-8ade-ce83d3fb45cd",
+        "versao": 1
+      },
+      "F-CRE-10 Proposta de renegociação": {
+        "id": "01a1b362-c1a8-7800-97c6-2c02526eb257",
+        "versao": 1
+      },
+      "F-CRE-11 Resposta do cliente": {
+        "id": "01a1b362-c1be-72d7-8f3a-2128aa5c0e38",
+        "versao": 1
+      },
+      "F-CTB-01 Evento contábil": {
+        "id": "01a1b362-bfa4-7e47-90e0-04f6f2c271ba",
+        "versao": 1
+      },
+      "F-CTB-02 Conferência do lançamento": {
+        "id": "01a1b362-bfe2-7c8c-9f9a-eea7187d50e1",
+        "versao": 1
+      },
+      "F-SEG-01 Proposta de seguro": {
+        "id": "01a1b362-c0a4-7165-82fb-b3e59f6889c9",
+        "versao": 1
+      },
+      "F-SEG-02 Análise de risco": {
+        "id": "01a1b362-c0be-76d3-8a6c-dd0c9f40466d",
+        "versao": 1
+      },
+      "F-SEG-03 Exames": {
+        "id": "01a1b362-c0d5-7e47-9510-3be58853e59b",
+        "versao": 1
+      }
+    },
+    "automations": {
+      "AUT-ASS-01 Enviar para assinatura": {
+        "id": "01a1b362-bcc9-794c-a09f-3c78a2589cd2",
+        "versao": 1
+      },
+      "AUT-ASS-02 Consultar assinatura": {
+        "id": "01a1b362-bd15-7829-8089-5f2a8722e7d0",
+        "versao": 1
+      },
+      "AUT-BUR-01 Consultar score": {
+        "id": "01a1b362-bd2e-7605-8adf-287c09bd5c1f",
+        "versao": 1
+      },
+      "AUT-CORE-01 Buscar cliente": {
+        "id": "01a1b362-bd45-7c0f-85a2-ad993218b000",
+        "versao": 1
+      },
+      "AUT-CORE-02 Criar cliente e conta": {
+        "id": "01a1b362-bd5f-7f8b-b25d-6b95fb35c5f7",
+        "versao": 1
+      },
+      "AUT-CORE-03 Atualizar cliente": {
+        "id": "01a1b362-bd76-7300-8e03-c9931f6e19a5",
+        "versao": 1
+      },
+      "AUT-CORE-04 Bloquear cliente": {
+        "id": "01a1b362-bd8d-7cf2-8366-67cc1213e18a",
+        "versao": 1
+      },
+      "AUT-CORE-05 Consultar pendências da conta": {
+        "id": "01a1b362-bda3-79e1-84f8-c7479a704dd7",
+        "versao": 1
+      },
+      "AUT-CORE-06 Encerrar conta": {
+        "id": "01a1b362-bdb9-745e-9534-b630aef93b97",
+        "versao": 1
+      },
+      "AUT-CORE-07 Consultar exposição de crédito": {
+        "id": "01a1b362-bdcf-74d3-bc6e-65cb97030021",
+        "versao": 1
+      },
+      "AUT-CORE-08 Gerar contrato": {
+        "id": "01a1b362-bde7-7ac9-b9c3-d5f4bdbcb03e",
+        "versao": 1
+      },
+      "AUT-CORE-09 Liberar crédito": {
+        "id": "01a1b362-bdfd-7b0f-87b8-63c4a558d3c7",
+        "versao": 1
+      },
+      "AUT-CORE-10 Buscar contrato": {
+        "id": "01a1b362-be12-7be0-8fb2-4358ab80cfc8",
+        "versao": 1
+      },
+      "AUT-CORE-11 Registrar acordo": {
+        "id": "01a1b362-be2e-73f8-89e7-5f143f09bdfd",
+        "versao": 1
+      },
+      "AUT-CORE-12 Marcar cobrança judicial": {
+        "id": "01a1b362-be4b-743d-85a4-4f39c489c486",
+        "versao": 1
+      },
+      "AUT-CORE-13 Registrar apólice na conta": {
+        "id": "01a1b362-be67-73b6-aec5-e8fa579daca2",
+        "versao": 1
+      },
+      "AUT-GAR-01 Registrar gravame": {
+        "id": "01a1b362-be7e-7ee6-be81-144af2338969",
+        "versao": 1
+      },
+      "AUT-MOT-01 Simular operação": {
+        "id": "01a1b362-be92-7cf2-bc25-7a2a692cdcbd",
+        "versao": 1
+      },
+      "AUT-MOT-02 Registrar decisão de crédito": {
+        "id": "01a1b362-bea8-7f23-9b9a-270801d9223d",
+        "versao": 1
+      },
+      "AUT-NOT-01 Notificar": {
+        "id": "01a1b362-bebe-7ae0-a1d6-0c8ce9bb163a",
+        "versao": 1
+      },
+      "AUT-PAG-01 Efetuar pagamento": {
+        "id": "01a1b362-bed5-7903-9ed5-0947eca555f4",
+        "versao": 1
+      },
+      "AUT-PAG-03 Emitir boleto": {
+        "id": "01a1b362-bef0-772e-a4da-da661b9dc438",
+        "versao": 1
+      },
+      "AUT-PLD-01 Consultar listas restritivas": {
+        "id": "01a1b362-bf06-771a-9644-b865d8b137fc",
+        "versao": 1
+      },
+      "AUT-RAZ-01 Classificar evento contábil": {
+        "id": "01a1b362-bf1c-7a67-a512-adf7f503e079",
+        "versao": 1
+      },
+      "AUT-RAZ-02 Registrar lançamento": {
+        "id": "01a1b362-bf31-768e-a116-357a4dcbb2a9",
+        "versao": 1
+      },
+      "AUT-REG-01 Comunicar operação de crédito ao regulador": {
+        "id": "01a1b3c7-d6e0-7970-9910-fc33ede37f58",
+        "versao": 1
+      },
+      "AUT-SEG-01 Cotar seguro": {
+        "id": "01a1b362-bf48-7735-a18a-2767be86d98c",
+        "versao": 1
+      },
+      "AUT-SEG-02 Emitir apólice": {
+        "id": "01a1b362-bf62-7f8a-bb69-c54779d73168",
+        "versao": 1
+      },
+      "AUT-VAL-01 Consultar situação do documento": {
+        "id": "01a1b362-bf7c-7efc-86d8-f8f58664f73d",
+        "versao": 1
+      }
+    }
+  },
+  "conteineres": {
+    "api": "098b1fe986d9",
+    "automation": "7bfd362fc101",
+    "frontend": "7d885757bdb0",
+    "mock": "ef784fab28fb",
+    "postgres": "cdd264d27e94"
+  },
+  "roteiro": {
+    "cadastro": "01a1b3c9-199c-7b97-a1ba-1bce4128a455",
+    "atualizando": "01a1b3c9-22d8-7107-91fa-12fc327b77de"
+  }
+}

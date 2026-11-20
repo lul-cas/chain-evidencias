@@ -1,0 +1,91 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:0a0cf62b045ecb769bef49abaefaa4864cddf7a515a7b2c1ec6891ea3c9c4a1d",
+  "publishedAt": "2026-11-07T00:22:35.144425+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "rendaMensal",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "endereco",
+        "type": "object",
+        "required": true
+      },
+      {
+        "key": "email",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "telefone",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "dataValidadeCadastro",
+        "type": "date",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "atualizado",
+        "path": [
+          "atualizado"
+        ],
+        "type": "boolean",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "rendaMensal",
+          "endereco",
+          "email",
+          "telefone",
+          "dataValidadeCadastro"
+        ],
+        "type": "json"
+      },
+      "path": "/core/v1/clientes/{documentoCliente}",
+      "query": {},
+      "method": "PUT",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

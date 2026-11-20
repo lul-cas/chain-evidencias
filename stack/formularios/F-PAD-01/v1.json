@@ -1,0 +1,25 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:3fd3be7b3d80efb92172213dc96ee570ba139a8b2b09a177c09e4bcaa86c2c9d",
+  "publishedAt": "2026-11-07T02:29:29.459263+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "a",
+        "type": "checkbox",
+        "label": "A"
+      },
+      {
+        "key": "b",
+        "type": "checkbox",
+        "label": "B"
+      },
+      {
+        "key": "restantes",
+        "type": "number",
+        "label": "Restantes"
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

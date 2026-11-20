@@ -1,0 +1,122 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:6850f0ef1064f2bd1e42edd00cd76b9b5a4b5c68ee67e92a9d3fa001ff12180b",
+  "publishedAt": "2026-11-07T02:29:30.503329+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_inicio_t_x",
+        "source": "inicio",
+        "target": "t"
+      },
+      {
+        "id": "f_t_g_x",
+        "source": "t",
+        "target": "g"
+      },
+      {
+        "id": "f_g_t_true",
+        "branch": "true",
+        "source": "g",
+        "target": "t"
+      },
+      {
+        "id": "f_g_fim_false",
+        "branch": "false",
+        "source": "g",
+        "target": "fim"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "l",
+        "group": {
+          "kind": "requesters"
+        },
+        "title": "Solicitantes",
+        "layout": {
+          "h": 300,
+          "w": 1500,
+          "x": 40,
+          "y": 30
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b3d6-ecd7-7d00-8d08-2e09cb800bd5",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 140,
+          "y": 60
+        }
+      },
+      {
+        "id": "t",
+        "form": {
+          "formId": "01a1b3d6-ecff-7ae3-87f0-72b833d6c2fb",
+          "version": 1
+        },
+        "type": "task",
+        "label": "t",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 330,
+          "y": 60
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "g",
+        "type": "gateway",
+        "label": "g",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 520,
+          "y": 60
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "restantes"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "number",
+            "value": "0"
+          },
+          "operator": "greaterThan"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "fim",
+        "type": "end",
+        "label": "fim",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 710,
+          "y": 60
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

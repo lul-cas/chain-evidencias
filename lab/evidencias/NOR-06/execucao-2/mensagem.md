@@ -1,0 +1,1 @@
+O admin criou o destino regulador e a credencial regulador_api_key, liberada para ele. Pode seguir.

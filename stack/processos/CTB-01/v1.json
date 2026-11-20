@@ -1,0 +1,354 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:c9780baed31839fc45d50075a6e105a041a93b9a0bc90b75cd1650f668d658b3",
+  "publishedAt": "2026-11-07T00:22:36.370015+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_1",
+        "source": "inicio",
+        "target": "classificar_evento"
+      },
+      {
+        "id": "f_2",
+        "source": "classificar_evento",
+        "target": "gw_exige_conferencia"
+      },
+      {
+        "id": "f_3",
+        "branch": "true",
+        "source": "gw_exige_conferencia",
+        "target": "conferir_lancamento"
+      },
+      {
+        "id": "f_4",
+        "branch": "false",
+        "source": "gw_exige_conferencia",
+        "target": "registrar_lancamento"
+      },
+      {
+        "id": "f_5",
+        "source": "conferir_lancamento",
+        "target": "gw_valor_alto"
+      },
+      {
+        "id": "f_6",
+        "branch": "true",
+        "source": "gw_valor_alto",
+        "target": "aprovar_lancamento"
+      },
+      {
+        "id": "f_7",
+        "branch": "false",
+        "source": "gw_valor_alto",
+        "target": "registrar_lancamento"
+      },
+      {
+        "id": "f_8",
+        "branch": "true",
+        "source": "aprovar_lancamento",
+        "target": "registrar_lancamento"
+      },
+      {
+        "id": "f_9",
+        "branch": "false",
+        "source": "aprovar_lancamento",
+        "target": "conferir_lancamento"
+      },
+      {
+        "id": "f_10",
+        "source": "registrar_lancamento",
+        "target": "fim_lancado"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "lane_lan",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b909-76db-b1aa-0c28c2e36742"
+        },
+        "title": "Contabilidade - Lançamentos",
+        "layout": {
+          "h": 130,
+          "w": 1660,
+          "x": 40,
+          "y": 30
+        }
+      },
+      {
+        "id": "lane_ctr",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b93c-7316-865f-ef9e1dda8685"
+        },
+        "title": "Contabilidade - Controladoria",
+        "layout": {
+          "h": 130,
+          "w": 1660,
+          "x": 40,
+          "y": 170
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b362-bfa4-7e47-90e0-04f6f2c271ba",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "lane_lan",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 180,
+          "y": 50
+        }
+      },
+      {
+        "id": "classificar_evento",
+        "type": "task",
+        "label": "Classificar evento contábil",
+        "laneId": "lane_lan",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 330,
+          "y": 50
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "valor": {
+              "kind": "path",
+              "path": [
+                "valor"
+              ]
+            },
+            "eventoContabil": {
+              "kind": "path",
+              "path": [
+                "eventoContabil"
+              ]
+            }
+          },
+          "outputs": {
+            "contaDebito": {
+              "kind": "path",
+              "path": [
+                "contaDebito"
+              ]
+            },
+            "classificado": {
+              "kind": "path",
+              "path": [
+                "classificado"
+              ]
+            },
+            "contaCredito": {
+              "kind": "path",
+              "path": [
+                "contaCredito"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bf1c-7a67-a512-adf7f503e079"
+        }
+      },
+      {
+        "id": "gw_exige_conferencia",
+        "type": "gateway",
+        "label": "Exige conferência?",
+        "laneId": "lane_lan",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 560,
+          "y": 50
+        },
+        "condition": {
+          "op": "or",
+          "kind": "group",
+          "items": [
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "valor"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "number",
+                "value": "100000"
+              },
+              "operator": "greaterThan"
+            },
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "classificado"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "boolean",
+                "value": "true"
+              },
+              "operator": "notEquals"
+            }
+          ]
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "conferir_lancamento",
+        "form": {
+          "formId": "01a1b362-bfe2-7c8c-9f9a-eea7187d50e1",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Conferir lançamento",
+        "laneId": "lane_lan",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 710,
+          "y": 50
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "gw_valor_alto",
+        "type": "gateway",
+        "label": "Acima de R$ 1 milhão?",
+        "laneId": "lane_lan",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 940,
+          "y": 50
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "valor"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "number",
+            "value": "1000000"
+          },
+          "operator": "greaterThan"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "registrar_lancamento",
+        "type": "task",
+        "label": "Registrar lançamento",
+        "laneId": "lane_lan",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1280,
+          "y": 50
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "valor": {
+              "kind": "path",
+              "path": [
+                "valor"
+              ]
+            },
+            "historico": {
+              "kind": "path",
+              "path": [
+                "historico"
+              ]
+            },
+            "contaDebito": {
+              "kind": "path",
+              "path": [
+                "contaDebito"
+              ]
+            },
+            "contaCredito": {
+              "kind": "path",
+              "path": [
+                "contaCredito"
+              ]
+            },
+            "eventoContabil": {
+              "kind": "path",
+              "path": [
+                "eventoContabil"
+              ]
+            },
+            "dataCompetencia": {
+              "kind": "path",
+              "path": [
+                "dataCompetencia"
+              ]
+            },
+            "documentoReferencia": {
+              "kind": "path",
+              "path": [
+                "documentoReferencia"
+              ]
+            }
+          },
+          "outputs": {
+            "numeroLancamento": {
+              "kind": "path",
+              "path": [
+                "numeroLancamento"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bf31-768e-a116-357a4dcbb2a9"
+        }
+      },
+      {
+        "id": "fim_lancado",
+        "type": "end",
+        "label": "Lançamento registrado",
+        "laneId": "lane_lan",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 1510,
+          "y": 50
+        }
+      },
+      {
+        "id": "aprovar_lancamento",
+        "type": "gateway",
+        "label": "Autoriza o lançamento?",
+        "laneId": "lane_ctr",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1130,
+          "y": 190
+        },
+        "question": "A controladoria autoriza o lançamento?",
+        "decisionMode": "human"
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

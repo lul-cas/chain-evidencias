@@ -1,0 +1,768 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:04b21a3efec921d5d8d066e873a368fccfc1e67aea93bff55240450291686036",
+  "publishedAt": "2026-11-07T00:22:36.607354+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_1",
+        "source": "inicio",
+        "target": "buscar_cliente"
+      },
+      {
+        "id": "f_2",
+        "source": "buscar_cliente",
+        "target": "gw_cliente_ativo"
+      },
+      {
+        "id": "f_3",
+        "branch": "true",
+        "source": "gw_cliente_ativo",
+        "target": "cotar_seguro"
+      },
+      {
+        "id": "f_4",
+        "branch": "false",
+        "source": "gw_cliente_ativo",
+        "target": "fim_sem_conta"
+      },
+      {
+        "id": "f_5",
+        "source": "cotar_seguro",
+        "target": "aceitar_cotacao"
+      },
+      {
+        "id": "f_6",
+        "branch": "true",
+        "source": "aceitar_cotacao",
+        "target": "gw_exige_subscricao"
+      },
+      {
+        "id": "f_7",
+        "branch": "false",
+        "source": "aceitar_cotacao",
+        "target": "fim_desistencia"
+      },
+      {
+        "id": "f_8",
+        "branch": "true",
+        "source": "gw_exige_subscricao",
+        "target": "analisar_risco"
+      },
+      {
+        "id": "f_9",
+        "branch": "false",
+        "source": "gw_exige_subscricao",
+        "target": "emitir_apolice"
+      },
+      {
+        "id": "f_10",
+        "source": "analisar_risco",
+        "target": "gw_pede_exames"
+      },
+      {
+        "id": "f_11",
+        "branch": "true",
+        "source": "gw_pede_exames",
+        "target": "anexar_exames"
+      },
+      {
+        "id": "f_12",
+        "branch": "false",
+        "source": "gw_pede_exames",
+        "target": "gw_risco_aceito"
+      },
+      {
+        "id": "f_13",
+        "source": "anexar_exames",
+        "target": "analisar_risco"
+      },
+      {
+        "id": "f_14",
+        "branch": "true",
+        "source": "gw_risco_aceito",
+        "target": "emitir_apolice"
+      },
+      {
+        "id": "f_15",
+        "branch": "false",
+        "source": "gw_risco_aceito",
+        "target": "notificar_recusa"
+      },
+      {
+        "id": "f_16",
+        "source": "notificar_recusa",
+        "target": "fim_recusado"
+      },
+      {
+        "id": "f_17",
+        "source": "emitir_apolice",
+        "target": "registrar_apolice"
+      },
+      {
+        "id": "f_18",
+        "source": "registrar_apolice",
+        "target": "lancar_premio"
+      },
+      {
+        "id": "f_19",
+        "source": "lancar_premio",
+        "target": "notificar_apolice"
+      },
+      {
+        "id": "f_20",
+        "source": "notificar_apolice",
+        "target": "fim_emitida"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "lane_sol",
+        "group": {
+          "kind": "requesters"
+        },
+        "title": "Solicitantes",
+        "layout": {
+          "h": 130,
+          "w": 2800,
+          "x": 40,
+          "y": 30
+        }
+      },
+      {
+        "id": "lane_sub",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b971-7eae-a816-d4d171f036d0"
+        },
+        "title": "Seguros - Subscrição",
+        "layout": {
+          "h": 240,
+          "w": 2800,
+          "x": 40,
+          "y": 170
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b362-c0a4-7165-82fb-b3e59f6889c9",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "lane_sol",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 180,
+          "y": 50
+        }
+      },
+      {
+        "id": "aceitar_cotacao",
+        "type": "gateway",
+        "label": "Cliente aceita a cotação?",
+        "laneId": "lane_sol",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 940,
+          "y": 50
+        },
+        "question": "O cliente aceita a cotação?",
+        "decisionMode": "human"
+      },
+      {
+        "id": "anexar_exames",
+        "form": {
+          "formId": "01a1b362-c0d5-7e47-9510-3be58853e59b",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Anexar exames",
+        "laneId": "lane_sol",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1660,
+          "y": 50
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "fim_sem_conta",
+        "type": "end",
+        "label": "Sem conta ativa",
+        "laneId": "lane_sol",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 750,
+          "y": 50
+        }
+      },
+      {
+        "id": "fim_desistencia",
+        "type": "end",
+        "label": "Cliente desistiu",
+        "laneId": "lane_sol",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 1130,
+          "y": 50
+        }
+      },
+      {
+        "id": "buscar_cliente",
+        "type": "task",
+        "label": "Buscar cliente no Core",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 330,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "email": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            },
+            "nomeCliente": {
+              "kind": "path",
+              "path": [
+                "nomeCliente"
+              ]
+            },
+            "situacaoCliente": {
+              "kind": "path",
+              "path": [
+                "situacaoCliente"
+              ]
+            },
+            "clienteEncontrado": {
+              "kind": "path",
+              "path": [
+                "encontrado"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bd45-7c0f-85a2-ad993218b000"
+        }
+      },
+      {
+        "id": "gw_cliente_ativo",
+        "type": "gateway",
+        "label": "Cliente ativo?",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 560,
+          "y": 190
+        },
+        "condition": {
+          "op": "and",
+          "kind": "group",
+          "items": [
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "clienteEncontrado"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "boolean",
+                "value": "true"
+              },
+              "operator": "equals"
+            },
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "situacaoCliente"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "text",
+                "value": "ativo"
+              },
+              "operator": "equals"
+            }
+          ]
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "cotar_seguro",
+        "type": "task",
+        "label": "Cotar seguro",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 710,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "tipoSeguro": {
+              "kind": "path",
+              "path": [
+                "tipoSeguro"
+              ]
+            },
+            "capitalSegurado": {
+              "kind": "path",
+              "path": [
+                "capitalSegurado"
+              ]
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "idCotacao": {
+              "kind": "path",
+              "path": [
+                "idCotacao"
+              ]
+            },
+            "premioMensal": {
+              "kind": "path",
+              "path": [
+                "premioMensal"
+              ]
+            },
+            "exigeSubscricao": {
+              "kind": "path",
+              "path": [
+                "exigeSubscricao"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bf48-7735-a18a-2767be86d98c"
+        }
+      },
+      {
+        "id": "gw_exige_subscricao",
+        "type": "gateway",
+        "label": "Exige subscrição?",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1130,
+          "y": 190
+        },
+        "condition": {
+          "op": "or",
+          "kind": "group",
+          "items": [
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "exigeSubscricao"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "boolean",
+                "value": "true"
+              },
+              "operator": "equals"
+            },
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "capitalSegurado"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "number",
+                "value": "300000"
+              },
+              "operator": "greaterThan"
+            }
+          ]
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "analisar_risco",
+        "form": {
+          "formId": "01a1b362-c0be-76d3-8a6c-dd0c9f40466d",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Analisar risco",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1280,
+          "y": 190
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "gw_pede_exames",
+        "type": "gateway",
+        "label": "Pede exames?",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1510,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerRisco"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "exigir_exames"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "gw_risco_aceito",
+        "type": "gateway",
+        "label": "Risco aceito?",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1700,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerRisco"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aceitar"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "emitir_apolice",
+        "type": "task",
+        "label": "Emitir apólice",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1850,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "idCotacao": {
+              "kind": "path",
+              "path": [
+                "idCotacao"
+              ]
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            },
+            "sobrepremioPercentual": {
+              "kind": "path",
+              "path": [
+                "sobrepremioPercentual"
+              ]
+            }
+          },
+          "outputs": {
+            "vigenciaFim": {
+              "kind": "path",
+              "path": [
+                "vigenciaFim"
+              ]
+            },
+            "numeroApolice": {
+              "kind": "path",
+              "path": [
+                "numeroApolice"
+              ]
+            },
+            "vigenciaInicio": {
+              "kind": "path",
+              "path": [
+                "vigenciaInicio"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bf62-7f8a-bb69-c54779d73168"
+        }
+      },
+      {
+        "id": "registrar_apolice",
+        "type": "task",
+        "label": "Registrar apólice na conta",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2040,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "premioMensal": {
+              "kind": "path",
+              "path": [
+                "premioMensal"
+              ]
+            },
+            "numeroApolice": {
+              "kind": "path",
+              "path": [
+                "numeroApolice"
+              ]
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "debitoProgramado": {
+              "kind": "path",
+              "path": [
+                "debitoProgramado"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-be67-73b6-aec5-e8fa579daca2"
+        }
+      },
+      {
+        "id": "lancar_premio",
+        "type": "task",
+        "label": "CTB-01 Lançamento contábil",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2230,
+          "y": 190
+        },
+        "taskKind": "subprocess",
+        "workflow": {
+          "inputs": {
+            "valor": {
+              "kind": "path",
+              "path": [
+                "premioMensal"
+              ]
+            },
+            "historico": {
+              "kind": "literal",
+              "type": "text",
+              "value": "Prêmio de seguro"
+            },
+            "eventoContabil": {
+              "kind": "literal",
+              "type": "text",
+              "value": "premio_seguro"
+            },
+            "dataCompetencia": {
+              "kind": "system",
+              "name": "currentDate"
+            },
+            "documentoReferencia": {
+              "kind": "path",
+              "path": [
+                "numeroApolice"
+              ]
+            }
+          },
+          "outputs": {
+            "numeroLancamento": {
+              "kind": "path",
+              "path": [
+                "numeroLancamento"
+              ]
+            }
+          },
+          "version": 1,
+          "workflowId": "01a1b362-c1e3-7762-8441-83102a3aa41f"
+        }
+      },
+      {
+        "id": "notificar_apolice",
+        "type": "task",
+        "label": "Notificar apólice",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2420,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "modelo": {
+              "kind": "literal",
+              "type": "text",
+              "value": "apolice_emitida"
+            },
+            "referencia": {
+              "kind": "path",
+              "path": [
+                "numeroApolice"
+              ]
+            },
+            "destinatario": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            }
+          },
+          "outputs": {
+            "idMensagem": {
+              "kind": "path",
+              "path": [
+                "idMensagem"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bebe-7ae0-a1d6-0c8ce9bb163a"
+        }
+      },
+      {
+        "id": "notificar_recusa",
+        "type": "task",
+        "label": "Notificar recusa",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1850,
+          "y": 300
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "modelo": {
+              "kind": "literal",
+              "type": "text",
+              "value": "seguro_recusado"
+            },
+            "referencia": {
+              "kind": "path",
+              "path": [
+                "idCotacao"
+              ]
+            },
+            "destinatario": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            }
+          },
+          "outputs": {
+            "idMensagem": {
+              "kind": "path",
+              "path": [
+                "idMensagem"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bebe-7ae0-a1d6-0c8ce9bb163a"
+        }
+      },
+      {
+        "id": "fim_emitida",
+        "type": "end",
+        "label": "Apólice emitida",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 2650,
+          "y": 190
+        }
+      },
+      {
+        "id": "fim_recusado",
+        "type": "end",
+        "label": "Risco recusado",
+        "laneId": "lane_sub",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 2080,
+          "y": 300
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

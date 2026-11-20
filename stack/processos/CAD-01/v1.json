@@ -1,0 +1,859 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:12048d917f51448ac2ac1079ce28a728aa0f0b02d856da2293b751f4f5b26b23",
+  "publishedAt": "2026-11-07T00:22:36.45343+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_1",
+        "source": "inicio",
+        "target": "buscar_cliente"
+      },
+      {
+        "id": "f_2",
+        "source": "buscar_cliente",
+        "target": "gw_ja_cliente"
+      },
+      {
+        "id": "f_3",
+        "branch": "true",
+        "source": "gw_ja_cliente",
+        "target": "fim_ja_cliente"
+      },
+      {
+        "id": "f_4",
+        "branch": "false",
+        "source": "gw_ja_cliente",
+        "target": "consultar_situacao"
+      },
+      {
+        "id": "f_5",
+        "source": "consultar_situacao",
+        "target": "gw_documento_regular"
+      },
+      {
+        "id": "f_6",
+        "branch": "true",
+        "source": "gw_documento_regular",
+        "target": "consultar_pld"
+      },
+      {
+        "id": "f_7",
+        "branch": "false",
+        "source": "gw_documento_regular",
+        "target": "ajustar_cadastro"
+      },
+      {
+        "id": "f_8",
+        "source": "consultar_pld",
+        "target": "gw_pld_bloqueio"
+      },
+      {
+        "id": "f_9",
+        "branch": "true",
+        "source": "gw_pld_bloqueio",
+        "target": "notificar_recusa"
+      },
+      {
+        "id": "f_10",
+        "branch": "false",
+        "source": "gw_pld_bloqueio",
+        "target": "analisar_cadastro"
+      },
+      {
+        "id": "f_11",
+        "source": "analisar_cadastro",
+        "target": "gw_pede_ajuste"
+      },
+      {
+        "id": "f_12",
+        "branch": "true",
+        "source": "gw_pede_ajuste",
+        "target": "ajustar_cadastro"
+      },
+      {
+        "id": "f_13",
+        "branch": "false",
+        "source": "gw_pede_ajuste",
+        "target": "gw_aprovado"
+      },
+      {
+        "id": "f_14",
+        "source": "ajustar_cadastro",
+        "target": "buscar_cliente"
+      },
+      {
+        "id": "f_15",
+        "branch": "true",
+        "source": "gw_aprovado",
+        "target": "gw_pld_alerta"
+      },
+      {
+        "id": "f_16",
+        "branch": "false",
+        "source": "gw_aprovado",
+        "target": "notificar_recusa"
+      },
+      {
+        "id": "f_17",
+        "branch": "true",
+        "source": "gw_pld_alerta",
+        "target": "aprovar_pld"
+      },
+      {
+        "id": "f_18",
+        "branch": "false",
+        "source": "gw_pld_alerta",
+        "target": "gw_pessoa_juridica"
+      },
+      {
+        "id": "f_19",
+        "branch": "true",
+        "source": "aprovar_pld",
+        "target": "gw_pessoa_juridica"
+      },
+      {
+        "id": "f_20",
+        "branch": "false",
+        "source": "aprovar_pld",
+        "target": "notificar_recusa"
+      },
+      {
+        "id": "f_21",
+        "branch": "true",
+        "source": "gw_pessoa_juridica",
+        "target": "aprovar_empresa"
+      },
+      {
+        "id": "f_22",
+        "branch": "false",
+        "source": "gw_pessoa_juridica",
+        "target": "criar_conta"
+      },
+      {
+        "id": "f_23",
+        "branch": "true",
+        "source": "aprovar_empresa",
+        "target": "criar_conta"
+      },
+      {
+        "id": "f_24",
+        "branch": "false",
+        "source": "aprovar_empresa",
+        "target": "notificar_recusa"
+      },
+      {
+        "id": "f_25",
+        "source": "criar_conta",
+        "target": "notificar_boas_vindas"
+      },
+      {
+        "id": "f_26",
+        "source": "notificar_boas_vindas",
+        "target": "fim_conta_aberta"
+      },
+      {
+        "id": "f_27",
+        "source": "notificar_recusa",
+        "target": "fim_recusado"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "lane_sol",
+        "group": {
+          "kind": "requesters"
+        },
+        "title": "Solicitantes",
+        "layout": {
+          "h": 130,
+          "w": 3370,
+          "x": 40,
+          "y": 30
+        }
+      },
+      {
+        "id": "lane_ana",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b94a-75b5-a9e1-dc11cc552934"
+        },
+        "title": "Cadastro - Análise",
+        "layout": {
+          "h": 240,
+          "w": 3370,
+          "x": 40,
+          "y": 170
+        }
+      },
+      {
+        "id": "lane_sup",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b953-7d14-838e-d9f46d3c2de1"
+        },
+        "title": "Cadastro - Supervisão",
+        "layout": {
+          "h": 130,
+          "w": 3370,
+          "x": 40,
+          "y": 420
+        }
+      },
+      {
+        "id": "lane_ger",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b95b-7d20-acf4-d006b400aaa3"
+        },
+        "title": "Agência - Gerência",
+        "layout": {
+          "h": 130,
+          "w": 3370,
+          "x": 40,
+          "y": 560
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b362-bffc-7c87-b46c-ddf925ca3872",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "lane_sol",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 180,
+          "y": 50
+        }
+      },
+      {
+        "id": "ajustar_cadastro",
+        "form": {
+          "formId": "01a1b362-bffc-7c87-b46c-ddf925ca3872",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Ajustar cadastro",
+        "laneId": "lane_sol",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1850,
+          "y": 50
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "buscar_cliente",
+        "type": "task",
+        "label": "Buscar cliente no Core",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 330,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "clienteEncontrado": {
+              "kind": "path",
+              "path": [
+                "encontrado"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bd45-7c0f-85a2-ad993218b000"
+        }
+      },
+      {
+        "id": "gw_ja_cliente",
+        "type": "gateway",
+        "label": "Já é cliente?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 560,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "clienteEncontrado"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "boolean",
+            "value": "true"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "consultar_situacao",
+        "type": "task",
+        "label": "Consultar situação do documento",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 710,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "situacaoDocumento": {
+              "kind": "path",
+              "path": [
+                "situacaoDocumento"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bf7c-7efc-86d8-f8f58664f73d"
+        }
+      },
+      {
+        "id": "gw_documento_regular",
+        "type": "gateway",
+        "label": "Documento regular?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 940,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "situacaoDocumento"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "regular"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "consultar_pld",
+        "type": "task",
+        "label": "Consultar listas restritivas",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1090,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "nomeCliente": {
+              "kind": "path",
+              "path": [
+                "nomeCliente"
+              ]
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "pep": {
+              "kind": "path",
+              "path": [
+                "pep"
+              ]
+            },
+            "resultadoPld": {
+              "kind": "path",
+              "path": [
+                "resultadoPld"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bf06-771a-9644-b865d8b137fc"
+        }
+      },
+      {
+        "id": "gw_pld_bloqueio",
+        "type": "gateway",
+        "label": "Bloqueio nas listas?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1320,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "resultadoPld"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "bloqueio"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "analisar_cadastro",
+        "form": {
+          "formId": "01a1b362-c019-72aa-b875-5ffecf6ca448",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Analisar cadastro",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1470,
+          "y": 190
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "gw_pede_ajuste",
+        "type": "gateway",
+        "label": "Pede ajuste?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1700,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerCadastro"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "ajustar"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "gw_aprovado",
+        "type": "gateway",
+        "label": "Aprovado?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1890,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerCadastro"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aprovado"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "gw_pld_alerta",
+        "type": "gateway",
+        "label": "Alerta de PLD ou PEP?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 2080,
+          "y": 190
+        },
+        "condition": {
+          "op": "or",
+          "kind": "group",
+          "items": [
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "resultadoPld"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "text",
+                "value": "alerta"
+              },
+              "operator": "equals"
+            },
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "pep"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "boolean",
+                "value": "true"
+              },
+              "operator": "equals"
+            }
+          ]
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "gw_pessoa_juridica",
+        "type": "gateway",
+        "label": "Pessoa jurídica?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 2460,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "tipoPessoa"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "pj"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "criar_conta",
+        "type": "task",
+        "label": "Criar cliente e conta",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2800,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "email": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            },
+            "dadosPf": {
+              "kind": "path",
+              "path": [
+                "dadosPf"
+              ]
+            },
+            "dadosPj": {
+              "kind": "path",
+              "path": [
+                "dadosPj"
+              ]
+            },
+            "endereco": {
+              "kind": "path",
+              "path": [
+                "endereco"
+              ]
+            },
+            "telefone": {
+              "kind": "path",
+              "path": [
+                "telefone"
+              ]
+            },
+            "tipoConta": {
+              "kind": "path",
+              "path": [
+                "tipoConta"
+              ]
+            },
+            "tipoPessoa": {
+              "kind": "path",
+              "path": [
+                "tipoPessoa"
+              ]
+            },
+            "nomeCliente": {
+              "kind": "path",
+              "path": [
+                "nomeCliente"
+              ]
+            },
+            "rendaMensal": {
+              "kind": "path",
+              "path": [
+                "rendaMensal"
+              ]
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            },
+            "dataValidadeCadastro": {
+              "kind": "system",
+              "name": "currentDate",
+              "offset": {
+                "unit": "months",
+                "amount": 24
+              }
+            }
+          },
+          "outputs": {
+            "idCliente": {
+              "kind": "path",
+              "path": [
+                "idCliente"
+              ]
+            },
+            "numeroConta": {
+              "kind": "path",
+              "path": [
+                "numeroConta"
+              ]
+            },
+            "numeroAgencia": {
+              "kind": "path",
+              "path": [
+                "numeroAgencia"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bd5f-7f8b-b25d-6b95fb35c5f7"
+        }
+      },
+      {
+        "id": "notificar_boas_vindas",
+        "type": "task",
+        "label": "Notificar boas-vindas",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2990,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "modelo": {
+              "kind": "literal",
+              "type": "text",
+              "value": "boas_vindas"
+            },
+            "referencia": {
+              "kind": "path",
+              "path": [
+                "numeroConta"
+              ]
+            },
+            "destinatario": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            }
+          },
+          "outputs": {
+            "idMensagem": {
+              "kind": "path",
+              "path": [
+                "idMensagem"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bebe-7ae0-a1d6-0c8ce9bb163a"
+        }
+      },
+      {
+        "id": "notificar_recusa",
+        "type": "task",
+        "label": "Notificar recusa",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2800,
+          "y": 300
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "modelo": {
+              "kind": "literal",
+              "type": "text",
+              "value": "cadastro_recusado"
+            },
+            "referencia": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            },
+            "destinatario": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            }
+          },
+          "outputs": {
+            "idMensagem": {
+              "kind": "path",
+              "path": [
+                "idMensagem"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bebe-7ae0-a1d6-0c8ce9bb163a"
+        }
+      },
+      {
+        "id": "fim_ja_cliente",
+        "type": "end",
+        "label": "Já é cliente",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 750,
+          "y": 300
+        }
+      },
+      {
+        "id": "fim_conta_aberta",
+        "type": "end",
+        "label": "Conta aberta",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 3220,
+          "y": 190
+        }
+      },
+      {
+        "id": "fim_recusado",
+        "type": "end",
+        "label": "Cadastro recusado",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 3030,
+          "y": 300
+        }
+      },
+      {
+        "id": "aprovar_pld",
+        "type": "gateway",
+        "label": "Aceitar o cliente com alerta?",
+        "laneId": "lane_sup",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 2270,
+          "y": 440
+        },
+        "question": "Aceitar o cliente mesmo com o alerta de PLD ou a condição de PEP?",
+        "decisionMode": "human"
+      },
+      {
+        "id": "aprovar_empresa",
+        "type": "gateway",
+        "label": "Aceitar a empresa como cliente?",
+        "laneId": "lane_ger",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 2650,
+          "y": 580
+        },
+        "question": "A agência aceita esta empresa como cliente?",
+        "decisionMode": "human"
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

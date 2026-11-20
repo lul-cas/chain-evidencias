@@ -1,0 +1,10 @@
+{
+  "sessao": "e6890a6e-8399-4bbf-bd66-4fdbf28ffa5f",
+  "modelo": "claude-sonnet-5-5",
+  "ferramentas": 7,
+  "turnos": 27,
+  "custoUsd": 0.30538580000000004,
+  "duracaoMs": 50850,
+  "fim": "success",
+  "resposta": "A Resolução 07/2026 está aplicada. A verificação do cliente agora existe num só processo, e a abertura de conta e a atualização cadastral usam esse mesmo processo.\n\n**Novo processo**\n- **CAD-04 Verificação do cliente** (v1) recebe CPF/CNPJ e nome pelo novo formulário F-CAD-08.\n- Ele consulta a situação do documento e as listas restritivas.\n- Devolve `situacaoDocumento`, `resultadoPld` e `pep`.\n\n**Processos alterados**\n- **CAD-01 Abertura de conta** (v3) e **CAD-02 Atualização cadastral** (v2) trocaram as duas consultas separadas por uma etapa de subprocesso que chama o CAD-04. As decisões que vinham depois continuam iguais, porque leem as mesmas chaves de dados.\n- **CRE-01 Proposta de crédito** (v6) não teve mudança de conteúdo. Ele chama o CAD-02 e continuava preso à versão antiga, que ainda tinha a verificação embutida. Republiquei para ele usar a nova.\n\n**Como cada item ficou cumprido**\n1. A verificação passou a ser um procedimento único, o CAD-04.\n2. CAD-01 e CAD-02 usam o CAD-04, e o CRE-01 passa por ele ao chamar o CAD-02.\n3. Uma mudança futura na verificação se faz só no CAD-04. Cada processo que o chama fixa a versão que estava publicada na hora da publicação. Depois de mudar o CAD-04, é preciso republicar o CAD-01 e o CAD-02, e depois o CRE-01, para os novos pedidos usarem a mudança.\n\n**Mudança de comportamento no CAD-01**\n- Antes, as listas restritivas só eram consultadas se o documento estivesse regular.\n- Agora as duas consultas rodam sempre, antes da decisão sobre o documento.\n- O resultado das listas só é usado quando o documento é regular, então o desfecho do pedido não muda.\n\nNão encontrei outros processos com verificação própria. CAD-03, CRE-02, CRE-03, SEG-01 e CTB-01 não a fazem."
+}

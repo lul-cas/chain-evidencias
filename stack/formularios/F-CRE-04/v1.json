@@ -1,0 +1,106 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:658cfb0c165067d49ab64957002311c8c1eb70d425d2598eb25036d908dddde7",
+  "publishedAt": "2026-11-07T00:22:36.174755+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "numeroContrato",
+        "type": "text",
+        "label": "Contrato",
+        "readOnly": true
+      },
+      {
+        "key": "valorAprovado",
+        "type": "number",
+        "label": "Valor aprovado",
+        "readOnly": true
+      },
+      {
+        "key": "prazoAprovado",
+        "type": "number",
+        "label": "Prazo aprovado",
+        "readOnly": true
+      },
+      {
+        "key": "taxaAprovada",
+        "type": "number",
+        "label": "Taxa aprovada",
+        "readOnly": true
+      },
+      {
+        "key": "numeroApolice",
+        "type": "text",
+        "label": "Apólice prestamista",
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "numeroApolice"
+            ]
+          },
+          "operator": "isNotEmpty"
+        }
+      },
+      {
+        "key": "formalizacaoConforme",
+        "type": "radio",
+        "label": "A formalização está conforme?",
+        "options": [
+          {
+            "label": "Sim",
+            "value": "sim"
+          },
+          {
+            "label": "Não",
+            "value": "nao"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "pendenciasFormalizacao",
+        "type": "textarea",
+        "label": "Pendências",
+        "validate": {
+          "maxLength": 1000
+        },
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "formalizacaoConforme"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "nao"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "formalizacaoConforme"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "nao"
+          },
+          "operator": "equals"
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

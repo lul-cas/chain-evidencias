@@ -1,0 +1,98 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:1459b4d0fdb4d46f360004adbf1d7d708fd2433da94b7fa2243b4a1acbbec813",
+  "publishedAt": "2026-11-07T00:22:35.586955+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "eventoContabil",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "valor",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "dataCompetencia",
+        "type": "date",
+        "required": true
+      },
+      {
+        "key": "documentoReferencia",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contaDebito",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contaCredito",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "historico",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "numeroLancamento",
+        "path": [
+          "numeroLancamento"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "eventoContabil",
+          "valor",
+          "dataCompetencia",
+          "documentoReferencia",
+          "contaDebito",
+          "contaCredito",
+          "historico"
+        ],
+        "type": "json"
+      },
+      "path": "/razao/v1/lancamentos",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:razao_api_key}}"
+      },
+      "destination": "razao-contabil"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

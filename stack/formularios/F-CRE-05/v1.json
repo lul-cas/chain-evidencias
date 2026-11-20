@@ -1,0 +1,185 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:4154a3c0a22dec05d618130f73f417162f28ee696ea8b641bc2e1322126bf306",
+  "publishedAt": "2026-11-07T00:22:36.023422+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "label": "CPF ou CNPJ",
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "label": "Cliente",
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "produto",
+        "type": "select",
+        "label": "Produto",
+        "options": [
+          {
+            "label": "Crédito pessoal",
+            "value": "pessoal"
+          },
+          {
+            "label": "Consignado",
+            "value": "consignado"
+          },
+          {
+            "label": "Financiamento de veículo",
+            "value": "veiculo"
+          },
+          {
+            "label": "Capital de giro",
+            "value": "capital_giro"
+          },
+          {
+            "label": "Consórcio",
+            "value": "consorcio"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "origem",
+        "type": "select",
+        "label": "Origem",
+        "options": [
+          {
+            "label": "Agência",
+            "value": "agencia"
+          },
+          {
+            "label": "Consórcio",
+            "value": "consorcio"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "finalidade",
+        "type": "textarea",
+        "label": "Finalidade",
+        "validate": {
+          "maxLength": 500
+        }
+      },
+      {
+        "key": "valorSolicitado",
+        "type": "number",
+        "label": "Valor solicitado",
+        "validate": {
+          "min": 0.01,
+          "required": true,
+          "decimalDigits": 2
+        }
+      },
+      {
+        "key": "prazoMeses",
+        "type": "number",
+        "label": "Prazo em meses",
+        "validate": {
+          "min": 1,
+          "required": true,
+          "decimalDigits": 0
+        }
+      },
+      {
+        "key": "taxaMensal",
+        "type": "number",
+        "label": "Taxa ao mês (%)",
+        "validate": {
+          "min": 0,
+          "decimalDigits": 4
+        }
+      },
+      {
+        "key": "valorParcela",
+        "type": "number",
+        "label": "Parcela",
+        "validate": {
+          "min": 0.01,
+          "required": true,
+          "decimalDigits": 2
+        }
+      },
+      {
+        "key": "rendaMensal",
+        "type": "number",
+        "label": "Renda ou faturamento",
+        "validate": {
+          "min": 0.01,
+          "required": true,
+          "decimalDigits": 2
+        },
+        "sensitive": true
+      },
+      {
+        "key": "score",
+        "type": "number",
+        "label": "Score",
+        "validate": {
+          "max": 1000,
+          "min": 0,
+          "required": true
+        }
+      },
+      {
+        "key": "possuiRestricao",
+        "type": "checkbox",
+        "label": "Possui restrição"
+      },
+      {
+        "key": "valorRestricoes",
+        "type": "number",
+        "label": "Valor das restrições",
+        "validate": {
+          "min": 0,
+          "decimalDigits": 2
+        }
+      },
+      {
+        "key": "parcelasAtuais",
+        "type": "number",
+        "label": "Parcelas atuais",
+        "validate": {
+          "min": 0,
+          "required": true,
+          "decimalDigits": 2
+        }
+      },
+      {
+        "key": "saldoDevedorTotal",
+        "type": "number",
+        "label": "Saldo devedor total",
+        "validate": {
+          "min": 0,
+          "decimalDigits": 2
+        }
+      },
+      {
+        "key": "atrasoMaximoDias",
+        "type": "number",
+        "label": "Maior atraso (dias)",
+        "validate": {
+          "min": 0,
+          "required": true,
+          "decimalDigits": 0
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

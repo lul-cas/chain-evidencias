@@ -1,0 +1,93 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:6a87f80906cae6809c4af8e187c3059496b16263a73adcb595fcb75d0a1d961b",
+  "publishedAt": "2026-11-07T00:22:35.188864+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "possuiPendencia",
+        "path": [
+          "possuiPendencia"
+        ],
+        "type": "boolean",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "saldoConta",
+        "path": [
+          "saldoConta"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "contratosAtivos",
+        "path": [
+          "contratosAtivos"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "apolicesAtivas",
+        "path": [
+          "apolicesAtivas"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "cotasAtivas",
+        "path": [
+          "cotasAtivas"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": null,
+      "path": "/core/v1/clientes/{documentoCliente}/pendencias",
+      "query": {},
+      "method": "GET",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

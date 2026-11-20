@@ -1,0 +1,10 @@
+{
+  "sessao": "487c1b43-66fa-4d1a-bd43-6a890d57662c",
+  "modelo": "claude-sonnet-5-5",
+  "ferramentas": 7,
+  "turnos": 18,
+  "custoUsd": 0.19263209999999995,
+  "duracaoMs": 32203,
+  "fim": "success",
+  "resposta": "A Circular 04/2026 está aplicada à abertura de conta (CAD-01), que agora está na versão 2. A versão 2 usa a versão 2 dos dois formulários. O restante do processo ficou como estava.\n\n**O que mudou**\n- **F-CAD-01 Cadastro do cliente (versão 2):** novo campo obrigatório \"Origem dos recursos\". As opções são salário, atividade empresarial, aposentadoria, investimentos e outra.\n- **F-CAD-02 Parecer do cadastro (versão 2):** o mesmo campo aparece só para leitura na tela de quem analisa o cadastro.\n\n**Como cada item ficou cumprido**\n1. **Informar a origem:** o formulário de início e o de \"Ajustar cadastro\" são o F-CAD-01. Todo pedido novo de abertura de conta traz a origem.\n2. **Sem a informação, o pedido não é aceito:** o campo é obrigatório, então o formulário não deixa enviar sem ele.\n3. **Quem analisa vê a origem:** a etapa \"Analisar cadastro\" usa o F-CAD-02, que mostra a origem informada.\n\n**O que não alterei**\n- Não mexi na criação da conta no Core. A circular não pede que a origem seja gravada lá, e a automação atual não recebe esse dado.\n- Não mexi na atualização cadastral (CAD-02), porque a circular fala só de abertura de conta.\n- Não encontrei outro processo que chame a abertura de conta como subprocesso, então nenhum outro precisou de ajuste.\n- Pedidos de abertura que já estavam em andamento continuam na versão 1 até o fim. Só os pedidos novos seguem a regra."
+}

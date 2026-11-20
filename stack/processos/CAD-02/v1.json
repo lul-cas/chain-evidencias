@@ -1,0 +1,593 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:7b95afed555923442cc702bd266e260d6f9941e529f05bad6cf369081fc1ff02",
+  "publishedAt": "2026-11-07T00:22:36.501532+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_1",
+        "source": "inicio",
+        "target": "buscar_cliente"
+      },
+      {
+        "id": "f_2",
+        "source": "buscar_cliente",
+        "target": "gw_encontrado"
+      },
+      {
+        "id": "f_3",
+        "branch": "true",
+        "source": "gw_encontrado",
+        "target": "atualizar_dados"
+      },
+      {
+        "id": "f_4",
+        "branch": "false",
+        "source": "gw_encontrado",
+        "target": "fim_nao_encontrado"
+      },
+      {
+        "id": "f_5",
+        "source": "atualizar_dados",
+        "target": "consultar_situacao"
+      },
+      {
+        "id": "f_6",
+        "source": "consultar_situacao",
+        "target": "consultar_pld"
+      },
+      {
+        "id": "f_7",
+        "source": "consultar_pld",
+        "target": "conferir_atualizacao"
+      },
+      {
+        "id": "f_8",
+        "source": "conferir_atualizacao",
+        "target": "gw_pede_ajuste"
+      },
+      {
+        "id": "f_9",
+        "branch": "true",
+        "source": "gw_pede_ajuste",
+        "target": "atualizar_dados"
+      },
+      {
+        "id": "f_10",
+        "branch": "false",
+        "source": "gw_pede_ajuste",
+        "target": "gw_pld_alerta"
+      },
+      {
+        "id": "f_11",
+        "branch": "true",
+        "source": "gw_pld_alerta",
+        "target": "avaliar_pld"
+      },
+      {
+        "id": "f_12",
+        "branch": "false",
+        "source": "gw_pld_alerta",
+        "target": "atualizar_core"
+      },
+      {
+        "id": "f_13",
+        "branch": "true",
+        "source": "avaliar_pld",
+        "target": "atualizar_core"
+      },
+      {
+        "id": "f_14",
+        "branch": "false",
+        "source": "avaliar_pld",
+        "target": "bloquear_cliente"
+      },
+      {
+        "id": "f_15",
+        "source": "atualizar_core",
+        "target": "fim_atualizado"
+      },
+      {
+        "id": "f_16",
+        "source": "bloquear_cliente",
+        "target": "fim_bloqueado"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "lane_age",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b963-784a-a5af-dc7f58e905ce"
+        },
+        "title": "Agência - Atendimento",
+        "layout": {
+          "h": 130,
+          "w": 2420,
+          "x": 40,
+          "y": 30
+        }
+      },
+      {
+        "id": "lane_ana",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b94a-75b5-a9e1-dc11cc552934"
+        },
+        "title": "Cadastro - Análise",
+        "layout": {
+          "h": 130,
+          "w": 2420,
+          "x": 40,
+          "y": 170
+        }
+      },
+      {
+        "id": "lane_sup",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b953-7d14-838e-d9f46d3c2de1"
+        },
+        "title": "Cadastro - Supervisão",
+        "layout": {
+          "h": 130,
+          "w": 2420,
+          "x": 40,
+          "y": 310
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b362-c02f-7b04-a2bb-1184a7354af3",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "lane_age",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 180,
+          "y": 50
+        }
+      },
+      {
+        "id": "atualizar_dados",
+        "form": {
+          "formId": "01a1b362-c044-712c-87d5-f31316038227",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Atualizar dados do cliente",
+        "laneId": "lane_age",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 710,
+          "y": 50
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "buscar_cliente",
+        "type": "task",
+        "label": "Buscar cliente no Core",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 330,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "email": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            },
+            "endereco": {
+              "kind": "path",
+              "path": [
+                "endereco"
+              ]
+            },
+            "telefone": {
+              "kind": "path",
+              "path": [
+                "telefone"
+              ]
+            },
+            "nomeCliente": {
+              "kind": "path",
+              "path": [
+                "nomeCliente"
+              ]
+            },
+            "rendaMensal": {
+              "kind": "path",
+              "path": [
+                "rendaMensal"
+              ]
+            },
+            "clienteEncontrado": {
+              "kind": "path",
+              "path": [
+                "encontrado"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bd45-7c0f-85a2-ad993218b000"
+        }
+      },
+      {
+        "id": "gw_encontrado",
+        "type": "gateway",
+        "label": "Cliente encontrado?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 560,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "clienteEncontrado"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "boolean",
+            "value": "true"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "consultar_situacao",
+        "type": "task",
+        "label": "Consultar situação do documento",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 900,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "situacaoDocumento": {
+              "kind": "path",
+              "path": [
+                "situacaoDocumento"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bf7c-7efc-86d8-f8f58664f73d"
+        }
+      },
+      {
+        "id": "consultar_pld",
+        "type": "task",
+        "label": "Consultar listas restritivas",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1090,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "nomeCliente": {
+              "kind": "path",
+              "path": [
+                "nomeCliente"
+              ]
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "pep": {
+              "kind": "path",
+              "path": [
+                "pep"
+              ]
+            },
+            "resultadoPld": {
+              "kind": "path",
+              "path": [
+                "resultadoPld"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bf06-771a-9644-b865d8b137fc"
+        }
+      },
+      {
+        "id": "conferir_atualizacao",
+        "form": {
+          "formId": "01a1b362-c060-7dd5-b1e4-8d63090b47b5",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Conferir atualização",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1280,
+          "y": 190
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "gw_pede_ajuste",
+        "type": "gateway",
+        "label": "Pede ajuste?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1510,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAtualizacao"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "ajustar"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "gw_pld_alerta",
+        "type": "gateway",
+        "label": "Alerta de PLD ou PEP?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1700,
+          "y": 190
+        },
+        "condition": {
+          "op": "or",
+          "kind": "group",
+          "items": [
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "resultadoPld"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "text",
+                "value": "limpo"
+              },
+              "operator": "notEquals"
+            },
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "pep"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "boolean",
+                "value": "true"
+              },
+              "operator": "equals"
+            }
+          ]
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "atualizar_core",
+        "type": "task",
+        "label": "Atualizar cliente no Core",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2040,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "email": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            },
+            "endereco": {
+              "kind": "path",
+              "path": [
+                "endereco"
+              ]
+            },
+            "telefone": {
+              "kind": "path",
+              "path": [
+                "telefone"
+              ]
+            },
+            "rendaMensal": {
+              "kind": "path",
+              "path": [
+                "rendaMensal"
+              ]
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            },
+            "dataValidadeCadastro": {
+              "kind": "system",
+              "name": "currentDate",
+              "offset": {
+                "unit": "months",
+                "amount": 24
+              }
+            }
+          },
+          "outputs": {
+            "atualizado": {
+              "kind": "path",
+              "path": [
+                "atualizado"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bd76-7300-8e03-c9931f6e19a5"
+        }
+      },
+      {
+        "id": "fim_nao_encontrado",
+        "type": "end",
+        "label": "Cliente não encontrado",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 750,
+          "y": 190
+        }
+      },
+      {
+        "id": "fim_atualizado",
+        "type": "end",
+        "label": "Cadastro atualizado",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 2270,
+          "y": 190
+        }
+      },
+      {
+        "id": "avaliar_pld",
+        "type": "gateway",
+        "label": "Manter o relacionamento?",
+        "laneId": "lane_sup",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1890,
+          "y": 330
+        },
+        "question": "Manter o relacionamento com o cliente depois do alerta?",
+        "decisionMode": "human"
+      },
+      {
+        "id": "bloquear_cliente",
+        "type": "task",
+        "label": "Bloquear cliente",
+        "laneId": "lane_sup",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2040,
+          "y": 330
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "motivo": {
+              "kind": "literal",
+              "type": "text",
+              "value": "pld"
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "situacaoCliente": {
+              "kind": "path",
+              "path": [
+                "situacaoCliente"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bd8d-7cf2-8366-67cc1213e18a"
+        }
+      },
+      {
+        "id": "fim_bloqueado",
+        "type": "end",
+        "label": "Cliente bloqueado",
+        "laneId": "lane_sup",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 2270,
+          "y": 330
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

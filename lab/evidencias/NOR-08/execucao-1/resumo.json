@@ -1,0 +1,10 @@
+{
+  "sessao": "e6e842ca-cc83-4162-b846-ff9050e9bac5",
+  "modelo": "claude-sonnet-5-5",
+  "ferramentas": 7,
+  "turnos": 9,
+  "custoUsd": 0.093205,
+  "duracaoMs": 15715,
+  "fim": "success",
+  "resposta": "Ajustei o CRE-03 Cobrança e renegociação, e a versão 2 já está publicada.\n\n**O que mudou:** o lançamento contábil do acordo (subprocesso CTB-01) agora vem antes da emissão do boleto da entrada. A sequência ficou assim: Registrar acordo, depois Lançamento contábil, depois Emitir boleto da entrada e por fim Notificar acordo. Antes, o boleto saía antes do lançamento. Não mexi em mais nada.\n\n**Como cumpre a regra:** o subprocesso só devolve o controle quando o lançamento termina, e isso inclui a conferência e a aprovação, quando exigidas. Por isso o boleto não sai antes de o acordo estar lançado. Conferi na versão publicada que as arestas estão nessa ordem e que o CTB-01 continua fixado na versão 1.\n\nOs pedidos já em andamento continuam na versão antiga. Só os novos seguem a regra.\n\nSó olhei o CRE-03, onde o boleto de entrada de acordo é emitido. Não verifiquei se outro processo emite boleto de acordo."
+}

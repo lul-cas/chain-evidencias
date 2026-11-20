@@ -1,0 +1,95 @@
+{
+  "elementos": 25,
+  "versoes": [
+    "CAD-01 Abertura de conta v2→v3",
+    "CAD-02 Atualização cadastral v1→v2",
+    "CAD-04 Verificação do cliente v1",
+    "CRE-01 Proposta de crédito v5→v6",
+    "F-CAD-08 Início da verificação do cliente v1"
+  ],
+  "republicados": [
+    "CRE-01 Proposta de crédito"
+  ],
+  "processos": {
+    "CAD-01 Abertura de conta": {
+      "nos": {
+        "criados": 1,
+        "removidos": 2,
+        "alterados": 0
+      },
+      "fluxos": {
+        "criados": 1,
+        "removidos": 2,
+        "alterados": 2
+      },
+      "raias": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "total": 8
+    },
+    "CAD-02 Atualização cadastral": {
+      "nos": {
+        "criados": 1,
+        "removidos": 2,
+        "alterados": 0
+      },
+      "fluxos": {
+        "criados": 1,
+        "removidos": 2,
+        "alterados": 1
+      },
+      "raias": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "total": 7
+    },
+    "CAD-04 Verificação do cliente": {
+      "novo": true,
+      "total": 8
+    },
+    "CRE-01 Proposta de crédito": {
+      "nos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "fluxos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "raias": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "total": 0
+    }
+  },
+  "formularios": {
+    "F-CAD-08 Início da verificação do cliente": {
+      "novo": true,
+      "total": 2
+    }
+  },
+  "automacoes": [],
+  "emAndamento": [
+    {
+      "processo": "CAD-01 Abertura de conta",
+      "versao": 2,
+      "fim": "fim_conta_aberta",
+      "status": "completed"
+    },
+    {
+      "processo": "CAD-02 Atualização cadastral",
+      "versao": 1,
+      "fim": "fim_atualizado",
+      "status": "completed"
+    }
+  ],
+  "mesmosConteineres": true
+}

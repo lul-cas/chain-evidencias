@@ -1,0 +1,1 @@
+O admin criou o grupo Controles Internos, com a Inês como única integrante. Pode seguir.

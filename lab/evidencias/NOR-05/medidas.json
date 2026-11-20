@@ -1,0 +1,38 @@
+{
+  "elementos": 2,
+  "versoes": [
+    "CRE-01 Proposta de crédito v3→v4"
+  ],
+  "republicados": [],
+  "processos": {
+    "CRE-01 Proposta de crédito": {
+      "nos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 1
+      },
+      "fluxos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "raias": {
+        "criados": 1,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "total": 2
+    }
+  },
+  "formularios": {},
+  "automacoes": [],
+  "emAndamento": [
+    {
+      "processo": "CRE-01 Proposta de crédito",
+      "versao": 3,
+      "fim": "fim_liberado",
+      "status": "completed"
+    }
+  ],
+  "mesmosConteineres": true
+}

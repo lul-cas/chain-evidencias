@@ -1,0 +1,140 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:ccea518b3495f10b89db57bb96ef1511aef7ddae08fa4975c8e0c31b6fc34d35",
+  "publishedAt": "2026-11-07T00:22:35.450083+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "produto",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "decisao",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "origemDecisao",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "valorAprovado",
+        "type": "number",
+        "required": false
+      },
+      {
+        "key": "prazoAprovado",
+        "type": "number",
+        "required": false
+      },
+      {
+        "key": "taxaAprovada",
+        "type": "number",
+        "required": false
+      },
+      {
+        "key": "validadeAprovacao",
+        "type": "date",
+        "required": false
+      }
+    ],
+    "outputs": [
+      {
+        "key": "decisaoCredito",
+        "path": [
+          "decisaoCredito"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "valorAprovado",
+        "path": [
+          "valorAprovado"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "prazoAprovado",
+        "path": [
+          "prazoAprovado"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "taxaAprovada",
+        "path": [
+          "taxaAprovada"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "validadeAprovacao",
+        "path": [
+          "validadeAprovacao"
+        ],
+        "type": "date",
+        "source": "body",
+        "required": false
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "documentoCliente",
+          "produto",
+          "decisao",
+          "origemDecisao",
+          "valorAprovado",
+          "prazoAprovado",
+          "taxaAprovada",
+          "validadeAprovacao"
+        ],
+        "type": "json"
+      },
+      "path": "/motor/v1/decisoes",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:motor_api_key}}"
+      },
+      "destination": "motor-credito"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

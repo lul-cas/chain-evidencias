@@ -1,0 +1,51 @@
+{
+  "elementos": 2,
+  "versoes": [
+    "CAD-01 Abertura de conta v1→v2",
+    "F-CAD-01 Cadastro do cliente v1→v2",
+    "F-CAD-02 Parecer do cadastro v1→v2"
+  ],
+  "republicados": [
+    "CAD-01 Abertura de conta"
+  ],
+  "processos": {
+    "CAD-01 Abertura de conta": {
+      "nos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "fluxos": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "raias": {
+        "criados": 0,
+        "removidos": 0,
+        "alterados": 0
+      },
+      "total": 0
+    }
+  },
+  "formularios": {
+    "F-CAD-01 Cadastro do cliente": {
+      "novo": false,
+      "total": 1
+    },
+    "F-CAD-02 Parecer do cadastro": {
+      "novo": false,
+      "total": 1
+    }
+  },
+  "automacoes": [],
+  "emAndamento": [
+    {
+      "processo": "CAD-01 Abertura de conta",
+      "versao": 1,
+      "fim": "fim_conta_aberta",
+      "status": "completed"
+    }
+  ],
+  "mesmosConteineres": true
+}

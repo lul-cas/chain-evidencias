@@ -1,0 +1,96 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:b76cf6d414fac9bc27e71740126a01ab4f36326d78f5fd087fae912749054057",
+  "publishedAt": "2026-11-07T00:22:36.132666+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "label": "Cliente",
+        "readOnly": true
+      },
+      {
+        "key": "rendaMensal",
+        "type": "number",
+        "label": "Renda ou faturamento",
+        "readOnly": true,
+        "sensitive": true
+      },
+      {
+        "key": "score",
+        "type": "number",
+        "label": "Score",
+        "readOnly": true
+      },
+      {
+        "key": "taxaMensal",
+        "type": "number",
+        "label": "Taxa ao mês (%)",
+        "readOnly": true
+      },
+      {
+        "key": "valorParcela",
+        "type": "number",
+        "label": "Parcela",
+        "readOnly": true
+      },
+      {
+        "key": "cetAnual",
+        "type": "number",
+        "label": "CET ao ano (%)",
+        "readOnly": true
+      },
+      {
+        "key": "valorSolicitado",
+        "type": "number",
+        "label": "Valor",
+        "validate": {
+          "max": 5000000,
+          "min": 500,
+          "required": true,
+          "decimalDigits": 2
+        }
+      },
+      {
+        "key": "prazoMeses",
+        "type": "number",
+        "label": "Prazo em meses",
+        "validate": {
+          "max": 120,
+          "min": 1,
+          "required": true,
+          "decimalDigits": 0
+        }
+      },
+      {
+        "key": "seguroPrestamista",
+        "type": "checkbox",
+        "label": "Cliente quer seguro prestamista"
+      },
+      {
+        "key": "resultadoNegociacao",
+        "type": "radio",
+        "label": "Resultado",
+        "options": [
+          {
+            "label": "Enviar para análise",
+            "value": "aceita"
+          },
+          {
+            "label": "Refazer a simulação",
+            "value": "ajustar"
+          },
+          {
+            "label": "Cliente desistiu",
+            "value": "desiste"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

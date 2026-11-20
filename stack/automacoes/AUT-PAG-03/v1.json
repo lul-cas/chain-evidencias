@@ -1,0 +1,89 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:df6628600f0dea10dcca5eea9c592811ed85cfd194f75f03e0bedc76d21daa2c",
+  "publishedAt": "2026-11-07T00:22:35.521911+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "valor",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "referencia",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "dataVencimento",
+        "type": "date",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "idBoleto",
+        "path": [
+          "idBoleto"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "linhaDigitavel",
+        "path": [
+          "linhaDigitavel"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "documentoCliente",
+          "valor",
+          "referencia",
+          "dataVencimento"
+        ],
+        "type": "json"
+      },
+      "path": "/pagamentos/v1/boletos",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:pagamentos_api_key}}"
+      },
+      "destination": "pagamentos"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

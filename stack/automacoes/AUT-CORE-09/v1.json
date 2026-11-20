@@ -1,0 +1,66 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:5e5cb12ee87803abff8f067f9c8a9b7e864d0cc82e4478f2d1fa3bab89eeb53a",
+  "publishedAt": "2026-11-07T00:22:35.27931+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "numeroContrato",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "valorLiberado",
+        "path": [
+          "valorLiberado"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "dataLiberacao",
+        "path": [
+          "dataLiberacao"
+        ],
+        "type": "date",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": null,
+      "path": "/core/v1/contratos/{numeroContrato}/liberacao",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

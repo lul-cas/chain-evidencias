@@ -1,0 +1,841 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:a19326696bd48c9a9035ca4417fed010a46c2c8f56c50440b0bd6bf03b33c33e",
+  "publishedAt": "2026-11-07T00:22:36.786272+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_1",
+        "source": "inicio",
+        "target": "buscar_contrato"
+      },
+      {
+        "id": "f_2",
+        "source": "buscar_contrato",
+        "target": "gw_em_atraso"
+      },
+      {
+        "id": "f_3",
+        "branch": "true",
+        "source": "gw_em_atraso",
+        "target": "gw_atraso_longo"
+      },
+      {
+        "id": "f_4",
+        "branch": "false",
+        "source": "gw_em_atraso",
+        "target": "fim_sem_atraso"
+      },
+      {
+        "id": "f_5",
+        "branch": "true",
+        "source": "gw_atraso_longo",
+        "target": "avaliar_judicial"
+      },
+      {
+        "id": "f_6",
+        "branch": "false",
+        "source": "gw_atraso_longo",
+        "target": "elaborar_proposta"
+      },
+      {
+        "id": "f_7",
+        "branch": "true",
+        "source": "avaliar_judicial",
+        "target": "marcar_judicial"
+      },
+      {
+        "id": "f_8",
+        "branch": "false",
+        "source": "avaliar_judicial",
+        "target": "elaborar_proposta"
+      },
+      {
+        "id": "f_9",
+        "source": "marcar_judicial",
+        "target": "lancar_provisao"
+      },
+      {
+        "id": "f_10",
+        "source": "lancar_provisao",
+        "target": "fim_judicial"
+      },
+      {
+        "id": "f_11",
+        "source": "elaborar_proposta",
+        "target": "gw_desconto_alto"
+      },
+      {
+        "id": "f_12",
+        "branch": "true",
+        "source": "gw_desconto_alto",
+        "target": "aprovar_desconto"
+      },
+      {
+        "id": "f_13",
+        "branch": "false",
+        "source": "gw_desconto_alto",
+        "target": "negociar_cliente"
+      },
+      {
+        "id": "f_14",
+        "branch": "true",
+        "source": "aprovar_desconto",
+        "target": "negociar_cliente"
+      },
+      {
+        "id": "f_15",
+        "branch": "false",
+        "source": "aprovar_desconto",
+        "target": "elaborar_proposta"
+      },
+      {
+        "id": "f_16",
+        "source": "negociar_cliente",
+        "target": "gw_contraproposta"
+      },
+      {
+        "id": "f_17",
+        "branch": "true",
+        "source": "gw_contraproposta",
+        "target": "elaborar_proposta"
+      },
+      {
+        "id": "f_18",
+        "branch": "false",
+        "source": "gw_contraproposta",
+        "target": "gw_cliente_aceitou"
+      },
+      {
+        "id": "f_19",
+        "branch": "true",
+        "source": "gw_cliente_aceitou",
+        "target": "registrar_acordo"
+      },
+      {
+        "id": "f_20",
+        "branch": "false",
+        "source": "gw_cliente_aceitou",
+        "target": "fim_sem_acordo"
+      },
+      {
+        "id": "f_21",
+        "source": "registrar_acordo",
+        "target": "emitir_boleto"
+      },
+      {
+        "id": "f_22",
+        "source": "emitir_boleto",
+        "target": "lancar_acordo"
+      },
+      {
+        "id": "f_23",
+        "source": "lancar_acordo",
+        "target": "notificar_acordo"
+      },
+      {
+        "id": "f_24",
+        "source": "notificar_acordo",
+        "target": "fim_acordo"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "lane_cob",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b9a2-7ab8-a61c-2634cf657b18"
+        },
+        "title": "Crédito - Cobrança",
+        "layout": {
+          "h": 240,
+          "w": 3180,
+          "x": 40,
+          "y": 30
+        }
+      },
+      {
+        "id": "lane_ger",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b986-7535-972a-7c239c54f977"
+        },
+        "title": "Crédito - Gerência",
+        "layout": {
+          "h": 240,
+          "w": 3180,
+          "x": 40,
+          "y": 280
+        }
+      },
+      {
+        "id": "lane_age",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b963-784a-a5af-dc7f58e905ce"
+        },
+        "title": "Agência - Atendimento",
+        "layout": {
+          "h": 130,
+          "w": 3180,
+          "x": 40,
+          "y": 530
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b362-c193-7d6d-8ade-ce83d3fb45cd",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 180,
+          "y": 50
+        }
+      },
+      {
+        "id": "buscar_contrato",
+        "type": "task",
+        "label": "Buscar contrato",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 330,
+          "y": 50
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "numeroContrato": {
+              "kind": "path",
+              "path": [
+                "numeroContrato"
+              ]
+            }
+          },
+          "outputs": {
+            "email": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            },
+            "diasAtraso": {
+              "kind": "path",
+              "path": [
+                "diasAtraso"
+              ]
+            },
+            "nomeCliente": {
+              "kind": "path",
+              "path": [
+                "nomeCliente"
+              ]
+            },
+            "saldoDevedor": {
+              "kind": "path",
+              "path": [
+                "saldoDevedor"
+              ]
+            },
+            "valorParcela": {
+              "kind": "path",
+              "path": [
+                "valorParcela"
+              ]
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            },
+            "contratoEncontrado": {
+              "kind": "path",
+              "path": [
+                "encontrado"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-be12-7be0-8fb2-4358ab80cfc8"
+        }
+      },
+      {
+        "id": "gw_em_atraso",
+        "type": "gateway",
+        "label": "Contrato em atraso?",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 560,
+          "y": 50
+        },
+        "condition": {
+          "op": "and",
+          "kind": "group",
+          "items": [
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "contratoEncontrado"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "boolean",
+                "value": "true"
+              },
+              "operator": "equals"
+            },
+            {
+              "kind": "compare",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "diasAtraso"
+                ]
+              },
+              "right": {
+                "kind": "literal",
+                "type": "number",
+                "value": "0"
+              },
+              "operator": "greaterThan"
+            }
+          ]
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "gw_atraso_longo",
+        "type": "gateway",
+        "label": "Atraso acima de 360 dias?",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 750,
+          "y": 50
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "diasAtraso"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "number",
+            "value": "360"
+          },
+          "operator": "greaterThan"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "elaborar_proposta",
+        "form": {
+          "formId": "01a1b362-c1a8-7800-97c6-2c02526eb257",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Elaborar proposta de renegociação",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1090,
+          "y": 50
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "gw_desconto_alto",
+        "type": "gateway",
+        "label": "Desconto acima de 20%?",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1320,
+          "y": 50
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "descontoPercentual"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "number",
+            "value": "20"
+          },
+          "operator": "greaterThan"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "registrar_acordo",
+        "type": "task",
+        "label": "Registrar acordo",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2230,
+          "y": 50
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "valorAcordo": {
+              "kind": "path",
+              "path": [
+                "valorAcordo"
+              ]
+            },
+            "valorEntrada": {
+              "kind": "path",
+              "path": [
+                "valorEntrada"
+              ]
+            },
+            "numeroContrato": {
+              "kind": "path",
+              "path": [
+                "numeroContrato"
+              ]
+            },
+            "quantidadeParcelas": {
+              "kind": "path",
+              "path": [
+                "quantidadeParcelas"
+              ]
+            }
+          },
+          "outputs": {
+            "numeroAcordo": {
+              "kind": "path",
+              "path": [
+                "numeroAcordo"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-be2e-73f8-89e7-5f143f09bdfd"
+        }
+      },
+      {
+        "id": "emitir_boleto",
+        "type": "task",
+        "label": "Emitir boleto da entrada",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2420,
+          "y": 50
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "valor": {
+              "kind": "path",
+              "path": [
+                "valorEntrada"
+              ]
+            },
+            "referencia": {
+              "kind": "path",
+              "path": [
+                "numeroAcordo"
+              ]
+            },
+            "dataVencimento": {
+              "kind": "system",
+              "name": "currentDate",
+              "offset": {
+                "unit": "days",
+                "amount": 5
+              }
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "idBoleto": {
+              "kind": "path",
+              "path": [
+                "idBoleto"
+              ]
+            },
+            "linhaDigitavel": {
+              "kind": "path",
+              "path": [
+                "linhaDigitavel"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bef0-772e-a4da-da661b9dc438"
+        }
+      },
+      {
+        "id": "lancar_acordo",
+        "type": "task",
+        "label": "CTB-01 Lançamento contábil",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2610,
+          "y": 50
+        },
+        "taskKind": "subprocess",
+        "workflow": {
+          "inputs": {
+            "valor": {
+              "kind": "path",
+              "path": [
+                "valorAcordo"
+              ]
+            },
+            "historico": {
+              "kind": "literal",
+              "type": "text",
+              "value": "Renegociação de contrato"
+            },
+            "eventoContabil": {
+              "kind": "literal",
+              "type": "text",
+              "value": "renegociacao"
+            },
+            "dataCompetencia": {
+              "kind": "system",
+              "name": "currentDate"
+            },
+            "documentoReferencia": {
+              "kind": "path",
+              "path": [
+                "numeroAcordo"
+              ]
+            }
+          },
+          "outputs": {
+            "numeroLancamento": {
+              "kind": "path",
+              "path": [
+                "numeroLancamento"
+              ]
+            }
+          },
+          "version": 1,
+          "workflowId": "01a1b362-c1e3-7762-8441-83102a3aa41f"
+        }
+      },
+      {
+        "id": "notificar_acordo",
+        "type": "task",
+        "label": "Notificar acordo",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 2800,
+          "y": 50
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "modelo": {
+              "kind": "literal",
+              "type": "text",
+              "value": "acordo_fechado"
+            },
+            "referencia": {
+              "kind": "path",
+              "path": [
+                "numeroAcordo"
+              ]
+            },
+            "destinatario": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            }
+          },
+          "outputs": {
+            "idMensagem": {
+              "kind": "path",
+              "path": [
+                "idMensagem"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bebe-7ae0-a1d6-0c8ce9bb163a"
+        }
+      },
+      {
+        "id": "fim_sem_atraso",
+        "type": "end",
+        "label": "Sem atraso",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 750,
+          "y": 160
+        }
+      },
+      {
+        "id": "fim_sem_acordo",
+        "type": "end",
+        "label": "Sem acordo",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 2270,
+          "y": 160
+        }
+      },
+      {
+        "id": "fim_acordo",
+        "type": "end",
+        "label": "Acordo fechado",
+        "laneId": "lane_cob",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 3030,
+          "y": 50
+        }
+      },
+      {
+        "id": "avaliar_judicial",
+        "type": "gateway",
+        "label": "Enviar para cobrança judicial?",
+        "laneId": "lane_ger",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 940,
+          "y": 300
+        },
+        "question": "Enviar o contrato para cobrança judicial?",
+        "decisionMode": "human"
+      },
+      {
+        "id": "marcar_judicial",
+        "type": "task",
+        "label": "Marcar cobrança judicial",
+        "laneId": "lane_ger",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1090,
+          "y": 300
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "numeroContrato": {
+              "kind": "path",
+              "path": [
+                "numeroContrato"
+              ]
+            }
+          },
+          "outputs": {
+            "dataMarcacao": {
+              "kind": "path",
+              "path": [
+                "dataMarcacao"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-be4b-743d-85a4-4f39c489c486"
+        }
+      },
+      {
+        "id": "lancar_provisao",
+        "type": "task",
+        "label": "CTB-01 Lançamento contábil",
+        "laneId": "lane_ger",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1280,
+          "y": 300
+        },
+        "taskKind": "subprocess",
+        "workflow": {
+          "inputs": {
+            "valor": {
+              "kind": "path",
+              "path": [
+                "saldoDevedor"
+              ]
+            },
+            "historico": {
+              "kind": "literal",
+              "type": "text",
+              "value": "Provisão para cobrança judicial"
+            },
+            "eventoContabil": {
+              "kind": "literal",
+              "type": "text",
+              "value": "provisao_perda"
+            },
+            "dataCompetencia": {
+              "kind": "path",
+              "path": [
+                "dataMarcacao"
+              ]
+            },
+            "documentoReferencia": {
+              "kind": "path",
+              "path": [
+                "numeroContrato"
+              ]
+            }
+          },
+          "outputs": {
+            "numeroLancamento": {
+              "kind": "path",
+              "path": [
+                "numeroLancamento"
+              ]
+            }
+          },
+          "version": 1,
+          "workflowId": "01a1b362-c1e3-7762-8441-83102a3aa41f"
+        }
+      },
+      {
+        "id": "aprovar_desconto",
+        "type": "gateway",
+        "label": "Aprova o desconto?",
+        "laneId": "lane_ger",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1510,
+          "y": 300
+        },
+        "question": "Aprova o desconto proposto?",
+        "decisionMode": "human"
+      },
+      {
+        "id": "fim_judicial",
+        "type": "end",
+        "label": "Cobrança judicial",
+        "laneId": "lane_ger",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 1510,
+          "y": 410
+        }
+      },
+      {
+        "id": "negociar_cliente",
+        "form": {
+          "formId": "01a1b362-c1be-72d7-8f3a-2128aa5c0e38",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Negociar com o cliente",
+        "laneId": "lane_age",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1660,
+          "y": 550
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "gw_contraproposta",
+        "type": "gateway",
+        "label": "Cliente fez contraproposta?",
+        "laneId": "lane_age",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1890,
+          "y": 550
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "respostaCliente"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "contraproposta"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "gw_cliente_aceitou",
+        "type": "gateway",
+        "label": "Cliente aceitou?",
+        "laneId": "lane_age",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 2080,
+          "y": 550
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "respostaCliente"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aceita"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

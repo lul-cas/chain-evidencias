@@ -1,0 +1,409 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:7f17998ca5f80b752c4d63241986b678adcc908ae944f38140fee161cbfdcee3",
+  "publishedAt": "2026-11-07T00:22:36.045584+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "label": "Cliente",
+        "readOnly": true
+      },
+      {
+        "key": "produto",
+        "type": "text",
+        "label": "Produto",
+        "readOnly": true
+      },
+      {
+        "key": "finalidade",
+        "type": "textarea",
+        "label": "Finalidade",
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "finalidade"
+            ]
+          },
+          "operator": "isNotEmpty"
+        }
+      },
+      {
+        "key": "valorSolicitado",
+        "type": "number",
+        "label": "Valor solicitado",
+        "readOnly": true
+      },
+      {
+        "key": "prazoMeses",
+        "type": "number",
+        "label": "Prazo em meses",
+        "readOnly": true
+      },
+      {
+        "key": "taxaMensal",
+        "type": "number",
+        "label": "Taxa simulada ao mês (%)",
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "taxaMensal"
+            ]
+          },
+          "operator": "isNotEmpty"
+        }
+      },
+      {
+        "key": "valorParcela",
+        "type": "number",
+        "label": "Parcela",
+        "readOnly": true
+      },
+      {
+        "key": "rendaMensal",
+        "type": "number",
+        "label": "Renda ou faturamento",
+        "readOnly": true,
+        "sensitive": true
+      },
+      {
+        "key": "parcelasAtuais",
+        "type": "number",
+        "label": "Parcelas atuais",
+        "readOnly": true
+      },
+      {
+        "key": "saldoDevedorTotal",
+        "type": "number",
+        "label": "Saldo devedor total",
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "saldoDevedorTotal"
+            ]
+          },
+          "operator": "isNotEmpty"
+        }
+      },
+      {
+        "key": "comprometimentoRenda",
+        "type": "computed",
+        "label": "Comprometimento da renda (%)",
+        "sensitive": true,
+        "expression": {
+          "args": [
+            {
+              "op": "multiply",
+              "kind": "arithmetic",
+              "left": {
+                "op": "divide",
+                "kind": "arithmetic",
+                "left": {
+                  "op": "add",
+                  "kind": "arithmetic",
+                  "left": {
+                    "kind": "path",
+                    "path": [
+                      "parcelasAtuais"
+                    ]
+                  },
+                  "right": {
+                    "kind": "path",
+                    "path": [
+                      "valorParcela"
+                    ]
+                  }
+                },
+                "right": {
+                  "kind": "path",
+                  "path": [
+                    "rendaMensal"
+                  ]
+                }
+              },
+              "right": {
+                "kind": "literal",
+                "type": "number",
+                "value": "100"
+              }
+            },
+            {
+              "kind": "literal",
+              "type": "number",
+              "value": "2"
+            }
+          ],
+          "kind": "call",
+          "function": "round"
+        }
+      },
+      {
+        "key": "score",
+        "type": "number",
+        "label": "Score",
+        "readOnly": true
+      },
+      {
+        "key": "possuiRestricao",
+        "type": "checkbox",
+        "label": "Possui restrição",
+        "readOnly": true
+      },
+      {
+        "key": "valorRestricoes",
+        "type": "number",
+        "label": "Valor das restrições",
+        "readOnly": true
+      },
+      {
+        "key": "atrasoMaximoDias",
+        "type": "number",
+        "label": "Maior atraso (dias)",
+        "readOnly": true
+      },
+      {
+        "key": "respostaAgencia",
+        "type": "textarea",
+        "label": "Resposta da agência",
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "respostaAgencia"
+            ]
+          },
+          "operator": "isNotEmpty"
+        }
+      },
+      {
+        "key": "ratingInterno",
+        "type": "select",
+        "label": "Rating interno",
+        "options": [
+          {
+            "label": "A",
+            "value": "A"
+          },
+          {
+            "label": "B",
+            "value": "B"
+          },
+          {
+            "label": "C",
+            "value": "C"
+          },
+          {
+            "label": "D",
+            "value": "D"
+          },
+          {
+            "label": "E",
+            "value": "E"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "parecerAnalista",
+        "type": "radio",
+        "label": "Parecer",
+        "options": [
+          {
+            "label": "Aprovar",
+            "value": "aprovar"
+          },
+          {
+            "label": "Recusar",
+            "value": "recusar"
+          },
+          {
+            "label": "Pedir informações à agência",
+            "value": "solicitar_informacoes"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "valorAprovado",
+        "type": "number",
+        "label": "Valor aprovado",
+        "validate": {
+          "min": 0.01,
+          "decimalDigits": 2
+        },
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAnalista"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aprovar"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAnalista"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aprovar"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "prazoAprovado",
+        "type": "number",
+        "label": "Prazo aprovado",
+        "validate": {
+          "min": 1,
+          "decimalDigits": 0
+        },
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAnalista"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aprovar"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAnalista"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aprovar"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "taxaAprovada",
+        "type": "number",
+        "label": "Taxa aprovada ao mês (%)",
+        "validate": {
+          "min": 0,
+          "decimalDigits": 4
+        },
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAnalista"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aprovar"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAnalista"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "aprovar"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "informacoesSolicitadas",
+        "type": "textarea",
+        "label": "O que a agência precisa informar",
+        "validate": {
+          "maxLength": 1000
+        },
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAnalista"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "solicitar_informacoes"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAnalista"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "solicitar_informacoes"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "justificativaAnalista",
+        "type": "textarea",
+        "label": "Justificativa",
+        "validate": {
+          "required": true,
+          "maxLength": 2000
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

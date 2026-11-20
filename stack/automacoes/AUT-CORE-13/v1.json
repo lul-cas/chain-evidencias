@@ -1,0 +1,73 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:86a52aeed4f0565fa781ec072476697de7abebda202562a11cd8a0dd081cac4a",
+  "publishedAt": "2026-11-07T00:22:35.38534+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "numeroApolice",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "premioMensal",
+        "type": "number",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "debitoProgramado",
+        "path": [
+          "debitoProgramado"
+        ],
+        "type": "boolean",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "numeroApolice",
+          "premioMensal"
+        ],
+        "type": "json"
+      },
+      "path": "/core/v1/clientes/{documentoCliente}/apolices",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

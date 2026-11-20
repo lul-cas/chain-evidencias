@@ -1,0 +1,75 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:92c2cfd456a31d9bbfb2f036cf4e7edfe4ca74542616672a6eec504a24422541",
+  "publishedAt": "2026-11-07T00:22:35.23392+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "parcelasAtuais",
+        "path": [
+          "parcelasAtuais"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "saldoDevedorTotal",
+        "path": [
+          "saldoDevedorTotal"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "atrasoMaximoDias",
+        "path": [
+          "atrasoMaximoDias"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": null,
+      "path": "/core/v1/clientes/{documentoCliente}/exposicao",
+      "query": {},
+      "method": "GET",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

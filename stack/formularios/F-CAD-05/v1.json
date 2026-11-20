@@ -1,0 +1,149 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:7fd9b81302e63f172f27162048b1d5565dcfb018338c2fd832e9d8acc3ba06dd",
+  "publishedAt": "2026-11-07T00:22:35.88876+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "label": "CPF ou CNPJ",
+        "readOnly": true
+      },
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "label": "Nome ou razão social",
+        "readOnly": true
+      },
+      {
+        "key": "rendaMensal",
+        "type": "number",
+        "label": "Renda ou faturamento",
+        "readOnly": true,
+        "sensitive": true
+      },
+      {
+        "key": "situacaoDocumento",
+        "type": "text",
+        "label": "Situação do documento",
+        "readOnly": true
+      },
+      {
+        "key": "resultadoPld",
+        "type": "text",
+        "label": "Resultado das listas restritivas",
+        "readOnly": true
+      },
+      {
+        "key": "pep",
+        "type": "checkbox",
+        "label": "Pessoa politicamente exposta",
+        "readOnly": true
+      },
+      {
+        "key": "parecerAtualizacao",
+        "type": "radio",
+        "label": "Parecer",
+        "options": [
+          {
+            "label": "Aprovar",
+            "value": "aprovado"
+          },
+          {
+            "label": "Devolver para ajuste",
+            "value": "ajustar"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "pendencias",
+        "type": "checklist",
+        "label": "Pendências",
+        "options": [
+          {
+            "label": "Documento ilegível",
+            "value": "documento_ilegivel"
+          },
+          {
+            "label": "Endereço divergente",
+            "value": "endereco_divergente"
+          },
+          {
+            "label": "Renda não comprovada",
+            "value": "renda_nao_comprovada"
+          },
+          {
+            "label": "Contrato social desatualizado",
+            "value": "contrato_social_desatualizado"
+          },
+          {
+            "label": "Dados divergentes",
+            "value": "dados_divergentes"
+          },
+          {
+            "label": "Outro",
+            "value": "outro"
+          }
+        ],
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAtualizacao"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "ajustar"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAtualizacao"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "ajustar"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "observacaoCadastro",
+        "type": "textarea",
+        "label": "Observação",
+        "validate": {
+          "maxLength": 1000
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAtualizacao"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "ajustar"
+          },
+          "operator": "equals"
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

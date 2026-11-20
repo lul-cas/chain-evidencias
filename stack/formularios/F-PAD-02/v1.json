@@ -1,0 +1,30 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:49ed719ec7d4d461c85d858ea12e22f94841148771fc0847313ad2fe6d206c86",
+  "publishedAt": "2026-11-07T02:29:29.491802+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "restantes",
+        "type": "computed",
+        "label": "Restantes",
+        "expression": {
+          "op": "subtract",
+          "kind": "arithmetic",
+          "left": {
+            "kind": "path",
+            "path": [
+              "restantes"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "number",
+            "value": "1"
+          }
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

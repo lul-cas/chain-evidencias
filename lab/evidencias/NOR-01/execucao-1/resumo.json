@@ -1,0 +1,10 @@
+{
+  "sessao": "b31ec011-b30f-4e07-bb12-0ba1e2754018",
+  "modelo": "claude-sonnet-5-5",
+  "ferramentas": 7,
+  "turnos": 15,
+  "custoUsd": 0.283659,
+  "duracaoMs": 25572,
+  "fim": "success",
+  "resposta": "A regra do rating D/E está em vigor. Os novos pedidos de crédito passam a segui-la.\n\n**O que mudou**\n- **CRE-02 Análise de crédito (versão 2):** o ponto \"Na alçada do analista?\" agora só aprova direto quando o valor aprovado é de até R$ 50.000 **e** o `ratingInterno` não é D nem E. Esse campo já existia no parecer do analista e é obrigatório.\n- **CRE-01 Proposta de crédito (versão 2):** não mudei nada no desenho dela. Republiquei porque cada processo fica preso à versão do subprocesso que existia na hora da publicação. Sem isso, a proposta continuaria chamando a análise antiga. Confirmei que a versão 2 da proposta aponta para a versão 2 da análise.\n\n**Como cada item ficou cumprido**\n1. **Rating D ou E exige a gerência:** uma operação com rating D ou E dentro da alçada do analista agora cai na verificação da alçada da gerência. Até R$ 250.000, vai para a etapa \"Aprova a operação?\" da raia Crédito - Gerência. O analista não aprova mais sozinho.\n2. **Acima da alçada da gerência continua no comitê:** não mexi nesse trecho. Operações acima de R$ 250.000, de qualquer rating, seguem para o comitê. Isso inclui as de rating D ou E.\n\n**Pontos de atenção**\n- A aprovação automática (score alto, valor de até R$ 20.000) não passa por analista e não tem rating. Não alterei esse caminho, porque a normativa trata de operações que o analista classifica.\n- Pedidos que já estavam em andamento continuam na versão antiga.\n- Não testei com pedidos reais. Só rodei a validação, que passou sem erros."
+}

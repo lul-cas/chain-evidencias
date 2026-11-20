@@ -1,0 +1,566 @@
+{
+  "id": "01a1b3ca-5a9f-71a7-a476-bd944b447b13",
+  "definitionId": "01a1b362-c3d3-797c-ace7-fa5af767b6ee",
+  "definitionName": "CRE-03 Cobrança e renegociação",
+  "versionNumber": 1,
+  "status": "completed",
+  "currentNodeId": "fim_acordo",
+  "requester": {
+    "id": "01a1b362-bbcf-73d7-b567-14866d8d0515",
+    "username": "bot-core-bancario",
+    "displayName": "bot-core-bancario"
+  },
+  "startedAt": "2026-11-07T02:15:45.567446+00:00",
+  "endedAt": "2026-11-07T02:16:13.113124+00:00",
+  "openTasks": [],
+  "participants": [
+    {
+      "id": "01a1b362-bbb2-733d-8a55-9bd59d977cd9",
+      "username": "persona-vera",
+      "displayName": "Vera"
+    },
+    {
+      "id": "01a1b362-baa8-778f-be50-bf04962f4eae",
+      "username": "persona-rafael",
+      "displayName": "Rafael"
+    }
+  ],
+  "timeline": [
+    {
+      "type": "instance.started",
+      "occurredAt": "2026-11-07T02:15:45.567446+00:00",
+      "actor": {
+        "id": "01a1b362-bbcf-73d7-b567-14866d8d0515",
+        "username": "bot-core-bancario",
+        "displayName": "bot-core-bancario"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "versionNumber": 1,
+        "definitionName": "CRE-03 Cobrança e renegociação"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:15:45.567446+00:00",
+      "actor": {
+        "id": "01a1b362-bbcf-73d7-b567-14866d8d0515",
+        "username": "bot-core-bancario",
+        "displayName": "bot-core-bancario"
+      },
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "formId": "01a1b362-c193-7d6d-8ade-ce83d3fb45cd",
+        "nodeId": "inicio",
+        "formVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:15:45.567446+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Buscar contrato",
+        "nodeId": "buscar_contrato",
+        "requestId": "01a1b3ca-5a9f-78cb-992d-c570fb5f2e29",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:32:15Z",
+        "automationId": "01a1b362-be12-7be0-8fb2-4358ab80cfc8",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:15:45.998932+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Buscar contrato",
+        "nodeId": "buscar_contrato",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/core/v1/contratos/CT-1001",
+              "method": "GET",
+              "secrets": [
+                {
+                  "name": "core_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "core-bancario",
+              "headerNames": [
+                "Accept",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:15:45.982Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 171
+          }
+        ],
+        "requestId": "01a1b3ca-5a9f-78cb-992d-c570fb5f2e29"
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:15:45.998932+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Contrato em atraso?",
+        "nodeId": "gw_em_atraso",
+        "outcome": true
+      },
+      "channel": null
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:15:45.998932+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Atraso acima de 360 dias?",
+        "nodeId": "gw_atraso_longo",
+        "outcome": false
+      },
+      "channel": null
+    },
+    {
+      "type": "task.created",
+      "occurredAt": "2026-11-07T02:15:45.998932+00:00",
+      "actor": null,
+      "actedAsGroup": {
+        "id": "01a1b362-b9a2-7ab8-a61c-2634cf657b18",
+        "name": "Crédito - Cobrança"
+      },
+      "taskId": "01a1b3ca-5c4e-7fe9-a91a-97a0d67574e0",
+      "details": {
+        "kind": "task",
+        "label": "Elaborar proposta de renegociação",
+        "nodeId": "elaborar_proposta"
+      },
+      "channel": null
+    },
+    {
+      "type": "task.assigned",
+      "occurredAt": "2026-11-07T02:15:46.220645+00:00",
+      "actor": {
+        "id": "01a1b362-bbb2-733d-8a55-9bd59d977cd9",
+        "username": "persona-vera",
+        "displayName": "Vera"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b9a2-7ab8-a61c-2634cf657b18",
+        "name": "Crédito - Cobrança"
+      },
+      "taskId": "01a1b3ca-5c4e-7fe9-a91a-97a0d67574e0",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:15:46.220645+00:00",
+      "actor": {
+        "id": "01a1b362-bbb2-733d-8a55-9bd59d977cd9",
+        "username": "persona-vera",
+        "displayName": "Vera"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3ca-5c4e-7fe9-a91a-97a0d67574e0",
+      "details": {
+        "formId": "01a1b362-c1a8-7800-97c6-2c02526eb257",
+        "nodeId": "elaborar_proposta",
+        "formVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.completed",
+      "occurredAt": "2026-11-07T02:15:46.220645+00:00",
+      "actor": {
+        "id": "01a1b362-bbb2-733d-8a55-9bd59d977cd9",
+        "username": "persona-vera",
+        "displayName": "Vera"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b9a2-7ab8-a61c-2634cf657b18",
+        "name": "Crédito - Cobrança"
+      },
+      "taskId": "01a1b3ca-5c4e-7fe9-a91a-97a0d67574e0",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:15:46.220645+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Desconto acima de 20%?",
+        "nodeId": "gw_desconto_alto",
+        "outcome": false
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.created",
+      "occurredAt": "2026-11-07T02:15:46.220645+00:00",
+      "actor": null,
+      "actedAsGroup": {
+        "id": "01a1b362-b963-784a-a5af-dc7f58e905ce",
+        "name": "Agência - Atendimento"
+      },
+      "taskId": "01a1b3ca-5d2c-7638-a576-590d27110034",
+      "details": {
+        "kind": "task",
+        "label": "Negociar com o cliente",
+        "nodeId": "negociar_cliente"
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.assigned",
+      "occurredAt": "2026-11-07T02:16:08.265123+00:00",
+      "actor": {
+        "id": "01a1b362-baa8-778f-be50-bf04962f4eae",
+        "username": "persona-rafael",
+        "displayName": "Rafael"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b963-784a-a5af-dc7f58e905ce",
+        "name": "Agência - Atendimento"
+      },
+      "taskId": "01a1b3ca-5d2c-7638-a576-590d27110034",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "form.submitted",
+      "occurredAt": "2026-11-07T02:16:08.265123+00:00",
+      "actor": {
+        "id": "01a1b362-baa8-778f-be50-bf04962f4eae",
+        "username": "persona-rafael",
+        "displayName": "Rafael"
+      },
+      "actedAsGroup": null,
+      "taskId": "01a1b3ca-5d2c-7638-a576-590d27110034",
+      "details": {
+        "formId": "01a1b362-c1be-72d7-8f3a-2128aa5c0e38",
+        "nodeId": "negociar_cliente",
+        "formVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "task.completed",
+      "occurredAt": "2026-11-07T02:16:08.265123+00:00",
+      "actor": {
+        "id": "01a1b362-baa8-778f-be50-bf04962f4eae",
+        "username": "persona-rafael",
+        "displayName": "Rafael"
+      },
+      "actedAsGroup": {
+        "id": "01a1b362-b963-784a-a5af-dc7f58e905ce",
+        "name": "Agência - Atendimento"
+      },
+      "taskId": "01a1b3ca-5d2c-7638-a576-590d27110034",
+      "details": {},
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:16:08.265123+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Cliente fez contraproposta?",
+        "nodeId": "gw_contraproposta",
+        "outcome": false
+      },
+      "channel": "api"
+    },
+    {
+      "type": "gateway.evaluated",
+      "occurredAt": "2026-11-07T02:16:08.265123+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Cliente aceitou?",
+        "nodeId": "gw_cliente_aceitou",
+        "outcome": true
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:16:08.265123+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Registrar acordo",
+        "nodeId": "registrar_acordo",
+        "requestId": "01a1b3ca-b349-78cf-a74a-66a397a34610",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:32:38Z",
+        "automationId": "01a1b362-be2e-73f8-89e7-5f143f09bdfd",
+        "automationVersion": 1
+      },
+      "channel": "api"
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:16:09.088077+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Registrar acordo",
+        "nodeId": "registrar_acordo",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/core/v1/contratos/CT-1001/acordos",
+              "method": "POST",
+              "secrets": [
+                {
+                  "name": "core_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "core-bancario",
+              "headerNames": [
+                "Accept",
+                "Content-Type",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:16:09.071Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 26
+          }
+        ],
+        "requestId": "01a1b3ca-b349-78cf-a74a-66a397a34610"
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:16:09.088077+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Emitir boleto da entrada",
+        "nodeId": "emitir_boleto",
+        "requestId": "01a1b3ca-b680-777d-bc6a-b2c2ab297bbd",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:32:39Z",
+        "automationId": "01a1b362-bef0-772e-a4da-da661b9dc438",
+        "automationVersion": 1
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:16:10.102003+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Emitir boleto da entrada",
+        "nodeId": "emitir_boleto",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/pagamentos/v1/boletos",
+              "method": "POST",
+              "secrets": [
+                {
+                  "name": "pagamentos_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "pagamentos",
+              "headerNames": [
+                "Accept",
+                "Content-Type",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:16:10.084Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 96
+          }
+        ],
+        "requestId": "01a1b3ca-b680-777d-bc6a-b2c2ab297bbd"
+      },
+      "channel": null
+    },
+    {
+      "type": "subprocess.started",
+      "occurredAt": "2026-11-07T02:16:10.102003+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "lancar_acordo",
+        "childId": "01a1b3ca-ba76-7e4a-8ec4-5936d8a23c77",
+        "definitionName": "CTB-01 Lançamento contábil"
+      },
+      "channel": null
+    },
+    {
+      "type": "subprocess.completed",
+      "occurredAt": "2026-11-07T02:16:12.105171+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "lancar_acordo",
+        "childId": "01a1b3ca-ba76-7e4a-8ec4-5936d8a23c77"
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.requested",
+      "occurredAt": "2026-11-07T02:16:12.105171+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Notificar acordo",
+        "nodeId": "notificar_acordo",
+        "requestId": "01a1b3ca-c249-7a60-b80c-ab0bc1ed5aee",
+        "activation": 1,
+        "deadlineAt": "2026-11-07T02:32:42Z",
+        "automationId": "01a1b362-bebe-7ae0-a1d6-0c8ce9bb163a",
+        "automationVersion": 1
+      },
+      "channel": null
+    },
+    {
+      "type": "automation.succeeded",
+      "occurredAt": "2026-11-07T02:16:13.113124+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "label": "Notificar acordo",
+        "nodeId": "notificar_acordo",
+        "attempts": [
+          {
+            "number": 1,
+            "status": 200,
+            "outcome": "succeeded",
+            "request": {
+              "host": "mock",
+              "path": "/notificacoes/v1/mensagens",
+              "method": "POST",
+              "secrets": [
+                {
+                  "name": "notificacoes_api_key",
+                  "version": 1
+                }
+              ],
+              "queryNames": [],
+              "destination": "notificacoes",
+              "headerNames": [
+                "Accept",
+                "Content-Type",
+                "Idempotency-Key",
+                "X-Api-Key"
+              ]
+            },
+            "startedAt": "2026-11-07T02:16:13.097Z",
+            "durationMs": 3,
+            "errorClass": null,
+            "responseBytes": 25
+          }
+        ],
+        "requestId": "01a1b3ca-c249-7a60-b80c-ab0bc1ed5aee"
+      },
+      "channel": null
+    },
+    {
+      "type": "instance.completed",
+      "occurredAt": "2026-11-07T02:16:13.113124+00:00",
+      "actor": null,
+      "actedAsGroup": null,
+      "taskId": null,
+      "details": {
+        "nodeId": "fim_acordo"
+      },
+      "channel": null
+    }
+  ],
+  "data": {
+    "email": "cliente2@exemplo.test",
+    "origem": "atraso",
+    "idBoleto": "BL-0002",
+    "diasAtraso": 45,
+    "idMensagem": "MSG-0014",
+    "nomeCliente": "Bruno Teixeira",
+    "valorAcordo": 10800.0,
+    "numeroAcordo": "AC-0002",
+    "saldoDevedor": 12000,
+    "valorEntrada": 500,
+    "valorParcela": 600,
+    "linhaDigitavel": "34191.79001 01043.510047 91020.150008 1 00020000000000",
+    "numeroContrato": "CT-1001",
+    "respostaCliente": "aceita",
+    "documentoCliente": "00000000272",
+    "numeroLancamento": "LC-0008",
+    "contratoEncontrado": true,
+    "descontoPercentual": 10,
+    "quantidadeParcelas": 12
+  },
+  "incidents": [],
+  "parent": null,
+  "children": [
+    {
+      "id": "01a1b3ca-ba76-7e4a-8ec4-5936d8a23c77",
+      "nodeId": "lancar_acordo",
+      "definitionName": "CTB-01 Lançamento contábil",
+      "status": "completed"
+    }
+  ],
+  "version": 11065,
+  "maskedKeys": []
+}

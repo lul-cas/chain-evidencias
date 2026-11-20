@@ -1,0 +1,199 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:0455f15bfc09103a9208bbc8df736e385511a7fa5cea25198228a101eff34991",
+  "publishedAt": "2026-11-07T00:22:35.86703+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "label": "CPF ou CNPJ",
+        "readOnly": true
+      },
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "label": "Nome ou razão social",
+        "readOnly": true
+      },
+      {
+        "key": "pendencias",
+        "type": "checklist",
+        "label": "Pendências apontadas",
+        "options": [
+          {
+            "label": "Documento ilegível",
+            "value": "documento_ilegivel"
+          },
+          {
+            "label": "Endereço divergente",
+            "value": "endereco_divergente"
+          },
+          {
+            "label": "Renda não comprovada",
+            "value": "renda_nao_comprovada"
+          },
+          {
+            "label": "Contrato social desatualizado",
+            "value": "contrato_social_desatualizado"
+          },
+          {
+            "label": "Dados divergentes",
+            "value": "dados_divergentes"
+          },
+          {
+            "label": "Outro",
+            "value": "outro"
+          }
+        ],
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAtualizacao"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "ajustar"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "observacaoCadastro",
+        "type": "textarea",
+        "label": "Observação do Cadastro",
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "parecerAtualizacao"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "ajustar"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "rendaMensal",
+        "type": "number",
+        "label": "Renda mensal ou faturamento médio mensal",
+        "validate": {
+          "min": 0.01,
+          "required": true,
+          "decimalDigits": 2
+        },
+        "sensitive": true
+      },
+      {
+        "key": "endereco",
+        "type": "group",
+        "label": "Endereço",
+        "components": [
+          {
+            "key": "cep",
+            "type": "text",
+            "label": "CEP",
+            "validate": {
+              "format": "cep",
+              "required": true
+            }
+          },
+          {
+            "key": "logradouro",
+            "type": "text",
+            "label": "Logradouro",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "numero",
+            "type": "text",
+            "label": "Número",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "complemento",
+            "type": "text",
+            "label": "Complemento"
+          },
+          {
+            "key": "bairro",
+            "type": "text",
+            "label": "Bairro",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "cidade",
+            "type": "text",
+            "label": "Cidade",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "uf",
+            "type": "text",
+            "label": "UF",
+            "validate": {
+              "pattern": "^[A-Z]{2}$",
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "key": "email",
+        "type": "text",
+        "label": "E-mail",
+        "validate": {
+          "format": "email",
+          "required": true
+        }
+      },
+      {
+        "key": "telefone",
+        "type": "text",
+        "label": "Telefone",
+        "validate": {
+          "format": "phone",
+          "required": true
+        }
+      },
+      {
+        "key": "comprovanteEndereco",
+        "type": "file",
+        "label": "Comprovante de endereço",
+        "validate": {
+          "maxFiles": 1,
+          "required": true
+        }
+      },
+      {
+        "key": "comprovanteRenda",
+        "type": "file",
+        "label": "Comprovante de renda",
+        "validate": {
+          "maxFiles": 3,
+          "required": true
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

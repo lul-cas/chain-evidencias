@@ -1,0 +1,134 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:b118ccb00dc5294439093983de9169d9f245bafb881961ba61580d8efc71b7a7",
+  "publishedAt": "2026-11-07T02:29:30.742265+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_inicio_qual_x",
+        "source": "inicio",
+        "target": "qual"
+      },
+      {
+        "id": "f_qual_x_true",
+        "branch": "true",
+        "source": "qual",
+        "target": "x"
+      },
+      {
+        "id": "f_qual_y_false",
+        "branch": "false",
+        "source": "qual",
+        "target": "y"
+      },
+      {
+        "id": "f_x_fx_x",
+        "source": "x",
+        "target": "fx"
+      },
+      {
+        "id": "f_y_fy_x",
+        "source": "y",
+        "target": "fy"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "l",
+        "group": {
+          "kind": "requesters"
+        },
+        "title": "Solicitantes",
+        "layout": {
+          "h": 300,
+          "w": 1500,
+          "x": 40,
+          "y": 30
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b3d6-ecd7-7d00-8d08-2e09cb800bd5",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 140,
+          "y": 60
+        }
+      },
+      {
+        "id": "qual",
+        "type": "gateway",
+        "label": "qual",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 330,
+          "y": 60
+        },
+        "question": "qual?",
+        "decisionMode": "human"
+      },
+      {
+        "id": "x",
+        "type": "task",
+        "label": "x",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 520,
+          "y": 60
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "y",
+        "type": "task",
+        "label": "y",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 710,
+          "y": 60
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "fx",
+        "type": "end",
+        "label": "fx",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 900,
+          "y": 60
+        }
+      },
+      {
+        "id": "fy",
+        "type": "end",
+        "label": "fy",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1090,
+          "y": 60
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:44959d9dd075023e167e8cea0fe30ecc429e48afcacc086ff6094150b1dfe8ec",
+  "publishedAt": "2026-11-07T02:14:50.740418+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_1",
+        "source": "inicio",
+        "target": "consultar_situacao"
+      },
+      {
+        "id": "f_2",
+        "source": "consultar_situacao",
+        "target": "consultar_pld"
+      },
+      {
+        "id": "f_3",
+        "source": "consultar_pld",
+        "target": "fim"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "lane_ana",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b94a-75b5-a9e1-dc11cc552934"
+        },
+        "title": "Cadastro - Análise",
+        "layout": {
+          "h": 130,
+          "w": 900,
+          "x": 40,
+          "y": 30
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b3c9-5e05-70a7-ab8a-06d2aabb1728",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 140,
+          "y": 60
+        }
+      },
+      {
+        "id": "consultar_situacao",
+        "type": "task",
+        "label": "Consultar situação do documento",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 330,
+          "y": 60
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "situacaoDocumento": {
+              "kind": "path",
+              "path": [
+                "situacaoDocumento"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bf7c-7efc-86d8-f8f58664f73d"
+        }
+      },
+      {
+        "id": "consultar_pld",
+        "type": "task",
+        "label": "Consultar listas restritivas",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 520,
+          "y": 60
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "nomeCliente": {
+              "kind": "path",
+              "path": [
+                "nomeCliente"
+              ]
+            },
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "pep": {
+              "kind": "path",
+              "path": [
+                "pep"
+              ]
+            },
+            "resultadoPld": {
+              "kind": "path",
+              "path": [
+                "resultadoPld"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bf06-771a-9644-b865d8b137fc"
+        }
+      },
+      {
+        "id": "fim",
+        "type": "end",
+        "label": "Verificação concluída",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 710,
+          "y": 60
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

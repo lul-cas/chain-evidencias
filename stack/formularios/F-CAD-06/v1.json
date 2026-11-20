@@ -1,0 +1,66 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:c9ea8f20c9f6e56e1de6405271f9047ef65d36cafd38669da3a7c736b8f599ba",
+  "publishedAt": "2026-11-07T00:22:35.911143+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "label": "CPF ou CNPJ",
+        "validate": {
+          "pattern": "^([0-9]{11}|[0-9]{14})$",
+          "required": true
+        }
+      },
+      {
+        "key": "motivoEncerramento",
+        "type": "select",
+        "label": "Motivo",
+        "options": [
+          {
+            "label": "Pedido do cliente",
+            "value": "pedido_cliente"
+          },
+          {
+            "label": "Mudança de banco",
+            "value": "mudanca_banco"
+          },
+          {
+            "label": "Insatisfação",
+            "value": "insatisfacao"
+          },
+          {
+            "label": "Falecimento",
+            "value": "falecimento"
+          },
+          {
+            "label": "Outro",
+            "value": "outro"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "contaDestino",
+        "type": "text",
+        "label": "Conta para devolver o saldo",
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "termoEncerramento",
+        "type": "file",
+        "label": "Termo de encerramento assinado",
+        "validate": {
+          "maxFiles": 1,
+          "required": true
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

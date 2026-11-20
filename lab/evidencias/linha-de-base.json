@@ -1,0 +1,25 @@
+{
+  "total": 67,
+  "raiz": 46,
+  "subprocessos": 21,
+  "porProcesso": {
+    "CTB-01": 11,
+    "SEG-01": 5,
+    "CAD-01": 12,
+    "CRE-03": 5,
+    "CRE-02": 11,
+    "CRE-01": 14,
+    "CAD-03": 5,
+    "CAD-02": 4
+  },
+  "porStatus": {
+    "completed": 67
+  },
+  "conteineres": {
+    "api": "098b1fe986d9",
+    "automation": "7bfd362fc101",
+    "frontend": "7d885757bdb0",
+    "mock": "ef784fab28fb",
+    "postgres": "cdd264d27e94"
+  }
+}

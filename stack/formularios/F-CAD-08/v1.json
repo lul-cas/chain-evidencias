@@ -1,0 +1,28 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:a8cbf9f0fb54e2c48a5720df2da6d87faef16356ac630925733e337f3a729466",
+  "publishedAt": "2026-11-07T02:14:43.762554+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "label": "CPF ou CNPJ",
+        "validate": {
+          "pattern": "^([0-9]{11}|[0-9]{14})$",
+          "required": true
+        }
+      },
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "label": "Nome completo ou razão social",
+        "validate": {
+          "required": true,
+          "maxLength": 150
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:a670b0ef9a963378ba315ec89152c22a5d9b9cee2735c417f14a555bc204eaaf",
+  "publishedAt": "2026-11-07T00:22:35.305864+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "numeroContrato",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "encontrado",
+        "path": [
+          "encontrado"
+        ],
+        "type": "boolean",
+        "source": "body",
+        "required": true
+      },
+      {
+        "key": "documentoCliente",
+        "path": [
+          "documentoCliente"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "nomeCliente",
+        "path": [
+          "nomeCliente"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "email",
+        "path": [
+          "email"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "saldoDevedor",
+        "path": [
+          "saldoDevedor"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "diasAtraso",
+        "path": [
+          "diasAtraso"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": false
+      },
+      {
+        "key": "valorParcela",
+        "path": [
+          "valorParcela"
+        ],
+        "type": "number",
+        "source": "body",
+        "required": false
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": null,
+      "path": "/core/v1/contratos/{numeroContrato}",
+      "query": {},
+      "method": "GET",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:core_api_key}}"
+      },
+      "destination": "core-bancario"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

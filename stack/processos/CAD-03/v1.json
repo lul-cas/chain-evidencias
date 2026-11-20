@@ -1,0 +1,567 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:6096518cea6641764b23a61e7e456e11563fd9c0a50eaf08a62ebd324b24e85f",
+  "publishedAt": "2026-11-07T00:22:36.546646+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_1",
+        "source": "inicio",
+        "target": "buscar_cliente"
+      },
+      {
+        "id": "f_2",
+        "source": "buscar_cliente",
+        "target": "gw_encontrado"
+      },
+      {
+        "id": "f_3",
+        "branch": "true",
+        "source": "gw_encontrado",
+        "target": "consultar_pendencias"
+      },
+      {
+        "id": "f_4",
+        "branch": "false",
+        "source": "gw_encontrado",
+        "target": "fim_nao_encontrado"
+      },
+      {
+        "id": "f_5",
+        "source": "consultar_pendencias",
+        "target": "gw_pendencia"
+      },
+      {
+        "id": "f_6",
+        "branch": "true",
+        "source": "gw_pendencia",
+        "target": "resolver_pendencias"
+      },
+      {
+        "id": "f_7",
+        "branch": "false",
+        "source": "gw_pendencia",
+        "target": "conferir_encerramento"
+      },
+      {
+        "id": "f_8",
+        "source": "resolver_pendencias",
+        "target": "gw_desistiu"
+      },
+      {
+        "id": "f_9",
+        "branch": "true",
+        "source": "gw_desistiu",
+        "target": "fim_desistencia"
+      },
+      {
+        "id": "f_10",
+        "branch": "false",
+        "source": "gw_desistiu",
+        "target": "consultar_pendencias"
+      },
+      {
+        "id": "f_11",
+        "branch": "true",
+        "source": "conferir_encerramento",
+        "target": "gw_saldo"
+      },
+      {
+        "id": "f_12",
+        "branch": "false",
+        "source": "conferir_encerramento",
+        "target": "resolver_pendencias"
+      },
+      {
+        "id": "f_13",
+        "branch": "true",
+        "source": "gw_saldo",
+        "target": "transferir_saldo"
+      },
+      {
+        "id": "f_14",
+        "branch": "false",
+        "source": "gw_saldo",
+        "target": "encerrar_conta"
+      },
+      {
+        "id": "f_15",
+        "source": "transferir_saldo",
+        "target": "encerrar_conta"
+      },
+      {
+        "id": "f_16",
+        "source": "encerrar_conta",
+        "target": "notificar_encerramento"
+      },
+      {
+        "id": "f_17",
+        "source": "notificar_encerramento",
+        "target": "fim_encerrada"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "lane_sol",
+        "group": {
+          "kind": "requesters"
+        },
+        "title": "Solicitantes",
+        "layout": {
+          "h": 130,
+          "w": 2230,
+          "x": 40,
+          "y": 30
+        }
+      },
+      {
+        "id": "lane_ana",
+        "group": {
+          "kind": "group",
+          "groupId": "01a1b362-b94a-75b5-a9e1-dc11cc552934"
+        },
+        "title": "Cadastro - Análise",
+        "layout": {
+          "h": 240,
+          "w": 2230,
+          "x": 40,
+          "y": 170
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b362-c075-7a7c-b1ac-b6eb0d8dc891",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "lane_sol",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 180,
+          "y": 50
+        }
+      },
+      {
+        "id": "resolver_pendencias",
+        "form": {
+          "formId": "01a1b362-c08c-71bf-bac2-69967cfab1d1",
+          "version": 1
+        },
+        "type": "task",
+        "label": "Resolver pendências",
+        "laneId": "lane_sol",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1280,
+          "y": 50
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "gw_desistiu",
+        "type": "gateway",
+        "label": "Cliente desistiu?",
+        "laneId": "lane_sol",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1510,
+          "y": 50
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "acaoPendencias"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "cliente_desistiu"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "fim_desistencia",
+        "type": "end",
+        "label": "Cliente desistiu",
+        "laneId": "lane_sol",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 1700,
+          "y": 50
+        }
+      },
+      {
+        "id": "buscar_cliente",
+        "type": "task",
+        "label": "Buscar cliente no Core",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 330,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "email": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            },
+            "nomeCliente": {
+              "kind": "path",
+              "path": [
+                "nomeCliente"
+              ]
+            },
+            "clienteEncontrado": {
+              "kind": "path",
+              "path": [
+                "encontrado"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bd45-7c0f-85a2-ad993218b000"
+        }
+      },
+      {
+        "id": "gw_encontrado",
+        "type": "gateway",
+        "label": "Cliente encontrado?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 560,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "clienteEncontrado"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "boolean",
+            "value": "true"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "consultar_pendencias",
+        "type": "task",
+        "label": "Consultar pendências da conta",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 710,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            }
+          },
+          "outputs": {
+            "saldoConta": {
+              "kind": "path",
+              "path": [
+                "saldoConta"
+              ]
+            },
+            "cotasAtivas": {
+              "kind": "path",
+              "path": [
+                "cotasAtivas"
+              ]
+            },
+            "apolicesAtivas": {
+              "kind": "path",
+              "path": [
+                "apolicesAtivas"
+              ]
+            },
+            "contratosAtivos": {
+              "kind": "path",
+              "path": [
+                "contratosAtivos"
+              ]
+            },
+            "possuiPendencia": {
+              "kind": "path",
+              "path": [
+                "possuiPendencia"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bda3-79e1-84f8-c7479a704dd7"
+        }
+      },
+      {
+        "id": "gw_pendencia",
+        "type": "gateway",
+        "label": "Há pendência?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 940,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "possuiPendencia"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "boolean",
+            "value": "true"
+          },
+          "operator": "equals"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "conferir_encerramento",
+        "type": "gateway",
+        "label": "Documentação correta?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1130,
+          "y": 190
+        },
+        "question": "A documentação do encerramento está correta?",
+        "decisionMode": "human"
+      },
+      {
+        "id": "gw_saldo",
+        "type": "gateway",
+        "label": "Há saldo?",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 1320,
+          "y": 190
+        },
+        "condition": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "saldoConta"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "number",
+            "value": "0"
+          },
+          "operator": "greaterThan"
+        },
+        "decisionMode": "automatic"
+      },
+      {
+        "id": "transferir_saldo",
+        "type": "task",
+        "label": "Transferir saldo",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1470,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "valor": {
+              "kind": "path",
+              "path": [
+                "saldoConta"
+              ]
+            },
+            "favorecido": {
+              "kind": "path",
+              "path": [
+                "nomeCliente"
+              ]
+            },
+            "referencia": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            },
+            "contaDestino": {
+              "kind": "path",
+              "path": [
+                "contaDestino"
+              ]
+            }
+          },
+          "outputs": {
+            "idPagamento": {
+              "kind": "path",
+              "path": [
+                "idPagamento"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bed5-7903-9ed5-0947eca555f4"
+        }
+      },
+      {
+        "id": "encerrar_conta",
+        "type": "task",
+        "label": "Encerrar conta",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1660,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "documentoCliente": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            },
+            "motivoEncerramento": {
+              "kind": "path",
+              "path": [
+                "motivoEncerramento"
+              ]
+            }
+          },
+          "outputs": {
+            "dataEncerramento": {
+              "kind": "path",
+              "path": [
+                "dataEncerramento"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bdb9-745e-9534-b630aef93b97"
+        }
+      },
+      {
+        "id": "notificar_encerramento",
+        "type": "task",
+        "label": "Notificar encerramento",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 1850,
+          "y": 190
+        },
+        "taskKind": "automation",
+        "automation": {
+          "inputs": {
+            "modelo": {
+              "kind": "literal",
+              "type": "text",
+              "value": "conta_encerrada"
+            },
+            "referencia": {
+              "kind": "path",
+              "path": [
+                "documentoCliente"
+              ]
+            },
+            "destinatario": {
+              "kind": "path",
+              "path": [
+                "email"
+              ]
+            }
+          },
+          "outputs": {
+            "idMensagem": {
+              "kind": "path",
+              "path": [
+                "idMensagem"
+              ]
+            }
+          },
+          "version": 1,
+          "automationId": "01a1b362-bebe-7ae0-a1d6-0c8ce9bb163a"
+        }
+      },
+      {
+        "id": "fim_nao_encontrado",
+        "type": "end",
+        "label": "Cliente não encontrado",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 750,
+          "y": 300
+        }
+      },
+      {
+        "id": "fim_encerrada",
+        "type": "end",
+        "label": "Conta encerrada",
+        "laneId": "lane_ana",
+        "layout": {
+          "h": 64,
+          "w": 64,
+          "x": 2080,
+          "y": 190
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

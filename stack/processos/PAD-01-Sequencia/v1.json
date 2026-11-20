@@ -1,0 +1,96 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:05998c9201d63fefc08624e910fe0303d4a5ee54c951365cdd42bb48a437f502",
+  "publishedAt": "2026-11-07T02:29:29.519841+00:00",
+  "document": {
+    "flows": [
+      {
+        "id": "f_inicio_a_x",
+        "source": "inicio",
+        "target": "a"
+      },
+      {
+        "id": "f_a_b_x",
+        "source": "a",
+        "target": "b"
+      },
+      {
+        "id": "f_b_fim_x",
+        "source": "b",
+        "target": "fim"
+      }
+    ],
+    "lanes": [
+      {
+        "id": "l",
+        "group": {
+          "kind": "requesters"
+        },
+        "title": "Solicitantes",
+        "layout": {
+          "h": 300,
+          "w": 1500,
+          "x": 40,
+          "y": 30
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inicio",
+        "form": {
+          "formId": "01a1b3d6-ecd7-7d00-8d08-2e09cb800bd5",
+          "version": 1
+        },
+        "type": "start",
+        "label": "Início",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 140,
+          "y": 60
+        }
+      },
+      {
+        "id": "a",
+        "type": "task",
+        "label": "a",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 330,
+          "y": 60
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "b",
+        "type": "task",
+        "label": "b",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 140,
+          "x": 520,
+          "y": 60
+        },
+        "taskKind": "human"
+      },
+      {
+        "id": "fim",
+        "type": "end",
+        "label": "fim",
+        "laneId": "l",
+        "layout": {
+          "h": 70,
+          "w": 70,
+          "x": 710,
+          "y": 60
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

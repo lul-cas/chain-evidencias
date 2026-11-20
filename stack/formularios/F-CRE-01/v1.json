@@ -1,0 +1,169 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:24e123eed2c0e0e4fca94a213bfcebb60fc51048e7306bddb4d5e4e9c367c0f2",
+  "publishedAt": "2026-11-07T00:22:36.110479+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "documentoCliente",
+        "type": "text",
+        "label": "CPF ou CNPJ",
+        "validate": {
+          "pattern": "^([0-9]{11}|[0-9]{14})$",
+          "required": true
+        }
+      },
+      {
+        "key": "produto",
+        "type": "select",
+        "label": "Produto",
+        "options": [
+          {
+            "label": "Crédito pessoal",
+            "value": "pessoal"
+          },
+          {
+            "label": "Consignado",
+            "value": "consignado"
+          },
+          {
+            "label": "Financiamento de veículo",
+            "value": "veiculo"
+          },
+          {
+            "label": "Capital de giro",
+            "value": "capital_giro"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "valorSolicitado",
+        "type": "number",
+        "label": "Valor solicitado",
+        "validate": {
+          "max": 5000000,
+          "min": 500,
+          "required": true,
+          "decimalDigits": 2
+        }
+      },
+      {
+        "key": "prazoMeses",
+        "type": "number",
+        "label": "Prazo em meses",
+        "validate": {
+          "max": 120,
+          "min": 1,
+          "required": true,
+          "decimalDigits": 0
+        }
+      },
+      {
+        "key": "finalidade",
+        "type": "textarea",
+        "label": "Finalidade",
+        "validate": {
+          "required": true,
+          "maxLength": 500
+        }
+      },
+      {
+        "key": "convenio",
+        "type": "text",
+        "label": "Convênio",
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "produto"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "consignado"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "produto"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "consignado"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "garantia",
+        "type": "group",
+        "label": "Veículo em garantia",
+        "components": [
+          {
+            "key": "descricaoVeiculo",
+            "type": "text",
+            "label": "Descrição do veículo",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "key": "placa",
+            "type": "text",
+            "label": "Placa",
+            "validate": {
+              "pattern": "^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$",
+              "required": true
+            }
+          },
+          {
+            "key": "valorVeiculo",
+            "type": "number",
+            "label": "Valor do veículo",
+            "validate": {
+              "min": 1000,
+              "required": true,
+              "decimalDigits": 2
+            }
+          }
+        ],
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "produto"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "veiculo"
+          },
+          "operator": "equals"
+        }
+      },
+      {
+        "key": "comprovanteRenda",
+        "type": "file",
+        "label": "Comprovante de renda",
+        "validate": {
+          "maxFiles": 3,
+          "required": true
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

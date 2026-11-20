@@ -1,0 +1,32 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:4f8daeb99d4b4b2bf3febcfd83e08a3c6e950640b49391f6f5616e613f4e5e7c",
+  "publishedAt": "2026-11-07T00:22:36.15403+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "numeroContrato",
+        "type": "text",
+        "label": "Contrato",
+        "readOnly": true
+      },
+      {
+        "key": "pendenciasFormalizacao",
+        "type": "textarea",
+        "label": "Pendências da formalização",
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "pendenciasFormalizacao"
+            ]
+          },
+          "operator": "isNotEmpty"
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

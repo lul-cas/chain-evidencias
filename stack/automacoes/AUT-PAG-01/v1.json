@@ -1,0 +1,80 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:4c8f3671ee217d858ff8b5ffb2f4c4844529dcaeb63c4148dbab9a59b77b5ed9",
+  "publishedAt": "2026-11-07T00:22:35.498815+00:00",
+  "document": {
+    "kind": "http",
+    "inputs": [
+      {
+        "key": "favorecido",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contaDestino",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "valor",
+        "type": "number",
+        "required": true
+      },
+      {
+        "key": "referencia",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "outputs": [
+      {
+        "key": "idPagamento",
+        "path": [
+          "idPagamento"
+        ],
+        "type": "text",
+        "source": "body",
+        "required": true
+      }
+    ],
+    "request": {
+      "auth": null,
+      "body": {
+        "keys": [
+          "favorecido",
+          "contaDestino",
+          "valor",
+          "referencia"
+        ],
+        "type": "json"
+      },
+      "path": "/pagamentos/v1/pagamentos",
+      "query": {},
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "X-Api-Key": "{{secret:pagamentos_api_key}}"
+      },
+      "destination": "pagamentos"
+    },
+    "response": {
+      "type": "json"
+    },
+    "execution": {
+      "retry": {
+        "maxAttempts": 5,
+        "initialDelaySeconds": 5
+      },
+      "redirects": {
+        "max": 0,
+        "follow": false
+      },
+      "idempotency": {
+        "mode": "header",
+        "header": "Idempotency-Key"
+      },
+      "timeoutSeconds": 30
+    },
+    "schemaVersion": 1
+  }
+}

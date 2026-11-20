@@ -1,0 +1,132 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:33ab4d14abf53095433ca09467f7aad43f9434ec566f7a4307bdc8d0cce68cff",
+  "publishedAt": "2026-11-07T00:22:36.216948+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "label": "Cliente",
+        "readOnly": true
+      },
+      {
+        "key": "saldoDevedor",
+        "type": "number",
+        "label": "Saldo devedor",
+        "readOnly": true
+      },
+      {
+        "key": "diasAtraso",
+        "type": "number",
+        "label": "Dias em atraso",
+        "readOnly": true
+      },
+      {
+        "key": "valorParcela",
+        "type": "number",
+        "label": "Parcela atual",
+        "readOnly": true
+      },
+      {
+        "key": "contraproposta",
+        "type": "textarea",
+        "label": "Contraproposta do cliente",
+        "readOnly": true,
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "contraproposta"
+            ]
+          },
+          "operator": "isNotEmpty"
+        }
+      },
+      {
+        "key": "descontoPercentual",
+        "type": "number",
+        "label": "Desconto (%)",
+        "validate": {
+          "max": 60,
+          "min": 0,
+          "required": true,
+          "decimalDigits": 2
+        }
+      },
+      {
+        "key": "valorAcordo",
+        "type": "computed",
+        "label": "Valor do acordo",
+        "expression": {
+          "args": [
+            {
+              "op": "multiply",
+              "kind": "arithmetic",
+              "left": {
+                "kind": "path",
+                "path": [
+                  "saldoDevedor"
+                ]
+              },
+              "right": {
+                "op": "subtract",
+                "kind": "arithmetic",
+                "left": {
+                  "kind": "literal",
+                  "type": "number",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "divide",
+                  "kind": "arithmetic",
+                  "left": {
+                    "kind": "path",
+                    "path": [
+                      "descontoPercentual"
+                    ]
+                  },
+                  "right": {
+                    "kind": "literal",
+                    "type": "number",
+                    "value": "100"
+                  }
+                }
+              }
+            },
+            {
+              "kind": "literal",
+              "type": "number",
+              "value": "2"
+            }
+          ],
+          "kind": "call",
+          "function": "round"
+        }
+      },
+      {
+        "key": "valorEntrada",
+        "type": "number",
+        "label": "Entrada",
+        "validate": {
+          "min": 0.01,
+          "required": true,
+          "decimalDigits": 2
+        }
+      },
+      {
+        "key": "quantidadeParcelas",
+        "type": "number",
+        "label": "Parcelas",
+        "validate": {
+          "max": 60,
+          "min": 1,
+          "required": true,
+          "decimalDigits": 0
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

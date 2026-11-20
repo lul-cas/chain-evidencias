@@ -1,0 +1,17 @@
+{"quando":"2026-11-07T02:08:18.524Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows"},"erro":false}
+{"quando":"2026-11-07T02:08:18.538Z","ferramenta":"ler","argumentos":{"caminho":"/api/forms"},"erro":false}
+{"quando":"2026-11-07T02:08:19.835Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c27f-7809-8937-0ea2d71ceb5b"},"erro":false}
+{"quando":"2026-11-07T02:08:20.200Z","ferramenta":"ler","argumentos":{"caminho":"/api/forms/01a1b362-bffc-7c87-b46c-ddf925ca3872"},"erro":false}
+{"quando":"2026-11-07T02:08:20.552Z","ferramenta":"ler","argumentos":{"caminho":"/api/forms/01a1b362-c019-72aa-b875-5ffecf6ca448"},"erro":false}
+{"quando":"2026-11-07T02:08:24.283Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c2b8-7cb5-a088-cbcb254e50d5"},"erro":false}
+{"quando":"2026-11-07T02:08:24.566Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c387-7dea-b975-6e603e1dbb4c"},"erro":false}
+{"quando":"2026-11-07T02:08:24.858Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c314-79e5-9669-5a85d9c8261b"},"erro":false}
+{"quando":"2026-11-07T02:08:28.697Z","ferramenta":"ajustar_rascunho","argumentos":{"colecao":"forms","id":"01a1b362-bffc-7c87-b46c-ddf925ca3872","operacoes":[{"op":"add","path":"/components/9","value":{"key":"origemRecursos","type":"select","label":"Origem dos recursos","options":[{"label":"Salário","value":"salario"},{"label":"Atividade empresarial","value":"atividade_empresarial"},{"label":"Aposentadoria","value":"aposentadoria"},{"label":"Investimentos","value":"investimentos"},{"label":"Outra","value":"outra"}],"validate":{"required":true}}}]},"erro":false}
+{"quando":"2026-11-07T02:08:29.827Z","ferramenta":"ajustar_rascunho","argumentos":{"colecao":"forms","id":"01a1b362-c019-72aa-b875-5ffecf6ca448","operacoes":[{"op":"add","path":"/components/4","value":{"key":"origemRecursos","type":"select","label":"Origem dos recursos","readOnly":true,"options":[{"label":"Salário","value":"salario"},{"label":"Atividade empresarial","value":"atividade_empresarial"},{"label":"Aposentadoria","value":"aposentadoria"},{"label":"Investimentos","value":"investimentos"},{"label":"Outra","value":"outra"}]}}]},"erro":false}
+{"quando":"2026-11-07T02:08:31.398Z","ferramenta":"validar","argumentos":{"colecao":"forms","id":"01a1b362-bffc-7c87-b46c-ddf925ca3872"},"erro":false}
+{"quando":"2026-11-07T02:08:31.500Z","ferramenta":"validar","argumentos":{"colecao":"forms","id":"01a1b362-c019-72aa-b875-5ffecf6ca448"},"erro":false}
+{"quando":"2026-11-07T02:08:39.139Z","ferramenta":"publicar","argumentos":{"colecao":"forms","id":"01a1b362-bffc-7c87-b46c-ddf925ca3872"},"erro":false}
+{"quando":"2026-11-07T02:08:39.506Z","ferramenta":"publicar","argumentos":{"colecao":"forms","id":"01a1b362-c019-72aa-b875-5ffecf6ca448"},"erro":false}
+{"quando":"2026-11-07T02:08:40.736Z","ferramenta":"validar","argumentos":{"colecao":"workflows","id":"01a1b362-c27f-7809-8937-0ea2d71ceb5b"},"erro":false}
+{"quando":"2026-11-07T02:08:42.224Z","ferramenta":"publicar","argumentos":{"colecao":"workflows","id":"01a1b362-c27f-7809-8937-0ea2d71ceb5b"},"erro":false}
+{"quando":"2026-11-07T02:08:44.295Z","ferramenta":"ler","argumentos":{"caminho":"/api/workflows/01a1b362-c27f-7809-8937-0ea2d71ceb5b/versions/2"},"erro":false}

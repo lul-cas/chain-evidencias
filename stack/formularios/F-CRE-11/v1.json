@@ -1,0 +1,94 @@
+{
+  "versionNumber": 1,
+  "contentHash": "sha256:71ae731c9ac597f437c8f27fe48bda8c394643ea24c994a17519341dbe48037a",
+  "publishedAt": "2026-11-07T00:22:36.239849+00:00",
+  "document": {
+    "components": [
+      {
+        "key": "nomeCliente",
+        "type": "text",
+        "label": "Cliente",
+        "readOnly": true
+      },
+      {
+        "key": "valorAcordo",
+        "type": "number",
+        "label": "Valor do acordo",
+        "readOnly": true
+      },
+      {
+        "key": "valorEntrada",
+        "type": "number",
+        "label": "Entrada",
+        "readOnly": true
+      },
+      {
+        "key": "quantidadeParcelas",
+        "type": "number",
+        "label": "Parcelas",
+        "readOnly": true
+      },
+      {
+        "key": "respostaCliente",
+        "type": "radio",
+        "label": "Resposta",
+        "options": [
+          {
+            "label": "Aceitou",
+            "value": "aceita"
+          },
+          {
+            "label": "Fez contraproposta",
+            "value": "contraproposta"
+          },
+          {
+            "label": "Recusou",
+            "value": "recusa"
+          }
+        ],
+        "validate": {
+          "required": true
+        }
+      },
+      {
+        "key": "contraproposta",
+        "type": "textarea",
+        "label": "Contraproposta",
+        "validate": {
+          "maxLength": 1000
+        },
+        "visibleWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "respostaCliente"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "contraproposta"
+          },
+          "operator": "equals"
+        },
+        "requiredWhen": {
+          "kind": "compare",
+          "left": {
+            "kind": "path",
+            "path": [
+              "respostaCliente"
+            ]
+          },
+          "right": {
+            "kind": "literal",
+            "type": "text",
+            "value": "contraproposta"
+          },
+          "operator": "equals"
+        }
+      }
+    ],
+    "schemaVersion": 1
+  }
+}

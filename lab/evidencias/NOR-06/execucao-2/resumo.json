@@ -1,0 +1,10 @@
+{
+  "sessao": "81bc5c4d-a7d2-41d8-a93f-d7f68eae81fe",
+  "modelo": "claude-sonnet-5-5",
+  "ferramentas": 7,
+  "turnos": 12,
+  "custoUsd": 0.2255746,
+  "duracaoMs": 25679,
+  "fim": "success",
+  "resposta": "Publiquei a circular no **CRE-01 Proposta de crédito**, versão 5, e criei a automação **AUT-REG-01 Comunicar operação de crédito ao regulador**, versão 1. Não rodei um pedido de teste, então a chamada ao regulador ainda não foi exercitada. A validação passou nos dois.\n\n- **Automação:** chama `POST /regulador/v1/operacoes-credito` no destino `regulador`. Usa `regulador_api_key` no cabeçalho `X-Api-Key`. Envia `numeroContrato`, `documentoCliente`, `valorLiberado` (número) e `dataLiberacao` (data). Devolve `protocoloComunicacao` (texto).\n- **CRE-01:** incluí a etapa \"Comunicar liberação ao regulador\" logo depois de \"Liberar crédito\" e antes do lançamento contábil (CTB-01). O resto do fluxo ficou como estava.\n\n**Como cada item ficou cumprido**\n1. **Comunicar a liberação logo depois de liberada:** todo pedido do CRE-01 que libera crédito passa pela nova etapa, e os dados enviados são os da própria liberação. O CRE-01 é o único processo que libera crédito.\n2. **Guardar o protocolo no pedido:** a etapa grava `protocoloComunicacao` nos dados do pedido.\n\nPedidos que já estavam em andamento continuam na versão antiga e não comunicam o regulador. Só os pedidos novos seguem a regra."
+}
